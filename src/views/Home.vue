@@ -1,7 +1,7 @@
 <template>
   <div class="container">
   <br>
-  <div class="row">
+  <div class="d-flex">
     <div class="col-3">
     <h6> Category </h6>
   <div v-for='category in categories' :key='category'>

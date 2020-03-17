@@ -1,16 +1,16 @@
 <template>
-  <div class="container">
+  <div class="container mt-5 mr-auto">
   <br>
-  <div class="d-flex">
+  <div class="d-sm-flex flex-sm-column d-lg-flex flex-lg-row mt-0">
     <div class="col-3">
-    <h6> Category </h6>
+    <h6 class=""> Category </h6>
   <div v-for='category in categories' :key='category'>
   <SideBar :category='category' />
   </div>
     </div>
     <div class="col-9">
-    <div class="row row-cols-2">
-      <div class="col-sm" v-for='product in products' :key='product.id'>
+    <div class="d-sm-flex flex-sm-column d-lg-flex flex-lg-row flex-wrap">
+      <div class="mr-auto" v-for='product in products' :key='product.id'>
   <ProductCard :product='product' />
   </div>
   </div>

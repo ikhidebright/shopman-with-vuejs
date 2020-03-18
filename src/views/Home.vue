@@ -1,7 +1,8 @@
 <template>
-  <div class="container mt-5 mr-auto">
+  <div class="container mt-2 mr-auto">
   <br>
-  <div class="d-sm-flex flex-sm-column d-lg-flex flex-lg-row mt-0">
+  <Carousel />
+  <div class="d-sm-flex flex-sm-column d-lg-flex flex-lg-row">
     <div class="col-3">
     <h6 class=""> Category </h6>
   <div v-for='category in categories' :key='category'>
@@ -20,6 +21,7 @@
 </template>
 
 <script>
+import Carousel from '@/components/Carousel.vue'
 import ProductCard from '@/components/Product/ProductCard.vue'
 import SideBar from '@/components/SideBar.vue'
 
@@ -104,6 +106,7 @@ export default {
   }),
   components: {
     ProductCard,
+    Carousel,
     SideBar
   }
 }

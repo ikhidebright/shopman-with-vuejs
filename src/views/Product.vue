@@ -49,8 +49,8 @@ export default {
         id: 3,
         name: 'HP Mouse',
         price: '2,500',
-        moreimg: ['https://i0.wp.com/nairametrics.com/wp-content/uploads/2018/07/Vegetable-Oil-2.jpg?fit=1600%2C1000&ssl=1',
-                    'https://i0.wp.com/nairametrics.com/wp-content/uploads/2018/07/Vegetable-Oil-2.jpg?fit=1600%2C1000&ssl=1',
+        moreimg: ['https://pixfeeds.com/images/topic/3639/1200-3639-computer-mouse-photo1.jpg',
+                    'https://woodacresschool.org/wp-content/uploads/2018/10/Computer%20mouse.jpg',
                     'https://i0.wp.com/nairametrics.com/wp-content/uploads/2018/07/Vegetable-Oil-2.jpg?fit=1600%2C1000&ssl=1'],
         
         desc: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,',
@@ -73,8 +73,8 @@ export default {
         price: '6,000',
         desc: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,',
        moreimg: ['https://www.computerhope.com/cdn/keyboard/keyboard.jpg',
-                    'https://i0.wp.com/nairametrics.com/wp-content/uploads/2018/07/Vegetable-Oil-2.jpg?fit=1600%2C1000&ssl=1',
-                    'https://i0.wp.com/nairametrics.com/wp-content/uploads/2018/07/Vegetable-Oil-2.jpg?fit=1600%2C1000&ssl=1'],
+                    'https://images-na.ssl-images-amazon.com/images/I/81PLqxtrJ3L._SX466_.jpg',
+                    'https://cdn.shopify.com/s/files/1/0036/4806/1509/products/s0541022_290x@2x.progressive.jpg?v=1583855020_290x@2x.progressive.jpg'],
         
         img: 'https://images-na.ssl-images-amazon.com/images/I/918e33SZeKL._SL1500_.jpg'
       },

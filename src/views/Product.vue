@@ -1,7 +1,7 @@
 <template>
   <div class="container">
   <br>
-<div class=" container card mt-5" style="width: 40rem;">
+<div class="card mt-5 col-9" style="width: 40rem;">
   <img :src="`${pitem[0].img}`" class="card-img-top" style="max-height: 20rem" :alt="`${pitem[0].name} pic`">
   <div class="card-body">
   <div v-for="img in pitem[0].moreimg">
@@ -145,7 +145,6 @@ export default {
          return item.id == parseInt(this.$route.params.id)
       })
 
-      console.log(this.pitem)
   }
 }
 </script>

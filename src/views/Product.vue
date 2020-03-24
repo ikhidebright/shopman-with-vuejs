@@ -4,8 +4,10 @@
 <div class="card mt-5" style="width: 40rem;">
   <img :src="`${pitem[0].img}`" class="card-img-top" style="max-height: 18rem" :alt="`${pitem[0].name} pic`">
   <div class="card-body">
-  <div v-for="img in pitem[0].moreimg" class="d-flex">
+  <div v-for="img in pitem[0].moreimg">
+  <div class="d-flex flex-row bd-highlight mb-3">
   <img :src="`${img}`" class="card-img-top" style="max-height: 10rem; max-width: 10rem" :alt="`${pitem[0].name} pic`">
+  </div>
   </div>
     <h5 class="card-title">{{ pitem[0].name }}</h5>
     <p class="card-text">₦ {{ pitem[0].price }}</p>
@@ -28,9 +30,9 @@ export default {
         id: 1,
         name: 'Cooking Oil',
         price: '3,000',
-        moreimg: ['https://i0.wp.com/nairametrics.com/wp-content/uploads/2018/07/Vegetable-Oil-2.jpg?fit=1600%2C1000&ssl=1',
-                    'https://i0.wp.com/nairametrics.com/wp-content/uploads/2018/07/Vegetable-Oil-2.jpg?fit=1600%2C1000&ssl=1',
-                    'https://i0.wp.com/nairametrics.com/wp-content/uploads/2018/07/Vegetable-Oil-2.jpg?fit=1600%2C1000&ssl=1'],
+        moreimg: ['https://www.industrynewsengine.com/wp-content/uploads/2019/09/Cooking-Oil-1.jpg',
+                    'https://floridaoliveoil.com/wp-content/uploads/2015/12/olive_oil_spanish.jpg',
+                    'https://hakeemnatures.com/wp-content/uploads/2018/11/185042080.jpg'],
         desc: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,',
         img: 'https://i0.wp.com/nairametrics.com/wp-content/uploads/2018/07/Vegetable-Oil-2.jpg?fit=1600%2C1000&ssl=1'
       },
@@ -38,9 +40,9 @@ export default {
         id: 2,
         name: 'Vivo power',
         price: '15,000',
-        moreimg: ['https://i0.wp.com/nairametrics.com/wp-content/uploads/2018/07/Vegetable-Oil-2.jpg?fit=1600%2C1000&ssl=1',
-                    'https://i0.wp.com/nairametrics.com/wp-content/uploads/2018/07/Vegetable-Oil-2.jpg?fit=1600%2C1000&ssl=1',
-                    'https://i0.wp.com/nairametrics.com/wp-content/uploads/2018/07/Vegetable-Oil-2.jpg?fit=1600%2C1000&ssl=1'],
+        moreimg: ['https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQP_8_XImywbx2xtRzKkKp1pxTEfc48n5giPW0BEhkBpDR82r3d',
+                    'https://www.maxbhi.com/images/detailed/2928/back_panel_cover_for_nokia_106_2018_white_maxbhi_com_83029.jpg',
+                    'https://static.toiimg.com/photo/59634372/Nokia-105-Dual-SIM-2017.jpg'],
         
         desc: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,',
         img: 'https://cdn-reichelt.de/bilder/web/xxl_ws/D600/GOOBAY59854_01.png'
@@ -94,9 +96,9 @@ export default {
         name: 'Good mama Rice',
         price: '12,000',
         desc: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,',
-       moreimg: ['https://i0.wp.com/nairametrics.com/wp-content/uploads/2018/07/Vegetable-Oil-2.jpg?fit=1600%2C1000&ssl=1',
-                    'https://i0.wp.com/nairametrics.com/wp-content/uploads/2018/07/Vegetable-Oil-2.jpg?fit=1600%2C1000&ssl=1',
-                    'https://i0.wp.com/nairametrics.com/wp-content/uploads/2018/07/Vegetable-Oil-2.jpg?fit=1600%2C1000&ssl=1'],
+       moreimg: ['https://pluspng.com/img-png/sack-of-rice-png-a-2000.jpg',
+                    'https://previews.123rf.com/images/innakreativv/innakreativv1901/innakreativv190100094/115453240-bag-of-rice-and-wooden-spoon-on-a-white-isolated-.jpg',
+                    'https://previews.123rf.com/images/navintar/navintar1610/navintar161000091/67431276-white-rice-in-bowl-and-a-bag-and-wooden-spoon-on-white-background-top-view-with-copy-space.jpg'],
         
         img: 'https://olist-uc.feednews.com/upload/20200109/iheztnrxblt.jpg'
       },
@@ -116,9 +118,9 @@ export default {
         name: 'Nokia 3082',
         price: '9,500',
         desc: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,',
-       moreimg: ['https://i0.wp.com/nairametrics.com/wp-content/uploads/2018/07/Vegetable-Oil-2.jpg?fit=1600%2C1000&ssl=1',
-                    'https://i0.wp.com/nairametrics.com/wp-content/uploads/2018/07/Vegetable-Oil-2.jpg?fit=1600%2C1000&ssl=1',
-                    'https://i0.wp.com/nairametrics.com/wp-content/uploads/2018/07/Vegetable-Oil-2.jpg?fit=1600%2C1000&ssl=1'],
+       moreimg: ['https://www.powerbankexpert.com/wp-content/uploads/2016/12/what-is-a-power-bank.jpg',
+                    'https://s3.amazonaws.com/piggy-blog/wp-content/uploads/2018/08/06193131/How-Many-Times-Can-A-30000mAh-Power-Bank-Fully-Charge-Your-Smartphone.jpg',
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT1SkA_7eHByCPMM2M2WnkwTIHy6ul_gp-4MLOU4vxQ8tRLqffk'],
         
         img: 'https://www.slashgear.com/wp-content/uploads/2019/07/press-release-HMD-Global-Combo-hires-1280x720.jpg'
       },

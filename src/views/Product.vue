@@ -1,6 +1,14 @@
 <template>
-  <div class="container mt-5">
-{{ $route.params.id }}
+  <div class="container mt-1">
+  <br>
+<div class="card mt-5" style="width: 50rem;">
+  <img :src="`${pitem[0].img}`" class="card-img-top" style="max-height: 18rem" :alt="`${pitem[0].name} pic`">
+  <div class="card-body">
+    <h5 class="card-title">{{ pitem[0].name }}</h5>
+    <p class="card-text">₦ {{ pitem[0].price }}</p>
+    <router-link to="/">Add to cart</router-link>
+  </div>
+</div>
   </div>
 </template>
 
@@ -9,6 +17,7 @@
 export default {
   name: 'Home',
   data: () => ({
+    pitem: [],
     products : [
       {
         id: 1,
@@ -71,6 +80,14 @@ export default {
         img: 'https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/N/A/117719_1517688418.jpg'
       }
     ]
-  })
+  }),
+
+  created () {
+      this.pitem = this.products.filter((item) => {
+         return item.id == parseInt(this.$route.params.id)
+      })
+
+      console.log(this.pitem)
+  }
 }
 </script>

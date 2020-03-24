@@ -63,9 +63,9 @@ export default {
         name: 'Dell Notebook pro',
         price: '200,000',
         desc: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,',
-       moreimg: ['https://i0.wp.com/nairametrics.com/wp-content/uploads/2018/07/Vegetable-Oil-2.jpg?fit=1600%2C1000&ssl=1',
-                    'https://i0.wp.com/nairametrics.com/wp-content/uploads/2018/07/Vegetable-Oil-2.jpg?fit=1600%2C1000&ssl=1',
-                    'https://i0.wp.com/nairametrics.com/wp-content/uploads/2018/07/Vegetable-Oil-2.jpg?fit=1600%2C1000&ssl=1'],
+       moreimg: ['https://i.dell.com/is/image/DellContent//content/dam/global-site-design/product_images/dell_client_products/notebooks/latitude_notebooks/14_5490/non_touch/notebooks-latitude-14-5490-nt-campaign-hero-504x350-ng.psd?fmt=jpg&wid=570&hei=400',
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRKA67RM4_Nvpp0di9eQvc6SdccoiN2oGlouDG3573rrH151_RI',
+                    'https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/F/D/148116_1572454201.jpg'],
         
         img: 'https://www.computeruniverse.net/images/800/907732664AECC84DBC604E4A8A27B08D.jpg'
       },

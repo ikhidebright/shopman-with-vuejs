@@ -1,7 +1,7 @@
 <template>
-  <div class="container mt-1">
+  <div class="container">
   <br>
-<div class="card mt-5" style="width: 40rem;">
+<div class=" container card mt-5" style="width: 40rem;">
   <img :src="`${pitem[0].img}`" class="card-img-top" style="max-height: 20rem" :alt="`${pitem[0].name} pic`">
   <div class="card-body">
   <div v-for="img in pitem[0].moreimg">
@@ -40,9 +40,10 @@ export default {
         id: 2,
         name: 'Vivo power',
         price: '15,000',
-        moreimg: ['https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQP_8_XImywbx2xtRzKkKp1pxTEfc48n5giPW0BEhkBpDR82r3d',
-                    'https://www.maxbhi.com/images/detailed/2928/back_panel_cover_for_nokia_106_2018_white_maxbhi_com_83029.jpg',
-                    'https://static.toiimg.com/photo/59634372/Nokia-105-Dual-SIM-2017.jpg'],
+        moreimg: ['https://www.powerbankexpert.com/wp-content/uploads/2016/12/what-is-a-power-bank.jpg',
+                    'https://s3.amazonaws.com/piggy-blog/wp-content/uploads/2018/08/06193131/How-Many-Times-Can-A-30000mAh-Power-Bank-Fully-Charge-Your-Smartphone.jpg',
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT1SkA_7eHByCPMM2M2WnkwTIHy6ul_gp-4MLOU4vxQ8tRLqffk'],
+        
         
         desc: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,',
         img: 'https://cdn-reichelt.de/bilder/web/xxl_ws/D600/GOOBAY59854_01.png'
@@ -117,11 +118,12 @@ export default {
         id: 9,
         name: 'Nokia 3082',
         price: '9,500',
-        desc: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,',
-       moreimg: ['https://www.powerbankexpert.com/wp-content/uploads/2016/12/what-is-a-power-bank.jpg',
-                    'https://s3.amazonaws.com/piggy-blog/wp-content/uploads/2018/08/06193131/How-Many-Times-Can-A-30000mAh-Power-Bank-Fully-Charge-Your-Smartphone.jpg',
-                    'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT1SkA_7eHByCPMM2M2WnkwTIHy6ul_gp-4MLOU4vxQ8tRLqffk'],
+         moreimg: ['https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQP_8_XImywbx2xtRzKkKp1pxTEfc48n5giPW0BEhkBpDR82r3d',
+                    'https://www.maxbhi.com/images/detailed/2928/back_panel_cover_for_nokia_106_2018_white_maxbhi_com_83029.jpg',
+                    'https://static.toiimg.com/photo/59634372/Nokia-105-Dual-SIM-2017.jpg'],
         
+       
+        desc: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,',
         img: 'https://www.slashgear.com/wp-content/uploads/2019/07/press-release-HMD-Global-Combo-hires-1280x720.jpg'
       },
        {

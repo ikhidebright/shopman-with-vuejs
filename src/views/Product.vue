@@ -2,7 +2,7 @@
   <div class="container mt-1">
   <br>
 <div class="card mt-5" style="width: 40rem;">
-  <img :src="`${pitem[0].img}`" class="card-img-top" style="max-height: 18rem" :alt="`${pitem[0].name} pic`">
+  <img :src="`${pitem[0].img}`" class="card-img-top" style="max-height: 20rem" :alt="`${pitem[0].name} pic`">
   <div class="card-body">
   <div v-for="img in pitem[0].moreimg">
   <div class="d-flex flex-row bd-highlight mb-3">

@@ -4,7 +4,8 @@
   <div class="card-body">
     <h5 class="card-title">{{ product.name }}</h5>
     <p class="card-text">₦ {{ product.price }}</p>
-    <a href="#" class="btn btn-primary">Buy Now</a>
+    <router-link :to="`/product/${product.id}-${product.name.replace(/[' ']+/g,'-').toLowerCase()}`"
+  >Buy Now</router-link>
   </div>
 </div>
 </template>

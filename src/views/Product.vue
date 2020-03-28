@@ -1,22 +1,43 @@
 <template>
-  <div class="container">
+  <div class="main">
+  <div class="container main mt-5">
   <br>
-<div class="card mt-5 col-9" style="width: 70rem; height: 40rem">
-  <img :src="`${pic}`" class="card-img-top" style="max-height: 20rem" :alt="`${pitem[0].name} pic`">
-  <div class="card-body">
-  <div>
-  <b-row >
+  <b-row>
+    <b-col>
+    <img :src="`${pic}`" class="img" style="max-height: 35rem; max-width: 20rem" :alt="`${pitem[0].name} pic`">
+     <br>
+     <b-row >
     <b-col v-for="img in pitem[0].moreimg" :key='img'>
     <img :src="`${img}`" @click='chagepic(img)' style="max-height: 10rem; max-width: 4rem; border: 1px solid green" :alt="`${pitem[0].name} pic`"></b-col>
   </b-row>
-  </div>
+  <b-row>
+  <h6>SHARE THIS PRODUCT</h6>
+
+    </b-row>
+    </b-col>
+    <b-col>
+    <h1 class="card-title">{{ pitem[0].name }}</h1>
+    <h3 class="card-text">₦ {{ pitem[0].price }}</h3>
+    <p class="card-text oldprice">₦ {{ pitem[0].price }}</p>
+    <b-button variant="" class="add"> <i class="fas fa-cart-plus"></i> Add to cart</b-button>
+    </b-col>
+
+    </b-col>
+    <b-col>
+    <h5>DELIVERY & RETURNS</h5>
+    Delivery Information
+Normally delivered between Wednesday 1 Apr and Friday 3 Apr. Please check exact dates in the Checkout page.See more
+
+Return Policy
+Free return within 15 days for Jumia Mall items and 7 days for other eligible items.See more
+    </b-col>
+  </b-row>
   <br>
-    <h3 class="card-title">{{ pitem[0].name }}</h3>
-    <p class="card-text">₦ {{ pitem[0].price }}</p>
+   <div class="card-body">
+  <br>
     <p class="card-text">Description <br> {{ pitem[0].desc }}</p>
-    <router-link to="/">Add to cart</router-link>
-  </div>
 </div>
+  </div>
   </div>
 </template>
 
@@ -43,3 +64,24 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.main {
+  background-color: #f2f2f2
+}
+
+.add {
+  width: 100%;
+  background: green;
+  color: white
+}
+
+.fa-cart-plus {
+  float: left
+}
+
+.oldprice {
+  text-decoration: line-through;
+  color: gray
+}
+</style>

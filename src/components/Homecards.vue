@@ -40,7 +40,7 @@ export default {
 .card {
   margin-bottom: 2rem;
  border-radius: 0.2rem;
- box-shadow: 1px 1px 10px 0px gray;
+ box-shadow: 1px 1px 5px 0px #f2f2f2;
   padding: 0rem 0 0 0;
 }
 

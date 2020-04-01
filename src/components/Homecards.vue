@@ -39,23 +39,27 @@ export default {
 <style scoped>
 .card {
   margin-bottom: 2rem;
- 
+ border-radius: 0.2rem;
+ box-shadow: 1px 1px 10px 0px gray;
   padding: 0rem 0 0 0;
 }
 
 .he {
   font-size: 1.5rem;
-  font-weight: regular
 }
 
 .head {
   padding: 0 0 0 1rem;
-  color: white;
+  color: black;
+  font-weight: 600;
+  border-top-left-radius: 0.2rem;
+ border-top-right-radius: 0.2rem;
   background-color: #ff9900;
 }
 
 .link {
-  float: right
+  float: right;
+  font-weight: 600
 }
 
 @media only screen and (min-width: 600px) {

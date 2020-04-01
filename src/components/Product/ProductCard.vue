@@ -11,7 +11,6 @@ alt='' />
 <p class='name'>{{ product.name }} <br> <b> ₦ {{ product.price }}</b> </p>
 </div>
 </div>
- 
 </div>
 </template>
 
@@ -64,7 +63,15 @@ p {
   padding: 5px
 }
 
+.name {
+  text-align: center;
+}
+
 @media only screen and (min-width: 600px) {
+  .name {
+  text-align: left;
+}
+
 .pic {
   width: 185px;
   height: 185px

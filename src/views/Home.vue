@@ -13,7 +13,7 @@
     </div>
     </div>
     <Homecards />
-    <Homecards />
+    <Imageads />
     <Homecards />
   </div>
   </div>
@@ -23,6 +23,7 @@
 import Carousel from '@/components/Carousel.vue'
 import Homecards from '@/components/Homecards.vue'
 import SideBar from '@/components/SideBar.vue'
+import Imageads from '@/components/Imageads.vue'
 
 export default {
   name: 'Home',
@@ -31,6 +32,7 @@ export default {
   }),
   components: {
     Homecards,
+    Imageads,
     Carousel,
     SideBar
   }

@@ -1,28 +1,17 @@
 <template>
 <div to='/'>
-  <b-card
-    :title="`${product.name}`"
-    :img-src="`${product.img}`"
-    :img-alt="`${product.name}`"
-    img-width = 1rem
-    img-height = 100rem
-    img-top
-    to='/'
-    tag="article"
-    style="max-width: 15rem; max-height: 30rem"
-    class="mb-2"
-  >
-    <b-card-text>
-      {{product.price}}
-    </b-card-text>
-
-    <b-button
-       variant="primary"
-       :to="`/product/${product.id}-${product.name.replace(/[' ']+/g,'-').toLowerCase()}`"
-       >
-       Buy now
-       </b-button>
-  </b-card>
+<div 
+class='product'
+to='/'>
+<img 
+:src="`${ product.img }`" 
+class='pic' 
+alt='' />
+<div class='details'>
+<p class='name'>{{ product.name }} <br> <b> ₦ {{ product.price }}</b> </p>
+</div>
+</div>
+ 
 </div>
 </template>
 
@@ -35,3 +24,52 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.pic {
+  width: 150px;
+  height: 150px
+}
+
+p {
+  color: #282828;
+}
+
+.price {
+  margin: 0;
+}
+
+.product {
+  margin: 2px;
+  margin-bottom: 1rem
+}
+
+.product, .price {
+  cursor: pointer;
+}
+
+.product:hover {
+  background-color: #f1f1f1;
+  border-radius: 5px;
+} 
+
+
+.details {
+  padding: 5px
+}
+
+@media only screen and (min-width: 600px) {
+.pic {
+  width: 185px;
+  height: 185px
+}
+
+p {
+  color: #282828;
+}
+
+.price {
+  margin: 0;
+}
+}
+</style>

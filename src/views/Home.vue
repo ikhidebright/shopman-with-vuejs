@@ -1,5 +1,6 @@
 <template>
-  <div class="container mt-4">
+  <div class="home">
+  <div class="mt-4 home">
   <div class="d-sm-flex flex-sm-column d-lg-flex flex-lg-row">
     <div class="col-3 mt-5 d-none d-lg-block">
     <h6 class=""> Category </h6>
@@ -11,35 +12,40 @@
   <Carousel />
     </div>
     </div>
-    <div class="col-12">
-    <div class="d-sm-flex flex-sm-column d-lg-flex flex-lg-row flex-wrap">
-      <div class="mr-auto" v-for='product in products' :key='product.id'>
-  <ProductCard :product='product' />
+    <Homecards />
+    <Homecards />
+    <Homecards />
   </div>
-  </div>
-    </div>
   </div>
 </template>
 
 <script>
 import Carousel from '@/components/Carousel.vue'
-import ProductCard from '@/components/Product/ProductCard.vue'
+import Homecards from '@/components/Homecards.vue'
 import SideBar from '@/components/SideBar.vue'
 
 export default {
   name: 'Home',
   data: () => ({
-    products : null,
     categories: null
   }),
   components: {
-    ProductCard,
+    Homecards,
     Carousel,
     SideBar
-  },
-  created () {
-    this.products = this.$store.state.products
-    this.categories = this.$store.state.categories
   }
 }
 </script>
+
+<style scoped>
+.home {
+  background-color: #f1f1f1
+}
+
+@media only screen and (min-width: 600px) {
+.home {
+  background-color: #ff9900
+}
+
+}
+</style>

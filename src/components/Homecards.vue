@@ -76,6 +76,7 @@ export default {
 .card {
   margin-bottom: 2rem;
   padding: 0.5rem 0 0 0;
+ box-shadow: 0px 0px 0px 0px gray;
 }
 }
 </style>

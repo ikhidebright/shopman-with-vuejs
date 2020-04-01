@@ -3,7 +3,7 @@
   <div class="mt-4 card">
   <div class='head d-flex mb-4'>
  <div class='he'>Breakfast </div>
- <div class='ml-auto mr-3'> SEE ALL</div>
+ <div class='ml-auto mr-3 see'>SEE ALL</div>
   </div>
   <b-row>
     <b-col cols="12" md="12" sm='12'>
@@ -60,6 +60,10 @@ export default {
 .link {
   float: right;
   font-weight: 600
+}
+
+.see {
+  margin-top: 0.5rem
 }
 
 @media only screen and (min-width: 600px) {

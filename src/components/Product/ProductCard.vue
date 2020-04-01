@@ -2,7 +2,7 @@
 <div to='/'>
 <div 
 class='product'
-to='/'>
+@click='open(product)'>
 <img 
 :src="`${ product.img }`" 
 class='pic' 
@@ -21,6 +21,12 @@ export default {
   name: 'ProductCard',
   props: ['product'],
   components: {
+  },
+  methods: {
+    open (product) {
+      let name = product.name.replace(/[' ']+/g,'-').toLowerCase()
+      this.$router.push({ name: 'Product', params: { id: product.id, name: name } })
+    }
   }
 }
 </script>

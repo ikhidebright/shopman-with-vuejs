@@ -21,7 +21,7 @@ export default {
 <style scoped>
 .imad, .imad2 {
   max-width: 50%;
-  height: 18vh;
+  height: 15vh;
   border-radius: 4px;
 }
 

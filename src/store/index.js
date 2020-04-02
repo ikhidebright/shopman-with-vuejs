@@ -23,11 +23,11 @@ export default new Vuex.Store({
         id: 1,
         name: 'Cooking Oil',
         price: '3,000',
-        moreimg: ['https://i0.wp.com/nairametrics.com/wp-content/uploads/2018/07/Vegetable-Oil-2.jpg?fit=1600%2C1000&ssl=1', 'https://www.industrynewsengine.com/wp-content/uploads/2019/09/Cooking-Oil-1.jpg',
+        moreimg: ['https://www.industrynewsengine.com/wp-content/uploads/2019/09/Cooking-Oil-1.jpg',
                     'https://floridaoliveoil.com/wp-content/uploads/2015/12/olive_oil_spanish.jpg'
                   ],
         desc: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,',
-        img: 'https://i0.wp.com/nairametrics.com/wp-content/uploads/2018/07/Vegetable-Oil-2.jpg?fit=1600%2C1000&ssl=1'
+        img: 'https://www.industrynewsengine.com/wp-content/uploads/2019/09/Cooking-Oil-1.jpg'
       },
        {
         id: 4,

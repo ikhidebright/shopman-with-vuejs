@@ -2,18 +2,21 @@
   <div class="main">
   <b-container>
   <br>
-  <div class='d-flex mt-5'>
-<div class='d-flex d-sm-flex d-sm-column details'>
+  <div class='d-lg-flex d-sm-flex flex-sm-column flex-lg-row mt-5'>
+<div class='d-lg-flex d-sm-flex flex-sm-column flex-lg-row details'>
   <div class='fir'>
   <img class='bigpic' :src="`${pic}`" />
   <div class='d-flex mt-1'>
-    <img class='smimg ml-1' src="https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/02/486062/1.jpg?7638" />
-    <img class='smimg ml-1' src="https://ng.jumia.is/unsafe/fit-in/150x150/filters:fill(white)/product/02/486062/2.jpg?7638" />
-    <img class='smimg ml-1' src="https://ng.jumia.is/unsafe/fit-in/150x150/filters:fill(white)/product/02/486062/3.jpg?7638" />
+  <div v-for="img in pitem[0].moreimg" :key='img'>
+    <img class='smimg ml-1' :src="`${img}`" @click='chagepic(img)' />
+  <!--  <img class='smimg ml-1' src="https://ng.jumia.is/unsafe/fit-in/150x150/filters:fill(white)/product/02/486062/2.jpg?7638" />
+    <img class='smimg ml-1' src="https://ng.jumia.is/unsafe/fit-in/150x150/filters:fill(white)/product/02/486062/3.jpg?7638" /> -->
+    </div>
     </div>
     <hr/>
-    <p>SHARE THIS PRODUCT</p>
-    <i class="fab fa-facebook"></i> <i class="fab fa-twitter"></i>
+    <p> 
+    SHARE THIS PRODUCT 
+    <br><i class="fab fa-facebook"> </i> <i class="fab fa-twitter"></i></p>
   </div>
   <div class='ml-3 sec'>
   <p class='pron'> {{ pitem[0].name }} </p>
@@ -23,11 +26,13 @@
   <hr/>
 
   <h6>PROMOTIONS</h6>
-<router-link to='/'> <i class="fas fa-shield-alt"></i> Stay Safe, Go cashless with JumiaPay.</router-link>
+<router-link to='/'> <i class="fas fa-shield-alt"></i> Stay Safe, Go cashless with ShopmanPay.</router-link>
 <br>
-<router-link to='/'> <i class="fas fa-star"></i> Enjoy unlimited Free Delivery with Jumia Prime </router-link>
 <br>
-<router-link to='/'><i class="fas fa-star"></i> Buy airtime and data on Jumia One and get up to N500 cash back. Use code WELCOME50 </router-link>
+<router-link to='/'> <i class="fas fa-star"></i> Enjoy unlimited Free Delivery with Shopman Prime </router-link>
+<br>
+<br>
+<router-link to='/'><i class="fas fa-star"></i> Buy airtime and data on Shopman One and get up to N500 cash back. Use code WELCOME50 </router-link>
   </div>
    </div>
    <div>
@@ -117,12 +122,189 @@ export default {
 
 <style scoped>
 
+.fa-facebook, .fa-twitter {
+  font-size: 20px;
+  margin-top: 5px
+}
+
 .fa-shuttle-van, .fa-telegram-plane {
-  font-size: 30px
+  font-size: 26px
 }
 
 .fa-telegram-plane {
-  font-size: 36px
+  font-size: 30px
+}
+
+.main {
+  background-color: #f1f1f1
+}
+
+.sec {
+  width: 100%;
+}
+
+.bigpic {
+  width: 305px;
+  height: 305px;
+  border-radius: 5px
+}
+
+.smimg {
+  width: 38px;
+  height: 38px
+}
+
+.details {
+  background-color: white;
+  padding: 1rem;
+  width: 100%
+}
+
+.pron {
+  font-size: 20px
+}
+
+.price {
+  font-size: 24px;
+  font-weight: bold
+}
+
+.oldprice {
+  font-size: 16px;
+  color: #75757A;
+
+}
+
+.add {
+  width: 100%;
+  background: #ff9900;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px 0px #e5e5e5;
+  height: 48px;
+  font-weight: bold
+}
+
+.add:hover {
+  background: #ffad33;
+}
+
+.fa-cart-plus {
+font-size: 20px
+}
+
+.phone {
+  width: 15%;
+  background: white;
+  color: #ff9900;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px 0px #e5e5e5;
+  height: 48px;
+  font-weight: bold
+}
+
+.mobile {
+  position: fixed;
+  display: flex;
+  bottom: 0;
+  width: 100%;
+  padding: 5px;
+  background-color: white;
+  box-shadow: 0px 0px 10px 0px #e5e5e5;
+}
+
+
+.add:focus {
+  outline: none
+}
+
+.add2 {
+  width: 85%;
+  background: #ff9900;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px 0px #e5e5e5;
+  height: 48px;
+  font-weight: bold
+}
+
+.add2:hover {
+  background: #ffad33;
+}
+
+.fa-cart-plus {
+font-size: 20px
+}
+
+.add2:focus {
+  outline: none
+}
+
+.third {
+
+  background-color: white;
+  padding: 0.5rem;
+  width: 100%
+}
+
+.third2 {
+
+  background-color: white;
+  padding: 0.5rem;
+  width: 100%
+}
+
+.fa-cart-plus {
+  float: left
+}
+
+.hee {
+  background-color: white;
+  padding: 0.5rem;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  width: 100%;
+  font-weight: 600;
+  border-bottom: 1px solid #f2f2f2
+}
+
+.hee2 {
+  background-color: white;
+  padding: 0.5rem;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  width: 100%;
+  font-weight: 600;
+  border-bottom: 1px solid #f2f2f2
+}
+
+.oldprice {
+  text-decoration: line-through;
+  color: gray
+}
+
+p {
+  font-size: 14px;
+  color: #282828
+}
+
+
+@media only screen and (min-width: 600px) {
+  
+.fa-facebook, .fa-twitter {
+  font-size: 20px;
+  margin-top: 5px
+}
+
+.fa-shuttle-van, .fa-telegram-plane {
+  font-size: 26px
+}
+
+.fa-telegram-plane {
+  font-size: 30px
 }
 
 .main {
@@ -279,5 +461,6 @@ font-size: 20px
 p {
   font-size: 14px;
   color: #282828
+}
 }
 </style>

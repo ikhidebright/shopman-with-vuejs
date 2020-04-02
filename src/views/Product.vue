@@ -24,7 +24,7 @@
   </div>
   </b-container>
 
-  <div class='mobile fixed d-lg-none'> 
+  <div class='mobile d-lg-none'> 
   <button class="add"> <i class="fas fa-cart-plus"></i> ADD TO CART</button>
   </div>
   </div>
@@ -112,6 +112,14 @@ export default {
 
 .fa-cart-plus {
 font-size: 20px
+}
+
+.mobile {
+  position: fixed;
+  bottom: 0;
+  padding: 5px;
+  background-color: white;
+  box-shadow: 0px 0px 10px 0px #e5e5e5;
 }
 
 

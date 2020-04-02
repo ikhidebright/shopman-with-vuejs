@@ -6,19 +6,18 @@
 <div class='d-lg-flex d-sm-flex flex-sm-column flex-lg-row details'>
   <div class='fir'>
   <img class='bigpic' :src="`${pic}`" />
-  <div class='d-flex mt-1'>
+  <div class='d-flex mt-1 border-bottom pb-2 mb-1'>
   <div v-for="img in pitem[0].moreimg" :key='img'>
     <img class='smimg ml-1' :src="`${img}`" @click='chagepic(img)' />
   <!--  <img class='smimg ml-1' src="https://ng.jumia.is/unsafe/fit-in/150x150/filters:fill(white)/product/02/486062/2.jpg?7638" />
     <img class='smimg ml-1' src="https://ng.jumia.is/unsafe/fit-in/150x150/filters:fill(white)/product/02/486062/3.jpg?7638" /> -->
     </div>
     </div>
-    <hr/>
     <p> 
     SHARE THIS PRODUCT 
     <br><i class="fab fa-facebook"> </i> <i class="fab fa-twitter"></i></p>
   </div>
-  <div class='ml-3 sec'>
+  <div class='ml-lg-3 sec'>
   <p class='pron'> {{ pitem[0].name }} </p>
   <p class='price'>₦ {{ pitem[0].price }} </p>
    <p class='oldprice'>₦ 7,650 - ₦ 7,890 </p>
@@ -35,9 +34,9 @@
 <router-link to='/'><i class="fas fa-star"></i> Buy airtime and data on Shopman One and get up to N500 cash back. Use code WELCOME50 </router-link>
   </div>
    </div>
-   <div>
-     <div class='ml-3 hee'>DELIVERY & RETURNS</div>
-   <div class='ml-3 third'>
+   <div class='mt-sm-2 mt-lg-0'>
+     <div class='ml-lg-3 hee'>DELIVERY & RETURNS</div>
+   <div class='ml-lg-3 third'>
     <div class="d-flex">
   <i class="fas fa-shuttle-van mr-3"></i><div><h6> Delivery Information</h6>
  <p>
@@ -55,8 +54,8 @@
  </div>
  </div>
 
-   <div class='ml-3 hee mt-4'>SELLER INFORMATION</div>
-   <div class='ml-3 third'>
+   <div class='ml-lg-3 hee mt-3'>SELLER INFORMATION</div>
+   <div class='ml-lg-3 third'>
   <h6> 
  KODDS</h6>
  <p>
@@ -67,7 +66,7 @@
 <p>Free return within 15 days for Jumia Mall items and 7 days for other eligible items.</p>
    </div>
 
- <div class='ml-3 third mt-4'>
+ <div class='ml-lg-3 third mt-3'>
   <h6> Have one to sell?</h6>
 <p>Click here to list your product</p>
 </div>
@@ -85,11 +84,13 @@
  </div>
 
  <br>
+  <br>
+   <br>
 
 
   </b-container>
 
-  <div class='mobile d-lg-none'> 
+  <div class='mobile d-lg-none mt-sm-5'> 
   <button class="phone"> <i class="fas fa-phone"></i></button>
   <button class="add2"> <i class="fas fa-cart-plus"></i> ADD TO CART</button>
   </div>
@@ -210,6 +211,7 @@ font-size: 20px
   display: flex;
   bottom: 0;
   width: 100%;
+  margin-top: 2rem;
   padding: 5px;
   background-color: white;
   box-shadow: 0px 0px 10px 0px #e5e5e5;
@@ -267,6 +269,7 @@ font-size: 20px
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   width: 100%;
+  margin-top: 1rem;
   font-weight: 600;
   border-bottom: 1px solid #f2f2f2
 }
@@ -439,6 +442,7 @@ font-size: 20px
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   width: 296px;
+  margin-top: 0rem;
   font-weight: 600;
   border-bottom: 1px solid #f2f2f2
 }

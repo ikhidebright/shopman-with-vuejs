@@ -11,6 +11,9 @@
     <img class='smimg ml-1' src="https://ng.jumia.is/unsafe/fit-in/150x150/filters:fill(white)/product/02/486062/2.jpg?7638" />
     <img class='smimg ml-1' src="https://ng.jumia.is/unsafe/fit-in/150x150/filters:fill(white)/product/02/486062/3.jpg?7638" />
     </div>
+    <hr/>
+    <p>SHARE THIS PRODUCT</p>
+    <i class="fab fa-facebook"></i> <i class="fab fa-twitter"></i>
   </div>
   <div class='ml-3 sec'>
   <p class='pron'> {{ pitem[0].name }} </p>
@@ -19,9 +22,56 @@
   <button class="add d-none d-lg-block"> <i class="fas fa-cart-plus"></i> ADD TO CART</button>
   </div>
    </div>
-// second section
-   dhddhdhdhd
+   <div>
+     <div class='ml-3 hee'>DELIVERY & RETURNS</div>
+   <div class='ml-3 third'>
+    <div class="d-flex">
+  <i class="fas fa-shuttle-van mr-3"></i><div><h6> Delivery Information</h6>
+ <p>
+ Normally delivered between Friday 3 Apr and Monday 6 Apr. Please check exact dates in the Checkout page
+ </p>
+ </div>
+ </div>
+
+
+<div class="d-flex">
+  <i class="fab fa-telegram-plane mr-4"></i></i><div>
+  <h6> Return Policy</h6>
+<p>Free return within 15 days for Jumia Mall items and 7 days for other eligible items.</p>
+   </div>
+ </div>
+ </div>
+
+   <div class='ml-3 hee mt-4'>SELLER INFORMATION</div>
+   <div class='ml-3 third'>
+  <h6> 
+ KODDS</h6>
+ <p>
+80%Positive Seller Score
+2730 Followers</p>
+
+<h6> Return Policy</h6>
+<p>Free return within 15 days for Jumia Mall items and 7 days for other eligible items.</p>
+   </div>
+
+ <div class='ml-3 third mt-4'>
+  <h6> Have one to sell?</h6>
+<p>Click here to list your product</p>
+</div>
+   </div>
   </div>
+
+  
+ <div>
+     <div class='ml-3 hee2 mt-3'><h6>Product details</h6></div>
+   <div class='ml-3 third2'>
+ <p>
+{{ pitem[0].desc }}
+</p>
+ </div>
+ </div>
+
+
   </b-container>
 
   <div class='mobile d-lg-none'> 
@@ -56,6 +106,15 @@ export default {
 </script>
 
 <style scoped>
+
+.fa-shuttle-van, .fa-telegram-plane {
+  font-size: 30px
+}
+
+.fa-telegram-plane {
+  font-size: 36px
+}
+
 .main {
   background-color: #f1f1f1
 }
@@ -164,12 +223,51 @@ font-size: 20px
   outline: none
 }
 
+.third {
+
+  background-color: white;
+  padding: 0.5rem;
+  width: 296px
+}
+
+.third2 {
+
+  background-color: white;
+  padding: 0.5rem;
+  width: 872px
+}
+
 .fa-cart-plus {
   float: left
+}
+
+.hee {
+  background-color: white;
+  padding: 0.5rem;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  width: 296px;
+  font-weight: 600;
+  border-bottom: 1px solid #f2f2f2
+}
+
+.hee2 {
+  background-color: white;
+  padding: 0.5rem;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  width: 872px;
+  font-weight: 600;
+  border-bottom: 1px solid #f2f2f2
 }
 
 .oldprice {
   text-decoration: line-through;
   color: gray
+}
+
+p {
+  font-size: 14px;
+  color: #282828
 }
 </style>

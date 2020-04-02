@@ -20,6 +20,14 @@
   <p class='price'>₦ {{ pitem[0].price }} </p>
    <p class='oldprice'>₦ 7,650 - ₦ 7,890 </p>
   <button class="add d-none d-lg-block"> <i class="fas fa-cart-plus"></i> ADD TO CART</button>
+  <hr/>
+
+  <h6>PROMOTIONS</h6>
+<router-link to='/'> <i class="fas fa-shield-alt"></i> Stay Safe, Go cashless with JumiaPay.</router-link>
+<br>
+<router-link to='/'> <i class="fas fa-star"></i> Enjoy unlimited Free Delivery with Jumia Prime </router-link>
+<br>
+<router-link to='/'><i class="fas fa-star"></i> Buy airtime and data on Jumia One and get up to N500 cash back. Use code WELCOME50 </router-link>
   </div>
    </div>
    <div>
@@ -63,13 +71,15 @@
 
   
  <div>
-     <div class='ml-3 hee2 mt-3'><h6>Product details</h6></div>
-   <div class='ml-3 third2'>
+     <div class='hee2 mt-3'><h6>Product details</h6></div>
+   <div class='third2'>
  <p>
 {{ pitem[0].desc }}
 </p>
  </div>
  </div>
+
+ <br>
 
 
   </b-container>
@@ -234,7 +244,7 @@ font-size: 20px
 
   background-color: white;
   padding: 0.5rem;
-  width: 872px
+  width: 800px
 }
 
 .fa-cart-plus {
@@ -256,7 +266,7 @@ font-size: 20px
   padding: 0.5rem;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
-  width: 872px;
+  width: 800px;
   font-weight: 600;
   border-bottom: 1px solid #f2f2f2
 }

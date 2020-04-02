@@ -1,6 +1,6 @@
 <template>
 <b-container fluid="sm">
-  <div class="mt-4 card">
+  <div class="mt-1 card">
   <div class='head d-flex mb-4'>
  <div class='he'>Breakfast </div>
  <div class='ml-auto mr-3 see'>SEE ALL</div>
@@ -38,7 +38,7 @@ export default {
 
 <style scoped>
 .card {
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
  border-radius: 0.2rem;
  box-shadow: 1px 1px 5px 0px #f2f2f2;
   padding: 0rem 0 0 0;

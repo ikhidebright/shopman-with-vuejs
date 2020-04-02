@@ -3,7 +3,7 @@
   <b-container>
   <br>
   <div class='d-flex mt-5'>
-<div class='d-flex details'>
+<div class='d-flex d-sm-flex d-sm-column details'>
   <div class='fir'>
   <img class='bigpic' :src="`${pic}`" />
   <div class='d-flex mt-1'>
@@ -25,7 +25,8 @@
   </b-container>
 
   <div class='mobile d-lg-none'> 
-  <button class="add"> <i class="fas fa-cart-plus"></i> ADD TO CART</button>
+  <button class="phone"> <i class="fas fa-phone"></i></button>
+  <button class="add2"> <i class="fas fa-cart-plus"></i> ADD TO CART</button>
   </div>
   </div>
 </template>
@@ -114,9 +115,22 @@ export default {
 font-size: 20px
 }
 
+.phone {
+  width: 15%;
+  background: white;
+  color: #ff9900;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px 0px #e5e5e5;
+  height: 48px;
+  font-weight: bold
+}
+
 .mobile {
   position: fixed;
+  display: flex;
   bottom: 0;
+  width: 100%;
   padding: 5px;
   background-color: white;
   box-shadow: 0px 0px 10px 0px #e5e5e5;
@@ -124,6 +138,29 @@ font-size: 20px
 
 
 .add:focus {
+  outline: none
+}
+
+.add2 {
+  width: 85%;
+  background: #ff9900;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px 0px #e5e5e5;
+  height: 48px;
+  font-weight: bold
+}
+
+.add2:hover {
+  background: #ffad33;
+}
+
+.fa-cart-plus {
+font-size: 20px
+}
+
+.add2:focus {
   outline: none
 }
 

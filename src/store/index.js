@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    cart: [],
     categories: [
       'Airtime & Bills',
       'Phones & Tablets',
@@ -77,6 +78,9 @@ export default new Vuex.Store({
     ]
   },
   mutations: {
+    setCart(state, item) {
+      state.cart.unshift(item)
+    }
   },
   actions: {
   },

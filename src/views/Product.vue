@@ -24,14 +24,14 @@
   <p class='price mt-n3'>₦ {{ pitem[0].price }} </p>
    <p class='oldprice mt-n3'>₦ 7,650 - ₦ 7,890 </p>
    <div>
-  <b-button v-b-modal.modal-center class="add d-none d-lg-block"><i class="fas fa-cart-plus"></i> ADD TO CART</b-button>
+  <b-button v-b-modal.modal-center class="add d-none d-lg-block" @click="addtocart(pitem[0])"><i class="fas fa-cart-plus"></i> ADD TO CART</b-button>
   <b-modal id="modal-center" ref="modal-center" centered title="Added to Cart" hide-footer hide-header>
   <h4>Added to Cart</h4>
   <br>
   <p>{{ pitem[0].name }} added to Cart</p>
   <div class='d-lg-flex d-sm-flex flex-sm-row flex-lg-row d-xs-block'>
     <button class="add1" @click="hideModal">CONTINUE SHOPPING</button>
-    <button class="add">VIEW CART AND CHECKOUT</button>
+    <button class="add" to="/cart">VIEW CART AND CHECKOUT</button>
     </div>
   </b-modal>
 </div>
@@ -104,7 +104,7 @@
 
   <div class='mobile d-lg-none d-xl-none d-md-none d-sm-none mt-sm-5'> 
   <button class="phone"> <i class="fas fa-phone"></i></button>
-  <b-button v-b-modal.modal-center class="add2"><i class="fas fa-cart-plus"></i> ADD TO CART</b-button>
+  <b-button v-b-modal.modal-center class="add2"  @click="addtocart(pitem[0])"><i class="fas fa-cart-plus"></i> ADD TO CART</b-button>
   </div>
   </div>
 </template>
@@ -119,6 +119,10 @@ export default {
     pic: null
   }),
   methods: {
+    addtocart (x) {
+      this.$store.commit("setCart", x)
+    },
+
     chagepic (img) {
       this.pic = img
     },

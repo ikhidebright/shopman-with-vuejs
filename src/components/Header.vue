@@ -7,8 +7,12 @@
   <div class="bar2"></div>
   <div class="bar3"></div>
 </div>
-
   <a class="navbar-brand" href="#">Shopman</a>
+
+  <b-button variant="primary">
+   <i class="fas fa-cart-plus"></i>
+    <b-badge variant="light"> {{ this.$store.state.cart.length }} <span class="sr-only">unread messages</span></b-badge>
+  </b-button>
  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button> -->

@@ -12,6 +12,10 @@ export default {
   name: 'App',
   components: {
     Header
+  },
+  created () {
+    let items = JSON.parse(localStorage.getItem("cart"))
+    this.$store.commit("setCartReload", items)
   }
 }
 </script>

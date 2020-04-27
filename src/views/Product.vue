@@ -31,7 +31,7 @@
   <p>{{ pitem[0].name }} added to Cart</p>
   <div class='d-lg-flex d-sm-flex flex-sm-row flex-lg-row d-xs-block'>
     <button class="add1" @click="hideModal">CONTINUE SHOPPING</button>
-    <button class="add" to="/cart">VIEW CART AND CHECKOUT</button>
+    <button class="add" @click="opencart">VIEW CART AND CHECKOUT</button>
     </div>
   </b-modal>
 </div>
@@ -121,6 +121,10 @@ export default {
   methods: {
     addtocart (x) {
       this.$store.commit("setCart", x)
+    },
+
+    opencart () {
+      this.$router.push("/cart")
     },
 
     chagepic (img) {
@@ -248,7 +252,12 @@ font-size: 20px
   border-radius: 4px;
   box-shadow: 0px 0px 10px 0px #e5e5e5;
   height: 48px;
+   margin-right: 1vmin;
   font-weight: bold
+}
+
+.phone:focus {
+ outline: none
 }
 
 .mobile {
@@ -257,7 +266,7 @@ font-size: 20px
   bottom: 0;
   width: 100%;
   margin-top: 2rem;
-  padding: 5px;
+  padding: 9px 9px 9px 9px;
   background-color: white;
   box-shadow: 0px 0px 10px 0px #e5e5e5;
 }
@@ -438,6 +447,7 @@ font-size: 20px
   border-radius: 4px;
   box-shadow: 0px 0px 10px 0px #e5e5e5;
   height: 48px;
+ 
   font-weight: bold
 }
 

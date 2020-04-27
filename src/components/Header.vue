@@ -9,10 +9,10 @@
 </div>
   <a class="navbar-brand" href="#">Shopman</a>
 
-  <b-button variant="primary">
+  <b-button variant="p" to="/cart">
    <i class="fas fa-cart-plus"></i>
-    <b-badge variant="light"> {{ this.$store.state.cart.length }} <span class="sr-only">unread messages</span></b-badge>
-  </b-button>
+    
+  </b-button><b-badge variant="l" class="cartcount"> {{ cartcount }}</b-badge>
  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button> -->
@@ -34,12 +34,28 @@ export default {
     change (x) {
   alert('hey')
 }
+  },
+  computed: {
+    cartcount () {
+      return this.$store.state.cart.length
+    }
   }
 }
 </script>
 
 
 <style scoped>
+.cartcount {
+  margin-bottom: 1rem;
+  margin-left: -4.5rem
+}
+
+@media only screen and (min-width: 600px) {
+  .cartcount {
+  margin-bottom: 1rem;
+  margin-left: -0.8rem
+}
+}
 <style>
 .containe {
   display: inline-block;

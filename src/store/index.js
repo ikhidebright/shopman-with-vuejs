@@ -80,6 +80,11 @@ export default new Vuex.Store({
   mutations: {
     setCart(state, item) {
       state.cart.unshift(item)
+      localStorage.setItem("cart", JSON.stringify(state.cart))
+    },
+    // set cart on reload
+    setCartReload(state, item) {
+      state.cart = item
     }
   },
   actions: {

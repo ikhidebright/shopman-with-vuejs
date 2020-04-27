@@ -13,17 +13,29 @@
     <img class='smimg ml-1' src="https://ng.jumia.is/unsafe/fit-in/150x150/filters:fill(white)/product/02/486062/3.jpg?7638" /> -->
     </div>
     </div>
+    <div class="d-none d-lg-block d-sm-block d-xl-block d-md-block">
     <p> 
     SHARE THIS PRODUCT 
     <br><i class="fab fa-facebook"> </i> <i class="fab fa-twitter"></i></p>
+    </div>
   </div>
   <div class='ml-lg-3 sec'>
   <p class='pron'> {{ pitem[0].name }} </p>
-  <p class='price'>₦ {{ pitem[0].price }} </p>
-   <p class='oldprice'>₦ 7,650 - ₦ 7,890 </p>
-  <button class="add d-none d-lg-block"> <i class="fas fa-cart-plus"></i> ADD TO CART</button>
+  <p class='price mt-n3'>₦ {{ pitem[0].price }} </p>
+   <p class='oldprice mt-n3'>₦ 7,650 - ₦ 7,890 </p>
+   <div>
+  <b-button v-b-modal.modal-center class="add d-none d-lg-block"><i class="fas fa-cart-plus"></i> ADD TO CART</b-button>
+  <b-modal id="modal-center" ref="modal-center" centered title="Added to Cart" hide-footer hide-header>
+  <h4>Added to Cart</h4>
+  <br>
+  <p>{{ pitem[0].name }} added to Cart</p>
+  <div class='d-lg-flex d-sm-flex flex-sm-row flex-lg-row d-xs-block'>
+    <button class="add1" @click="hideModal">CONTINUE SHOPPING</button>
+    <button class="add">VIEW CART AND CHECKOUT</button>
+    </div>
+  </b-modal>
+</div>
   <hr/>
-
   <h6>PROMOTIONS</h6>
 <router-link to='/'> <i class="fas fa-shield-alt"></i> Stay Safe, Go cashless with ShopmanPay.</router-link>
 <br>
@@ -90,9 +102,9 @@
 
   </b-container>
 
-  <div class='mobile d-lg-none mt-sm-5'> 
+  <div class='mobile d-lg-none d-xl-none d-md-none d-sm-none mt-sm-5'> 
   <button class="phone"> <i class="fas fa-phone"></i></button>
-  <button class="add2"> <i class="fas fa-cart-plus"></i> ADD TO CART</button>
+  <b-button v-b-modal.modal-center class="add2"><i class="fas fa-cart-plus"></i> ADD TO CART</b-button>
   </div>
   </div>
 </template>
@@ -109,7 +121,11 @@ export default {
   methods: {
     chagepic (img) {
       this.pic = img
-    }
+    },
+
+     hideModal() {
+        this.$refs['modal-center'].hide()
+      },
   },
   created () {
       this.products = this.$store.state.products
@@ -122,6 +138,14 @@ export default {
 </script>
 
 <style scoped>
+
+.fa-star {
+  color: black
+}
+
+a {
+  font-size: 0.9rem
+}
 
 .fa-facebook, .fa-twitter {
   font-size: 20px;
@@ -158,7 +182,8 @@ export default {
 .details {
   background-color: white;
   padding: 1rem;
-  width: 100%
+  width: 100%;
+  border-radius: 1vmin
 }
 
 .pron {
@@ -185,6 +210,22 @@ export default {
   box-shadow: 0px 0px 10px 0px #e5e5e5;
   height: 48px;
   font-weight: bold
+}
+
+.add1 {
+  width: 100%;
+  background: #fff;
+  color: #ff9900;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px 0px #e5e5e5;
+  height: 48px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.add1:focus {
+  outline: none
 }
 
 .add:hover {
@@ -296,6 +337,22 @@ p {
 
 
 @media only screen and (min-width: 600px) {
+
+.add1 {
+  width: 100%;
+  background: #fff;
+  color: #ff9900;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px 0px #e5e5e5;
+  height: 48px;
+  font-weight: bold;
+  margin-right: 0.1rem;
+}
+
+.add {
+  margin-left: 0.1rem;
+}
   
 .fa-facebook, .fa-twitter {
   font-size: 20px;
@@ -445,6 +502,11 @@ font-size: 20px
   margin-top: 0rem;
   font-weight: 600;
   border-bottom: 1px solid #f2f2f2
+}
+
+.hee p {
+  font-size: 14px;
+  font-family: "Roboto"
 }
 
 .hee2 {

@@ -11,8 +11,7 @@
 
   <b-button variant="p" to="/cart">
    <i class="fas fa-cart-plus"></i>
-    
-  </b-button><b-badge variant="l" class="cartcount"> {{ this.$store.state.cart.length }}</b-badge>
+  </b-button><b-badge variant="l" class="cartcount"> {{ totalQuantity }}</b-badge>
  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button> -->
@@ -28,12 +27,25 @@
 
 export default {
   name: 'Header',
-  components: {
+  data () {
+    return {
+    totalQuantity: null
+    }
+  },
+  mounted () {
+    let totalQuantity = []
+    this.$store.state.cart.forEach((item) => {
+           totalQuantity.push(item.quantity)
+    })
+    let total = totalQuantity.reduce((a, b) => {
+      return a + b
+    })
+    this.totalQuantity = total
   },
   methods: {
     change (x) {
-  alert('hey')
-}
+    alert('hey')
+ }
   },
   computed: {
     cartcount () {

@@ -24,5 +24,23 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style>
+
+
+a {
+  text-decoration: none;
+  color: #ff9900;
+  font-weight: bold;
+}
+
+.head {
+  text-decoration: none;
+  color: #ff9900;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #ff9900;
+}
 </style>

@@ -118,10 +118,53 @@ export default {
     products: null,
     pic: null
   }),
+   computed: {
+    cartitem () {
+      return this.$store.state.cart
+    }
+   },
   methods: {
     addtocart (x) {
-      this.$store.commit("setCart", x)
-    },
+      let itemExist = false;
+      let quantity = null
+
+      //check if item exist
+      this.$store.state.cart.forEach((item) => {
+        if(item.id === x.id) {
+          itemExist = true
+          quantity = item.quantity + 1
+        }
+      })
+      if(itemExist) { 
+
+        // remove item if it exist
+      let item1 = this.cartitem.filter((item) => {
+            return item.id != x.id
+        })
+      this.$store.commit("setRemoveItemCart", item1)
+
+      // set removed item with its new quantity
+      let item = {
+        id: x.id,
+        img: x.img,
+        name: x.name,
+        quantity: quantity,
+        unitPrice: x.price,
+        subTotal: parseInt(x.price) * quantity
+      }
+      this.$store.commit("setCart", item)
+      } else {
+      let item = {
+        id: x.id,
+        img: x.img,
+        name: x.name,
+        quantity: 1,
+        unitPrice: x.price,
+        subTotal: x.price
+      }
+      this.$store.commit("setCart", item)
+    }
+  },
 
     opencart () {
       this.$router.push("/cart")

@@ -5,7 +5,6 @@
   <br>
   <br>
   <br>
-  <br>
   <div class='d-lg-flex d-sm-flex flex-sm-row flex-lg-row d-xs-block'>
   <div class="log">
     <h5 class="mb-4 text-center head">Login</h5>
@@ -121,6 +120,47 @@
 .main {
    background-color:#f5f5f5;
   color: #555555;
+  height: 145vh
+}
+
+
+.log {
+    width: 96%;
+}
+
+.reg {
+    width: 96%;
+    background-color:#f5f5f5;
+    margin-bottom: 4vmin
+}
+
+.fa-envelope {
+  float: left;
+  font-size: 20px
+}
+
+.add {
+  width: 100%;
+  background: #ff9900;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px 0px #e5e5e5;
+  height: 48px;
+  font-weight: bold
+}
+
+.add:focus {
+  outline: none
+}
+.add:hover {
+  background: #ffad33;
+}
+
+@media only screen and (min-width: 768px) {
+  .main {
+   background-color:#f5f5f5;
+  color: #555555;
   height: 100vh
 }
 
@@ -157,6 +197,6 @@
 .add:hover {
   background: #ffad33;
 }
-
+}
 
 </style>

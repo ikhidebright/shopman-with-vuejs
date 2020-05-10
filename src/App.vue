@@ -39,10 +39,29 @@ a {
   text-decoration: none;
   color: #ff9900;
   font-weight: bold;
+  margin-top: 9vmin
 }
 
 a:hover {
   text-decoration: none;
   color: #ff9900;
+}
+
+@media only screen and (min-width: 768px) {
+  a {
+  text-decoration: none;
+  color: #ff9900;
+}
+
+.head {
+  text-decoration: none;
+  color: #ff9900;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #ff9900;
+}
 }
 </style>

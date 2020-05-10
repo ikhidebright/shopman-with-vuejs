@@ -131,8 +131,8 @@
      </b-container>
     </div>
     </b-tab>
-    <b-tab title="RESGISTER">
-    <div class="regg">
+    <b-tab title="REGISTER">
+    <div class="reg">
      <b-container>
     <h5 class="mb-4 text-center head">Create your Shopman account</h5>
     <br>
@@ -259,8 +259,6 @@
 
 .reg {
     width: 100%;
-    background-color:#f5f5f5;
-    margin-bottom: 4vmin
 }
 
 .fa-envelope {

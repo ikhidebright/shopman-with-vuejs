@@ -11,7 +11,7 @@
 
   <b-button variant="p" to="/cart">
    <i class="fas fa-cart-plus"></i>
-  </b-button><b-badge variant="l" class="cartcount"> {{ totalQuantity }}</b-badge>
+  </b-button><b-badge variant="l" class="cartcount"> {{ cartcount }}</b-badge>
  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button> -->
@@ -49,7 +49,7 @@ export default {
   },
   computed: {
     cartcount () {
-      return this.$store.state.cart.length
+      return this.$store.state.cartQty
     }
   }
 }

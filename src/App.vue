@@ -1,17 +1,20 @@
 <template>
   <div id="app">
    <Header />
+   <Error />
     <router-view/>
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header.vue'
+import Error from '@/components/Error.vue'
 
 export default {
   name: 'App',
   components: {
-    Header
+    Header,
+    Error
   },
   created () {
     let items = JSON.parse(localStorage.getItem("cart"))
@@ -30,7 +33,6 @@ export default {
 a {
   text-decoration: none;
   color: #ff9900;
-  font-weight: bold;
 }
 
 .head {

@@ -57,7 +57,6 @@
  </div>
  </div>
 
-
 <div class="d-flex">
   <i class="fab fa-telegram-plane mr-4"></i></i><div>
   <h6> Return Policy</h6>
@@ -124,6 +123,11 @@ export default {
     }
    },
   methods: {
+    setCart () {
+      let qty = this.$store.getters.setCartQty()
+      this.$store.commit("setCartItemQty", qty) 
+      alert(qty)
+    },
     addtocart (x) {
       let itemExist = false;
       let quantity = null
@@ -153,6 +157,7 @@ export default {
         subTotal: parseInt(x.price) * quantity
       }
       this.$store.commit("setCart", item)
+      this.setCart()
       } else {
       let item = {
         id: x.id,
@@ -163,6 +168,7 @@ export default {
         subTotal: x.price
       }
       this.$store.commit("setCart", item)
+      this.setCart()
     }
   },
 

@@ -7,6 +7,12 @@ export default new Vuex.Store({
   state: {
     cart: [],
     loggedIn: false,
+    url: 'http://localhost:6060',
+    cartQty: null,
+    successAlertMessage: null,
+    showSuccessAlert: false,
+    errorAlertMessage: null,
+    showErrrorAlert: false,
     categories: [
       'Airtime & Bills',
       'Phones & Tablets',
@@ -92,7 +98,33 @@ export default new Vuex.Store({
       state.cart = item
       localStorage.setItem("cart", JSON.stringify(state.cart))
     },
+    // set cartQty
+    setCartItemQty(state, item) {
+      state.cartQty = item
+    },
+    // set success message
+    setSuccessAlert (state, item) {
+      state.successAlertMessage = item.successMessage
+      state.showSuccessAlert = item.showSuccess
+    },
+    // set error message
+    setErrorAlert (state, item) {
+      state.errorAlertMessage = item.errorMessage
+      state.showErrrorAlert = item.showError
+    }
   },
+  getters: {
+  setCartQty (state) {
+    let totalQuantity = []
+    state.cart.forEach((item) => {
+      totalQuantity.push(item.quantity)
+ })
+    let total = totalQuantity.reduce((a, b) => {
+    return a + b
+ })
+ return total
+  }
+},
   actions: {
   },
   modules: {

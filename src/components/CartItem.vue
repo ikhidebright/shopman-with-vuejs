@@ -1,6 +1,6 @@
 <template>
   <div class="hom mb-2">
-  <b-col lg="10" md="10" xl="10">
+  <b-col lg="9" md="10" xl="10">
   <b-card bg-variant="white" text-variant="red">
   <div class='d-lg-flex d-sm-flex flex-sm-column flex-lg-row'>
   <!-- image & name -->
@@ -12,21 +12,20 @@
   </div>
   </div>
   <!-- image & name -->
-
-  <div class='border-right pl-5 pr-5 pt-2'>
+  <div class='border-right pl-3 pr-3 pt-2'>
   <b-form-select
       id="inline-form-custom-select-pref"
       class="mb-2 mr-sm-2 mb-sm-0"
       v-model="quantity"
-      :options="[{ text: '1', value: 1 }, { text: '2', value: 2 },'2', '3', '4', '5', '6', '7', '8', '9', '10']"
+      :options="[{ text: '1', value: 1 }, { text: '2', value: 2 }, '3', '4', '5', '6', '7', '8', '9', '10']"
       :value="null"
-      @change="changeQty(cart)"
+      @change="changeQty(quantity)"
     ></b-form-select>
     </div>
   <div class='border-right pl-5 pr-5 pt-3'>
   ₦ {{ cart.unitPrice }}
   </div>
-  <div class='pl-5 pt-3'>
+  <div class='pl-5 pt-3 pl-5'>
   ₦ {{ subTotal }}
   </div>
  </div>
@@ -57,7 +56,7 @@ export default {
   },
   methods: {
       changeQty (x) {
-          alert(this.quantity)
+          alert(x)
       },
 
       remove (x) {

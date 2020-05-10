@@ -5,6 +5,7 @@ import Product from '../views/Product.vue'
 import Cart from '../views/Cart.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
+import Dasboard from '../views/Dasboard.vue'
 
 Vue.use(VueRouter)
 
@@ -13,6 +14,11 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/dasboard',
+    name: 'Dasboard',
+    component: Dasboard
   },
   {
     path: '/product/:id-:name',

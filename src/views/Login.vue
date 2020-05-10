@@ -3,13 +3,13 @@
 <b-container>
   <br>
   <br>
-  <br>
-  <br>
   <div class='d-lg-flex d-sm-flex d-xl-flex d-md-flex flex-md-row flex-sm-row flex-lg-row  flex-xl-row d-none'>
+  <br>
+  <br>
   <div class="log">
     <h5 class="mb-4 text-center head">Login</h5>
     <br>
-    <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+    <b-form @submit="login">
       <b-form-group
         id="input-group-1"
         label=""
@@ -17,7 +17,7 @@
       >
         <b-form-input
           id="input-1"
-          v-model="form.email"
+          v-model="email"
           type="email"
           required
           placeholder="Email"
@@ -27,7 +27,7 @@
       <b-form-group id="input-group-2" label="" label-for="input-2">
         <b-form-input
           id="input-2"
-          v-model="form.name"
+          v-model="password"
           type="password"
           required
           placeholder="Password"
@@ -35,7 +35,7 @@
       </b-form-group>
 <br>
       <b-form-group id="input-group-4">
-        <b-form-checkbox-group v-model="form.checked" id="checkboxes-4">
+        <b-form-checkbox-group v-model="checked" id="checkboxes-4">
           <b-form-checkbox class="mr-5" value="me">Remember password</b-form-checkbox>
           <router-link to='' class="ml-5">Forgot password?</router-link>
         </b-form-checkbox-group>
@@ -80,14 +80,13 @@
 
     
 <!-- for mobile -->
-  <div class='d-lg-none d-sm-none d-xl-none d-md-none'>
+  <div class='d-lg-none d-sm-none d-xl-none d-md-none mt-2'>
   <b-tabs content-class="mt-0" fill>
     <b-tab title="LOGIN"><p>
     <div class="log">
      <b-container>
-    <h5 class="mb-4 text-center head">Login</h5>
     <br>
-    <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+    <b-form @submit="login">
       <b-form-group
         id="input-group-1"
         label=""
@@ -95,7 +94,7 @@
       >
         <b-form-input
           id="input-1"
-          v-model="form.email"
+          v-model="email"
           type="email"
           required
           placeholder="Email"
@@ -105,7 +104,7 @@
       <b-form-group id="input-group-2" label="" label-for="input-2">
         <b-form-input
           id="input-2"
-          v-model="form.name"
+          v-model="password"
           type="password"
           required
           placeholder="Password"
@@ -113,7 +112,7 @@
       </b-form-group>
 <br>
       <b-form-group id="input-group-4">
-        <b-form-checkbox-group v-model="form.checked" id="checkboxes-4">
+        <b-form-checkbox-group v-model="checked" id="checkboxes-4">
           <b-form-checkbox class="mr-5" value="me">Remember password</b-form-checkbox>
           <router-link to='' class="ml-5">Forgot password?</router-link>
         </b-form-checkbox-group>
@@ -134,7 +133,6 @@
     <b-tab title="REGISTER">
     <div class="reg">
      <b-container>
-    <h5 class="mb-4 text-center head">Create your Shopman account</h5>
     <br>
     <b-form @submit="register" v-if="show">
     <b-form-group
@@ -209,35 +207,63 @@
 </template>
 
 <script>
+import axios from "axios"
+
   export default {
     data() {
       return {
         form: {
+          first_name: '',
+          last_name: '',
           email: '',
-          name: '',
-          food: null,
-          checked: []
+          phone: '',
+          password: '',
+          checked: false
         },
-        foods: [{ text: 'Select One', value: null }, 'Carrots', 'Beans', 'Tomatoes', 'Corn'],
-        show: true
+        show: true,
+        validation: true,
+        // login data
+        email: '',
+        password: '',
+        checked: false
       }
     },
     methods: {
-      onSubmit(evt) {
+      login(evt) {
         evt.preventDefault()
-        alert(JSON.stringify(this.form))
+        axios.post(`${this.$store.state.url}/login`, {
+          email: this.email,
+          password: this.password
+        }).then((res) => {
+          console.log(res)
+        }).catch((e) => {
+           console.log(e)
+        })
       },
-      onReset(evt) {
+      showError (message, show) {
+        let item = {
+          errorMessage: message,
+          showError: show
+        }
+        this.$store.commit("setErrorAlert", item)
+      },
+      register(evt) {
         evt.preventDefault()
-        // Reset our form values
-        this.form.email = ''
-        this.form.name = ''
-        this.form.food = null
-        this.form.checked = []
-        // Trick to reset/clear native browser form validation state
-        this.show = false
-        this.$nextTick(() => {
-          this.show = true
+        axios.post(`${this.$store.state.url}/user`, {
+          first_name: this.form.first_name,
+          last_name: this.form.last_name,
+          email: this.form.email,
+          phone: this.form.phone,
+          password: this.form.password,
+        }).then((res) => {
+          if (res.status === 200 && res.data.success === true && res.data.data.result.affectedRows === 1) {
+              this.$router.push("/login")
+          } else if (res.data.email === true) {
+              this.validation = false
+              this.showError(res.data.message, true)
+          }
+        }).catch((e) => {
+          console.log(e)
         })
       }
     }

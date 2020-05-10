@@ -12,7 +12,7 @@
  <h4 class="text-center"> <i class="fas fa-shopping-cart"></i></h4>
   <h4 class="text-center">Your cart is empty!</h4>
   <p class="text-center">Already have an account? <router-link to='/login'>login</router-link> to see the items in your cart.</p>
-   <h4 class="text-center"> <b-button to="/" class="add" style="float: center">START SHOPPING</b-button></h4>
+   <h4 class="text-center ml-3"> <b-button to="/" class="add" style="float: center">START SHOPPING</b-button></h4>
     </div>
   <h4 v-if="this.$store.state.cart.length > 0">Cart ({{ totalQuantity }} items)</h4>
   <br>

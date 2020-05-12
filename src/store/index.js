@@ -7,8 +7,6 @@ export default new Vuex.Store({
   state: {
     cart: [],
     loggedIn: false,
-    url: 'http://localhost:6060',
-    cartQty: null,
     successAlertMessage: null,
     showSuccessAlert: false,
     errorAlertMessage: null,
@@ -98,10 +96,6 @@ export default new Vuex.Store({
       state.cart = item
       localStorage.setItem("cart", JSON.stringify(state.cart))
     },
-    // set cartQty
-    setCartItemQty(state, item) {
-      state.cartQty = item
-    },
     // set success message
     setSuccessAlert (state, item) {
       state.successAlertMessage = item.successMessage
@@ -114,17 +108,30 @@ export default new Vuex.Store({
     }
   },
   getters: {
-  setCartQty (state) {
-    let totalQuantity = []
-    state.cart.forEach((item) => {
-      totalQuantity.push(item.quantity)
- })
-    let total = totalQuantity.reduce((a, b) => {
-    return a + b
- })
- return total
-  }
-},
+    // calculate total quantity in cart
+    getCartQty (state) {
+      let totalQuantity = []
+             state.cart.forEach((item) => {
+             totalQuantity.push(item.quantity)
+      })
+      let total = totalQuantity.reduce((a, b) => {
+        return a + b
+      })
+      return total
+    },
+
+    // calculate total price
+    getTotalPrice (state) {
+      let totalPrice = []
+             state.cart.forEach((item) => {
+             totalPrice.push(item.subTotal)
+      })
+      let totalP = totalPrice.reduce((a, b) => {
+        return a + b
+      })
+      return totalP
+    }
+  },
   actions: {
   },
   modules: {

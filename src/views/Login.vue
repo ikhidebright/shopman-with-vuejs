@@ -207,7 +207,7 @@
 </template>
 
 <script>
-import axios from "axios"
+import clientApi from '@/Services/EventService.js'
 
   export default {
     data() {
@@ -229,16 +229,22 @@ import axios from "axios"
       }
     },
     methods: {
-      login(evt) {
+       async login(evt) {
         evt.preventDefault()
-        axios.post(`${this.$store.state.url}/login`, {
+        try {
+        let userData = {
           email: this.email,
-          password: this.password
-        }).then((res) => {
-          console.log(res)
-        }).catch((e) => {
-           console.log(e)
-        })
+          password: this.password,
+        }
+        let res = await clientApi.loginUser(userData)
+          if (res.status === 200 && res.data.success === true) {
+              this.$router.push("/dashboard")
+          } else {
+              this.showError(res.data.message, true)
+          }
+        } catch (e) {
+          this.showError('Sorry an Error occured', true)
+        }
       },
       showError (message, show) {
         let item = {
@@ -247,24 +253,26 @@ import axios from "axios"
         }
         this.$store.commit("setErrorAlert", item)
       },
-      register(evt) {
+    async register(evt) {
         evt.preventDefault()
-        axios.post(`${this.$store.state.url}/user`, {
+        try {
+        let userData = {
           first_name: this.form.first_name,
           last_name: this.form.last_name,
           email: this.form.email,
           phone: this.form.phone,
           password: this.form.password,
-        }).then((res) => {
+        }
+        let res = await clientApi.registerUser(userData)
           if (res.status === 200 && res.data.success === true && res.data.data.result.affectedRows === 1) {
               this.$router.push("/login")
           } else if (res.data.email === true) {
               this.validation = false
               this.showError(res.data.message, true)
           }
-        }).catch((e) => {
-          console.log(e)
-        })
+        } catch (e) {
+          this.showError('Sorry an Error occured', true)
+        }
       }
     }
   }

@@ -59,7 +59,7 @@
     showSuccess () {
       return this.$store.state.showSuccessAlert
     }
-    }
+  }
   }
 </script>
 

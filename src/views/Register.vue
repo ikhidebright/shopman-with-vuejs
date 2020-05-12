@@ -64,13 +64,16 @@
         </b-form-checkbox-group>
       </b-form-group>
 <br>
-      <b-button type="submit" block class="add" style="background: #ff9900; 
-      color: white;
-  border: none;
-  border-radius: 4px;
-  box-shadow: 0px 0px 10px 0px #e5e5e5;
-  height: 48px;
-  font-weight: bold">REGISTER</b-button>
+      <b-button type="submit" block class="add" style=
+      "background: #ff9900; 
+       color: white;
+       border: none;
+       border-radius: 4px;
+       box-shadow: 0px 0px 10px 0px #e5e5e5;
+       height: 48px;
+       font-weight: bold"
+       >REGISTER
+       </b-button>
     </b-form>
     <br>
     <p class="text-center">Already have an account?</p>
@@ -82,7 +85,8 @@
 </template>
 
 <script>
-import axios from "axios"
+import clientApi from '@/Services/EventService.js'
+
   export default {
     data() {
       return {
@@ -106,24 +110,26 @@ import axios from "axios"
         }
         this.$store.commit("setErrorAlert", item)
       },
-      register(evt) {
+     async register(evt) {
         evt.preventDefault()
-        axios.post(`${this.$store.state.url}/user`, {
+        try {
+        let userData = {
           first_name: this.form.first_name,
           last_name: this.form.last_name,
           email: this.form.email,
           phone: this.form.phone,
           password: this.form.password,
-        }).then((res) => {
+        }
+        let res = await clientApi.registerUser(userData)
           if (res.status === 200 && res.data.success === true && res.data.data.result.affectedRows === 1) {
               this.$router.push("/login")
           } else if (res.data.email === true) {
               this.validation = false
               this.showError(res.data.message, true)
           }
-        }).catch((e) => {
-
-        })
+        } catch (e) {
+          this.showError('Sorry an Error occured', true)
+        }
       }
     },
     computed: {

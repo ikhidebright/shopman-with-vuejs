@@ -34,9 +34,9 @@
    <b-col lg="12" md="12" xl="12">
    <b-row align-h="end">
   <div class='d-lg-flex d-sm-flex flex-sm-row flex-lg-row d-xs-block'>
-    <button class="add1" @click="hideModal">CONTINUE SHOPPING</button>
-    <button class="add" v-if="this.$store.state.loggedIn" @click="opencart">PROCEED TO CHECKOUT</button>
-    <button to="/login" v-if="!this.$store.state.loggedIn" class="add">PROCEED TO CHECKOUT</button>
+    <b-button class="add1" to="/" @click="hideModal">CONTINUE SHOPPING</b-button>
+    <button to="/checkout" class="add" v-if="this.$store.state.loggedIn">PROCEED TO CHECKOUT</button>
+    <b-button to="/login" v-if="!this.$store.state.loggedIn" class="add">PROCEED TO CHECKOUT</b-button>
   </div>
   </b-row>
   </b-col>
@@ -59,42 +59,25 @@ export default {
     },
   },
   data: () => ({
-    categories: null,
-    totalQuantity: null,
-    totalPrice: null
   }),
-  mounted () {
-
-    // calcu;late total quantity in cart
-    let totalQuantity = []
-    this.$store.state.cart.forEach((item) => {
-           totalQuantity.push(item.quantity)
-    })
-    let total = totalQuantity.reduce((a, b) => {
-      return a + b
-    })
-    this.totalQuantity = total
-
-    // calculate total price
-    let totalPrice = []
-    this.$store.state.cart.forEach((item) => {
-           totalPrice.push(item.subTotal)
-    })
-    let totalP = totalPrice.reduce((a, b) => {
-      return a + b
-    })
-    this.totalPrice = totalP
-  },
   computed: {
+    // Get cart
     cartitem () {
       return this.$store.state.cart
-    }
+    },
+    // get total cart quantity
+    totalQuantity () {
+      return this.$store.getters.getCartQty
+    },
+    // get cart total price
+    totalPrice () {
+      return this.$store.getters.getTotalPrice
+    },
   }
 }
 </script>
 
 <style scoped>
-
 .fa-shopping-cart {
   font-size: 20vmin;
 }

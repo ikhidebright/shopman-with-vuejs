@@ -5,7 +5,11 @@ import Product from '../views/Product.vue'
 import Cart from '../views/Cart.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
-import Dasboard from '../views/Dasboard.vue'
+import Dashboard from '../views/Dashboard.vue'
+import ChangePassword from '../views/ChangePassword.vue'
+import Orders from '../views/Orders.vue'
+import Saved from '../views/Saved.vue'
+import CheckOut from '../views/CheckOut.vue'
 
 Vue.use(VueRouter)
 
@@ -16,9 +20,29 @@ const routes = [
     component: Home
   },
   {
-    path: '/dasboard',
-    name: 'Dasboard',
-    component: Dasboard
+    path: '/checkout',
+    name: 'CheckOut',
+    component: CheckOut 
+  },
+  {
+    path: '/saved',
+    name: 'Saved',
+    component: Saved
+  },
+  {
+    path: '/orders',
+    name: 'Orders',
+    component: Orders
+  },
+  {
+    path: '/changepass',
+    name: 'ChangePassword',
+    component: ChangePassword
+  },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: Dashboard
   },
   {
     path: '/product/:id-:name',

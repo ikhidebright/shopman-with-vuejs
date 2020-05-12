@@ -3,198 +3,125 @@
   <b-container>
   <br>
   <div class='d-lg-flex d-sm-flex flex-sm-column flex-lg-row mt-5'>
-<div class='d-lg-flex d-sm-flex flex-sm-column flex-lg-row details'>
-  <div class='fir'>
-  <img class='bigpic' :src="`${pic}`" />
-  <div class='d-flex mt-1 border-bottom pb-2 mb-1'>
-  <div v-for="img in pitem[0].moreimg" :key='img'>
-    <img class='smimg ml-1' :src="`${img}`" @click='chagepic(img)' />
-  <!--  <img class='smimg ml-1' src="https://ng.jumia.is/unsafe/fit-in/150x150/filters:fill(white)/product/02/486062/2.jpg?7638" />
-    <img class='smimg ml-1' src="https://ng.jumia.is/unsafe/fit-in/150x150/filters:fill(white)/product/02/486062/3.jpg?7638" /> -->
-    </div>
-    </div>
-    <div class="d-none d-lg-block d-sm-block d-xl-block d-md-block">
-    <p> 
-    SHARE THIS PRODUCT 
-    <br><i class="fab fa-facebook"> </i> <i class="fab fa-twitter"></i></p>
-    </div>
-  </div>
-  <div class='ml-lg-3 sec'>
-  <p class='pron'> {{ pitem[0].name }} </p>
-  <p class='price mt-n3'>₦ {{ pitem[0].price }} </p>
-   <p class='oldprice mt-n3'>₦ 7,650 - ₦ 7,890 </p>
-   <div>
-  <b-button v-b-modal.modal-center class="add d-none d-lg-block" @click="addtocart(pitem[0])"><i class="fas fa-cart-plus"></i> ADD TO CART</b-button>
-  <b-modal id="modal-center" ref="modal-center" centered title="Added to Cart" hide-footer hide-header>
-  <h4>Added to Cart</h4>
-  <br>
-  <p>{{ pitem[0].name }} added to Cart</p>
-  <div class='d-lg-flex d-sm-flex flex-sm-row flex-lg-row d-xs-block'>
-    <button class="add1" @click="hideModal">CONTINUE SHOPPING</button>
-    <button class="add" @click="opencart">VIEW CART AND CHECKOUT</button>
-    </div>
-  </b-modal>
-</div>
-  <hr/>
-  <h6>PROMOTIONS</h6>
-<router-link to='/'> <i class="fas fa-shield-alt"></i> Stay Safe, Go cashless with ShopmanPay.</router-link>
-<br>
-<br>
-<router-link to='/'> <i class="fas fa-star"></i> Enjoy unlimited Free Delivery with Shopman Prime </router-link>
-<br>
-<br>
-<router-link to='/'><i class="fas fa-star"></i> Buy airtime and data on Shopman One and get up to N500 cash back. Use code WELCOME50 </router-link>
-  </div>
-   </div>
-   <div class='mt-sm-2 mt-lg-0'>
-     <div class='ml-lg-3 hee'>DELIVERY & RETURNS</div>
-   <div class='ml-lg-3 third'>
-    <div class="d-flex">
-  <i class="fas fa-shuttle-van mr-3"></i><div><h6> Delivery Information</h6>
- <p>
- Normally delivered between Friday 3 Apr and Monday 6 Apr. Please check exact dates in the Checkout page
- </p>
- </div>
- </div>
-
-<div class="d-flex">
-  <i class="fab fa-telegram-plane mr-4"></i></i><div>
-  <h6> Return Policy</h6>
-<p>Free return within 15 days for Jumia Mall items and 7 days for other eligible items.</p>
-   </div>
- </div>
- </div>
-
-   <div class='ml-lg-3 hee mt-3'>SELLER INFORMATION</div>
-   <div class='ml-lg-3 third'>
-  <h6> 
- KODDS</h6>
- <p>
-80%Positive Seller Score
-2730 Followers</p>
-
-<h6> Return Policy</h6>
-<p>Free return within 15 days for Jumia Mall items and 7 days for other eligible items.</p>
-   </div>
-
- <div class='ml-lg-3 third mt-3'>
-  <h6> Have one to sell?</h6>
-<p>Click here to list your product</p>
-</div>
-   </div>
-  </div>
-
-  
- <div>
-     <div class='hee2 mt-3'><h6>Product details</h6></div>
+  <div>
+  <h6>CHECKOUT</h6>
+     <div class='hee2 mt-3'><h6>1. ADDRESS DETAILS</h6></div>
    <div class='third2'>
  <p>
-{{ pitem[0].desc }}
+bright ikhide
+<br>
+Opposite. Railway Station Bassan Airport Village, Abuja, ABUJA AIRPORT <br> 
+ROAD- SAUKA/IMMIGRATION HQ, Federal Capital Territory
+<br>
++2349067998961
 </p>
  </div>
+ <div>
+     <div class='hee2 mt-3'><h6>2. DELIVERY METHOD</h6></div>
+   <div class='third2'>
+   <b>How do you want your order delivered?</b>
+ <b>
+<br>
+<br>
+* Large items (e.g. Freezers) may arrive 2 business days later than other products.
+<br>
+<br>
+* Living in Lagos, Abuja or Ibadan, SHOPMAN PRIME Members enjoy Free Delivery on Shopman Express Items (excluding bulky items).
+<br>
+<br>
+Kindly confirm your delivery address is accessible before placing your order
+<br>
+<br>
+We are prioritizing groceries and essential products, deliveries may be delayed on other products.
+<br>
+<br>
+We are unable to deliver to Borno and Yobe due to the COVID 19 pandemic lockdown restrictions
+</b>
+<br>
+<br>
+<div>
+<p class="text-center">You will be able to add a voucher in the next step</p>
+ <b-button type="submit" block class="add" style="background: #ff9900; 
+  color: white;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px 0px #e5e5e5;
+  height: 48px;
+  font-weight: bold">
+PROCEED TO NEXT STEP
+</b-button>
+  </div>
  </div>
-
+ </div>
+<div>
+     <div class='hee2 mt-3'><h6>3. PAYMENT METHOD</h6></div>
+  </div>
+ </div>
+<div>
+<h6 class="ml-3 mb-3">ORDER SUMMARY</h6>
+   <div class='mt-sm-2 mt-lg-0'>
+     <div class='ml-lg-3 hee'>YOUR ORDER ({{ cartQty }} items)</div>
+   <div class='ml-lg-3 third'>
+    <div class="">
+    <CheckOutCartItem v-for="cart in cartitem" :key="cart.id" :cart="cart"/>
+ </div>
+ </div>
+   <p class='text-center'><b-button class='mt-2 changepassword2' to='/cart'>MODIFY CART</b-button></p>
+ </div>
+ </div>
+ </div>
  <br>
   <br>
    <br>
-
-
   </b-container>
-
-  <div class='mobile d-lg-none d-xl-none d-md-none d-sm-none mt-sm-5'> 
-  <button class="phone"> <i class="fas fa-phone"></i></button>
-  <b-button v-b-modal.modal-center class="add2"  @click="addtocart(pitem[0])"><i class="fas fa-cart-plus"></i> ADD TO CART</b-button>
-  </div>
   </div>
 </template>
 
 <script>
+import CheckOutCartItem from "@/components/Product/CheckOutCartItem.vue"
 
 export default {
   name: 'Home',
   data: () => ({
-    pitem: [],
-    products: null,
-    pic: null
   }),
    computed: {
+    // get cart order
     cartitem () {
       return this.$store.state.cart
+    },
+    // get cart qty 
+    cartQty () {
+      return this.$store.getters.getCartQty
     }
    },
-  methods: {
-    setCart () {
-      let qty = this.$store.getters.setCartQty()
-      this.$store.commit("setCartItemQty", qty) 
-      alert(qty)
-    },
-    addtocart (x) {
-      let itemExist = false;
-      let quantity = null
-
-      //check if item exist
-      this.$store.state.cart.forEach((item) => {
-        if(item.id === x.id) {
-          itemExist = true
-          quantity = item.quantity + 1
-        }
-      })
-      if(itemExist) { 
-
-        // remove item if it exist
-      let item1 = this.cartitem.filter((item) => {
-            return item.id != x.id
-        })
-      this.$store.commit("setRemoveItemCart", item1)
-
-      // set removed item with its new quantity
-      let item = {
-        id: x.id,
-        img: x.img,
-        name: x.name,
-        quantity: quantity,
-        unitPrice: x.price,
-        subTotal: parseInt(x.price) * quantity
-      }
-      this.$store.commit("setCart", item)
-      this.setCart()
-      } else {
-      let item = {
-        id: x.id,
-        img: x.img,
-        name: x.name,
-        quantity: 1,
-        unitPrice: x.price,
-        subTotal: x.price
-      }
-      this.$store.commit("setCart", item)
-      this.setCart()
-    }
-  },
-
-    opencart () {
-      this.$router.push("/cart")
-    },
-
-    chagepic (img) {
-      this.pic = img
-    },
-
-     hideModal() {
-        this.$refs['modal-center'].hide()
-      },
-  },
-  created () {
-      this.products = this.$store.state.products
-      this.pitem = this.products.filter((item) => {
-         return item.id == parseInt(this.$route.params.id)
-      })
-      this.pic = this.pitem[0].img
-  }
+   components: {
+    CheckOutCartItem
+   }
 }
 </script>
 
 <style scoped>
+.changepassword2 {
+    background-color: #f1f1f1;
+  color: #f68B1E;
+  border: none;
+  border-radius: 0.5vmin;
+  padding: 1vmin;
+  font-weight: bold;
+}
+
+.changepassword2:hover {
+    background-color: #f1f1f1;
+  color: #f68B1E;
+  border: none;
+  border-radius: 0.5vmin;
+  padding: 1vmin;
+  font-weight: bold;
+}
+
+.changepassword2:focus {
+ outline: none
+}
 
 .fa-star {
   color: black
@@ -218,7 +145,8 @@ a {
 }
 
 .main {
-  background-color: #f1f1f1
+  background-color: #f1f1f1;
+  height: auto
 }
 
 .sec {
@@ -349,9 +277,8 @@ font-size: 20px
 }
 
 .third {
-
   background-color: white;
-  padding: 0.5rem;
+  padding: 0.5rem 0 0.5rem 0;
   width: 100%
 }
 
@@ -430,7 +357,8 @@ p {
 }
 
 .main {
-  background-color: #f1f1f1
+  background-color: #f1f1f1;
+  height: auto
 }
 
 .sec {
@@ -539,14 +467,12 @@ font-size: 20px
 }
 
 .third {
-
   background-color: white;
-  padding: 0.5rem;
+  padding: 0.5rem 0 0.5rem 0;
   width: 296px
 }
 
 .third2 {
-
   background-color: white;
   padding: 0.5rem;
   width: 800px

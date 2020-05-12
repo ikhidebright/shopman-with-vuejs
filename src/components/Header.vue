@@ -7,7 +7,7 @@
   <div class="bar2"></div>
   <div class="bar3"></div>
 </div>
-  <a class="navbar-brand" href="#">Shopman</a>
+  <a class="navbar-brand" href="http://localhost:8080">Shopman</a>
 
   <b-button variant="p" to="/cart">
    <i class="fas fa-cart-plus"></i>
@@ -29,27 +29,11 @@ export default {
   name: 'Header',
   data () {
     return {
-    totalQuantity: null
     }
-  },
-  mounted () {
-    let totalQuantity = []
-    this.$store.state.cart.forEach((item) => {
-           totalQuantity.push(item.quantity)
-    })
-    let total = totalQuantity.reduce((a, b) => {
-      return a + b
-    })
-    this.totalQuantity = total
-  },
-  methods: {
-    change (x) {
-    alert('hey')
- }
   },
   computed: {
     cartcount () {
-      return this.$store.state.cartQty
+      return this.$store.getters.getCartQty
     }
   }
 }

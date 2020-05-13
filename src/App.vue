@@ -29,6 +29,9 @@ export default {
 
 <style>
 
+.done {
+  color: green
+}
 
 a {
   text-decoration: none;

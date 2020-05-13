@@ -10,6 +10,7 @@ import ChangePassword from '../views/ChangePassword.vue'
 import Orders from '../views/Orders.vue'
 import Saved from '../views/Saved.vue'
 import CheckOut from '../views/CheckOut.vue'
+import Payment from '../views/Payment.vue'
 
 Vue.use(VueRouter)
 
@@ -23,6 +24,11 @@ const routes = [
     path: '/checkout',
     name: 'CheckOut',
     component: CheckOut 
+  },
+  {
+    path: '/payment',
+    name: 'Payment',
+    component: Payment
   },
   {
     path: '/saved',

@@ -5,7 +5,7 @@
   <div class='d-lg-flex d-sm-flex flex-sm-column flex-lg-row mt-5'>
   <div>
   <h6>CHECKOUT</h6>
-     <div class='hee2 mt-3'><h6><i class="fas fa-check-circle done mr-2"></i> 1. ADDRESS DETAILS</h6></div>
+     <div class='hee2 mt-3'><h6><i class="fas fa-check-circle done mr-2"></i>1. ADDRESS DETAILS</h6></div>
    <div class='third2'>
  <p>
 <b>bright ikhide</b>
@@ -17,46 +17,61 @@ ROAD- SAUKA/IMMIGRATION HQ, Federal Capital Territory
 </p>
  </div>
  <div>
-     <div class='hee2 mt-3'><h6><i class="fas fa-check-circle done mr-2"></i>  2. DELIVERY METHOD</h6></div>
+     <div class='hee2 mt-3'><h6><i class="fas fa-check-circle done mr-2"></i>2. DELIVERY METHOD</h6></div>
    <div class='third2'>
-   <p><b>How do you want your order delivered?</b></p>
- <p>
- <b>
+   <p>
+<b>Door Delivery</b>
 <br>
-* Large items (e.g. Freezers) may arrive 2 business days later than other products.
-<br>
-<br>
-* Living in Lagos, Abuja or Ibadan, SHOPMAN PRIME Members enjoy Free Delivery on Shopman Express Items (excluding bulky items).
-<br>
-<br>
-Kindly confirm your delivery address is accessible before placing your order
-<br>
-<br>
-We are prioritizing groceries and essential products, deliveries may be delayed on other products.
-<br>
-<br>
-We are unable to deliver to Borno and Yobe due to the COVID 19 pandemic lockdown restrictions
-</b>
-<br>
+Delivered between Friday 15 May and Thursday 18 June for ₦ {{ shippingAmount }}
 <br>
 </p>
+ </div>
+ </div>
 <div>
-<p class="text-center">You will be able to add a voucher in the next step</p>
- <b-button to="/payment" block class="add" style="background: #ff9900; 
+     <div class='hee2 mt-3'><h6><i class="fas fa-check-circle done mr-2"></i> 3. PAYMENT METHOD</h6></div>
+   <div class='third2'>
+   <p>
+<b>How do you want to pay for your order?</b>
+<br>
+<b>Stay Safe, go cashless with ShopmanPay.</b>
+<br>
+New Customers get 10% additional discount when you pay with your MasterCard capped at N1000.
+<br>
+Card payments are supported by all banks.
+</p>
+<img src="https://static.jumia.com.ng/cms/sprites/reordered-strip.png" />
+<br>
+<br>
+
+<div>
+ <p>
+ Subtotal
+₦ {{ totalPrice }}
+</p>
+
+
+<p>
+Shipping amount
+₦ {{ shippingAmount }}
+</p>
+
+<p>
+Total
+₦ {{ totalPayment }}
+</p>
+ </div>
+<div>
+  <button block class="add" style="background: #ff9900; 
   color: white;
   border: none;
   border-radius: 4px;
   box-shadow: 0px 0px 10px 0px #e5e5e5;
   height: 48px;
-  font-weight: bold">
-PROCEED TO NEXT STEP
-</b-button>
+  font-weight: bold" type="button" @click="payWithPaystack()">CONFIRM ORDER 
+  </button> 
   </div>
  </div>
  </div>
-<div>
-     <div class='hee2 mt-3'><h6><i class="fas fa-check-circle undone mr-2"></i> 3. PAYMENT METHOD</h6></div>
-  </div>
  </div>
 <div>
 <h6 class="ml-3 mb-3">ORDER SUMMARY</h6>
@@ -66,7 +81,6 @@ PROCEED TO NEXT STEP
     <div class="">
     <CheckOutCartItem v-for="cart in cartitem" :key="cart.id" :cart="cart"/>
  </div>
-
  <div>
  <p>
  Subtotal
@@ -105,6 +119,33 @@ export default {
   name: 'Home',
   data: () => ({
   }),
+  methods: {
+    payWithPaystack () {
+    var handler = PaystackPop.setup({
+      key: 'pk_test_3b73d6e5a00026130ba91d48b5ef379a71e1485a',
+      email: 'ikhidebright@email.com',
+      amount: this.totalPayment,
+      currency: "NGN",
+      ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+      metadata: {
+         custom_fields: [
+            {
+                display_name: "Mobile Number",
+                variable_name: "mobile_number",
+                value: "+2348012345678"
+            }
+         ]
+      },
+      callback: function(response){
+          alert('success. transaction ref is ' + response.reference);
+      },
+      onClose: function(){
+          alert('window closed');
+      }
+    });
+    handler.openIframe();
+  }
+  },
    computed: {
     // get cart order
     cartitem () {

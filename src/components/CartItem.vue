@@ -8,11 +8,15 @@
   <img class='bigpic' :src="cart.img" />
   <div class="ml-2">
   <p ><b>{{ cart.name}}</b></p>
-<i class="fas fa-heart"></i>  <router-link to=''>MOVE TO SAVED ITEMS</router-link> <i class="fas fa-trash"></i>   <router-link to='' @click.native="remove(cart)">REMOVE</router-link>
+  <!-- price on mobile-->
+   <div class='mt-n3 d-lg-none d-xl-none d-md-none d-sm-none'>
+  ₦ {{ subTotal }}
+  </div>
+<i class="fas fa-heart"></i>  <router-link to='' class="d-none d-lg-inline d-xl-inline d-md-inline d-sm-inline">MOVE TO SAVED ITEMS</router-link> <i class="fas fa-trash"></i>   <router-link to='' @click.native="remove(cart)">REMOVE</router-link>
   </div>
   </div>
   <!-- image & name -->
-  <div class='border-right pl-3 pr-3 pt-2'>
+  <div class='border-right pl-3 pr-3 pt-2 d-none d-lg-block d-xl-block d-md-block d-sm-block'>
   <b-form-select
       id="inline-form-custom-select-pref"
       class="mb-2 mr-sm-2 mb-sm-0"
@@ -22,10 +26,10 @@
       @change="changeQty(quantity)"
     ></b-form-select>
     </div>
-  <div class='border-right pl-5 pr-5 pt-3'>
+  <div class='border-right pl-5 pr-5 pt-3 d-none d-lg-block d-xl-block d-md-block d-sm-block'>
   ₦ {{ cart.unitPrice }}
   </div>
-  <div class='pl-5 pt-3 pl-5'>
+  <div class='pl-5 pt-3 pl-5 d-none d-lg-block d-xl-block d-md-block d-sm-block'>
   ₦ {{ subTotal }}
   </div>
  </div>

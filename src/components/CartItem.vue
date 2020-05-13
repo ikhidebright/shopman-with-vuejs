@@ -12,7 +12,9 @@
    <div class='mt-n3 d-lg-none d-xl-none d-md-none d-sm-none'>
   ₦ {{ subTotal }}
   </div>
-<i class="fas fa-heart"></i>  <router-link to='' class="d-none d-lg-inline d-xl-inline d-md-inline d-sm-inline">MOVE TO SAVED ITEMS</router-link> <i class="fas fa-trash"></i>   <router-link to='' @click.native="remove(cart)">REMOVE</router-link>
+  <div class="d-none d-lg-block d-xl-block d-md-block d-sm-block">
+<i class="fas fa-heart"></i>  <router-link to=''>MOVE TO SAVED ITEMS</router-link> <i class="fas fa-trash"></i>   <router-link to='' @click.native="remove(cart)">REMOVE</router-link>
+</div>
   </div>
   </div>
   <!-- image & name -->
@@ -32,6 +34,26 @@
   <div class='pl-5 pt-3 pl-5 d-none d-lg-block d-xl-block d-md-block d-sm-block'>
   ₦ {{ subTotal }}
   </div>
+  
+
+<!-- actions for mobile-->
+<div class="d-flex d-lg-none d-xl-none d-md-none d-sm-none border-top mt-2 mb-n3">
+ <div class='mt-3'>
+ <router-link class="border-right pr-2" to=''><i class="fas fa-heart"></i></router-link> <i class="fas fa-trash"></i>   <router-link to='' @click.native="remove(cart)">REMOVE</router-link>
+    </div>
+<div class='ml-auto mt-2'>
+  <b-form-select
+      id="inline-form-custom-select-pref"
+      class="mb-2 mr-sm-2 mb-sm-0"
+      v-model="quantity"
+      :options="[{ text: '1', value: 1 }, { text: '2', value: 2 }, '3', '4', '5', '6', '7', '8', '9', '10']"
+      :value="null"
+      @change="changeQty(quantity)"
+    ></b-form-select>
+    </div>
+</div>
+
+
  </div>
 </b-card>
 </b-col>
@@ -83,6 +105,11 @@ export default {
 </script>
 
 <style scoped>
+
+.rightalign {
+  float: right
+}
+
 .bigpic {
   width: 60px;
   height: 60px

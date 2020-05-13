@@ -47,7 +47,6 @@ p {
 .product {
   margin: 2px;
   margin-bottom: 1rem;
-  padding: 1.5vmin
 }
 
 .product, .price {
@@ -55,7 +54,7 @@ p {
 }
 
 .product:hover {
-  border-radius: 3px;
+  border-radius: 10px;
   box-shadow: 0px 0px 10px 0px #e5e5e5;
 } 
 

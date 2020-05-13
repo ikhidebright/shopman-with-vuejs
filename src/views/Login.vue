@@ -238,6 +238,7 @@ import clientApi from '@/Services/EventService.js'
         }
         let res = await clientApi.loginUser(userData)
           if (res.status === 200 && res.data.success === true) {
+              this.$cookies.set("sp_tk", res.data.token, "12d")
               this.$router.push("/dashboard")
           } else {
               this.showError(res.data.message, true)

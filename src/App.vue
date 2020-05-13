@@ -17,7 +17,6 @@ export default {
     Error
   },
   created () {
-    this.$cookies.set("shopman_session","25j_7Sl6xDq2Kc3ym0fmrSSk2xV2XkUkX")
     let items = JSON.parse(localStorage.getItem("cart"))
     if (items.length > 0) {
     this.$store.commit("setCartReload", items)

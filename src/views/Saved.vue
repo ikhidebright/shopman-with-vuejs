@@ -172,7 +172,7 @@ a {
 
 .maindash {
   background-color: #f1f1f1;
-  height: 100vh
+  height: auto
 }
 
 .sec {

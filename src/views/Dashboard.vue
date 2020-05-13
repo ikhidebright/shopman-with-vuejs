@@ -4,7 +4,7 @@
   <br>
   <div class='d-lg-flex d-sm-flex flex-sm-column flex-lg-row mt-5'>
    <div class='mt-sm-2 mt-lg-0'>
-   <div class='ml-lg-3 third'>
+   <div class='ml-lg-3 third mb-3'>
       <b-link class="dropdown-item acc" to="/dashboard"><i class="fas fa-user mr-3"></i> My Shopman Account</b-link>
       <b-link class="dropdown-item" to="/orders"><i class="fas fa-box mr-3"></i>Orders</b-link>
       <b-link class="dropdown-item" to="saved"><i class="fas fa-heart mr-3"></i>Saved Items</b-link>
@@ -172,7 +172,7 @@ a {
 
 .maindash {
   background-color: #f1f1f1;
-  height: 100vh
+  height: auto
 }
 
 .sec {
@@ -328,7 +328,6 @@ font-size: 20px
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   width: 100%;
-  margin-top: 1rem;
   font-weight: 600;
   border-bottom: 1px solid #f2f2f2
 }

@@ -24,7 +24,7 @@
   <p class='price mt-n3'>₦ {{ pitem[0].price }} </p>
    <p class='oldprice mt-n3'>₦ 7,650 - ₦ 7,890 </p>
    <div>
-  <b-button v-b-modal.modal-center class="add d-none d-lg-block" @click="addtocart(pitem[0])"><i class="fas fa-cart-plus"></i> ADD TO CART</b-button>
+  <b-button v-b-modal.modal-center class="add d-none d-lg-block d-xl-block d-md-block d-sm-block" @click="addtocart(pitem[0])"><i class="fas fa-cart-plus"></i> ADD TO CART</b-button>
   <b-modal id="modal-center" ref="modal-center" centered title="Added to Cart" hide-footer hide-header>
   <h4>Added to Cart</h4>
   <br>

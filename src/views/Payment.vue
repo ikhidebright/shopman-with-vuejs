@@ -43,22 +43,59 @@ Card payments are supported by all banks.
 <br>
 <br>
 
+
 <div>
- <p>
- Subtotal
+ <div class="priceDetails">
+
+<!-- style Subtotal -->
+
+<div class='d-flex'>
+<p>
+Subtotal
+</p>
+
+<p class='ml-auto'>
 ₦ {{ totalPrice }}
 </p>
+</div>
 
 
+<!-- style Shipping amount -->
+
+<div class='d-flex'>
 <p>
 Shipping amount
-₦ {{ shippingAmount }}
 </p>
 
+<p class='ml-auto'>
+<b>
+₦ {{ shippingAmount }}
+</b>
+</p>
+</div>
+</div>
+
+
+<div class='border-bottom pb-2 mb-1 mt-n2'></div>
+
+<div class="priceDetails mb-n1">
+<!-- style total payment -->
+<div class='d-flex'>
 <p>
+<b>
 Total
+</b>
+</p>
+
+<p class='ml-auto totalPay'>
 ₦ {{ totalPayment }}
 </p>
+</div>
+
+
+ </div>
+
+
  </div>
 <div>
   <button block class="add" style="background: #ff9900; 
@@ -74,29 +111,62 @@ Total
  </div>
  </div>
 <div>
-<h6 class="ml-3 mb-3">ORDER SUMMARY</h6>
+<h6 class="ml-3 mb-3 d-none d-lg-block d-xl-block d-md-block d-sm-block">ORDER SUMMARY</h6>
+<h6 class="mb-3 d-lg-none d-xl-none d-md-none d-sm-none mt-3">ORDER SUMMARY</h6>
    <div class='mt-sm-2 mt-lg-0'>
      <div class='ml-lg-3 hee'>YOUR ORDER ({{ cartQty }} items)</div>
    <div class='ml-lg-3 third'>
     <div class="">
     <CheckOutCartItem v-for="cart in cartitem" :key="cart.id" :cart="cart"/>
  </div>
- <div>
- <p>
- Subtotal
+ <div class="priceDetails">
+
+<!-- style Subtotal -->
+
+<div class='d-flex'>
+<p>
+Subtotal
+</p>
+
+<p class='ml-auto'>
 ₦ {{ totalPrice }}
 </p>
+</div>
 
 
+<!-- style Shipping amount -->
+
+<div class='d-flex'>
 <p>
 Shipping amount
-₦ {{ shippingAmount }}
 </p>
 
+<p class='ml-auto'>
+<b>
+₦ {{ shippingAmount }}
+</b>
+</p>
+</div>
+</div>
+
+
+<div class='border-bottom pb-2 mb-1 mt-n3'></div>
+
+<div class="priceDetails mb-n3">
+<!-- style total payment -->
+<div class='d-flex'>
 <p>
+<b>
 Total
+</b>
+</p>
+
+<p class='ml-auto totalPay'>
 ₦ {{ totalPayment }}
 </p>
+</div>
+
+
  </div>
 
 
@@ -175,8 +245,19 @@ export default {
 </script>
 
 <style scoped>
+.priceDetails {
+  width: 89%;
+  margin: 0 auto
+}
+
+.totalPay {
+  color: #f68B1E;
+  font-size: 17px;
+  font-weight: 600
+}
+
 .changepassword2 {
-    background-color: #f1f1f1;
+  background-color: #f1f1f1;
   color: #f68B1E;
   border: none;
   border-radius: 0.5vmin;

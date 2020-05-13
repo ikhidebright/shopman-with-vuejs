@@ -20,8 +20,8 @@
   <CartItem :cart="cart"/>
   </div>
   <b-col lg="10" md="10" xl="10">
-  <b-row align-h="end">
-   <div class="text-right ml-n2" v-if="this.$store.state.cart.length > 0">
+  <b-row align-h="end" class="mr-0">
+   <div class="text-right mr-1" v-if="this.$store.state.cart.length > 0">
   <h5>Total:	₦ {{ totalPrice }} </h5>
  Shipping fees not included yet <br> 
  Customs Fee not included yet
@@ -31,10 +31,10 @@
 </b-container>
    <div class='cartActions' v-if="this.$store.state.cart.length > 0">
    <b-container>
-   <b-col lg="12" md="12" xl="12">
-   <b-row align-h="end">
-  <div class='d-lg-flex d-sm-flex flex-sm-row flex-lg-row d-xs-block'>
-    <b-button class="add1" to="/" @click="hideModal">CONTINUE SHOPPING</b-button>
+   <b-col lg="12" md="12" xl="12" xs="12">
+   <b-row align-h="end" class="mr-5">
+  <div class='d-lg-flex d-sm-flex flex-sm-row flex-lg-row d-xs-block mr-5'>
+    <b-button class="add1 mb-2" to="/" @click="hideModal">CONTINUE SHOPPING</b-button>
     <button to="/checkout" class="add" v-if="this.$store.state.loggedIn">PROCEED TO CHECKOUT</button>
     <b-button to="/login" v-if="!this.$store.state.loggedIn" class="add">PROCEED TO CHECKOUT</b-button>
   </div>
@@ -95,18 +95,19 @@ export default {
 
 
 .add {
-  width: auto;
+  width: 150%;
   background: #ff9900;
   color: white;
   border: none;
   border-radius: 4px;
+  margin-bottom: 3rem;
   box-shadow: 0px 0px 10px 0px #e5e5e5;
   height: 48px;
   font-weight: bold
 }
 
 .add1 {
-  width: auto;
+  width: 150%;
   background: #fff;
   color: #ff9900;
   border: none;
@@ -129,7 +130,7 @@ export default {
 .home {
   background-color:#f5f5f5;
   color: #555555;
-  height: auto
+  height: auto;
 }
 
 .bigpic {

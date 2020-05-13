@@ -95,7 +95,6 @@ Total
 
  </div>
 
-
  </div>
 <div>
   <button block class="add" style="background: #ff9900; 

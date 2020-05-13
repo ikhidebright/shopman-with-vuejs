@@ -4,7 +4,7 @@
   <br>
   <div class='d-lg-flex d-sm-flex flex-sm-column flex-lg-row mt-5'>
    <div class='mt-sm-2 mt-lg-0'>
-   <div class='ml-lg-3 third'>
+   <div class='ml-lg-3 third mb-3'>
       <b-link class="dropdown-item" to="/dashboard"><i class="fas fa-user mr-3"></i> My Shopman Account</b-link>
       <b-link class="dropdown-item" to="/orders"><i class="fas fa-box mr-3"></i>Orders</b-link>
       <b-link class="dropdown-item" to="saved"><i class="fas fa-heart mr-3"></i>Saved Items</b-link>
@@ -116,7 +116,7 @@ export default {
 <style scoped>
 
 .passch {
-  width: 400px
+  width: 100%
 }
 
 .changepassword {
@@ -405,6 +405,11 @@ p {
 
 
 @media only screen and (min-width: 600px) {
+
+.passch {
+  width: 480px
+}
+
 
 .add1 {
   width: 100%;

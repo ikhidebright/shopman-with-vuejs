@@ -8,12 +8,11 @@
      <div class='hee2 mt-3'><h6><i class="fas fa-check-circle done mr-2"></i> 1. ADDRESS DETAILS</h6></div>
    <div class='third2'>
  <p>
-<b>bright ikhide</b>
+<b>{{ user.first_name }} {{ user.last_name }}</b>
 <br>
-Opposite. Railway Station Bassan Airport Village, Abuja, ABUJA AIRPORT <br> 
-ROAD- SAUKA/IMMIGRATION HQ, Federal Capital Territory
+{{ user.address }}
 <br>
-+2349067998961
+{{ user.phone }}
 </p>
  </div>
  <div>
@@ -145,6 +144,10 @@ export default {
     // get cart qty 
     cartQty () {
       return this.$store.getters.getCartQty
+    },
+    // get user details
+    user () {
+    return this.$store.state.user
     },
      // get Shipping amount
     shippingAmount () {

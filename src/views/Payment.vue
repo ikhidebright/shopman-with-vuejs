@@ -8,7 +8,7 @@
      <div class='hee2 mt-3'><h6><i class="fas fa-check-circle done mr-2"></i>1. ADDRESS DETAILS</h6></div>
    <div class='third2'>
  <p>
-<b>bright ikhide</b>
+<b>{{ user.first_name }} {{ user.last_name }}</b>
 <br>
 Opposite. Railway Station Bassan Airport Village, Abuja, ABUJA AIRPORT <br> 
 ROAD- SAUKA/IMMIGRATION HQ, Federal Capital Territory
@@ -216,6 +216,9 @@ export default {
   }
   },
    computed: {
+     user () {
+    return this.$store.state.user
+    },
     // get cart order
     cartitem () {
       return this.$store.state.cart

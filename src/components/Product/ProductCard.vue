@@ -54,8 +54,8 @@ p {
 }
 
 .product:hover {
-  background-color: #f1f1f1;
-  border-radius: 5px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px #e5e5e5;
 } 
 
 

@@ -130,7 +130,7 @@ export default {
 .home {
   background-color:#f5f5f5;
   color: #555555;
-  height: auto;
+  height: 100vh;
 }
 
 .bigpic {
@@ -218,7 +218,7 @@ a:hover {
 .home {
   background-color:#f5f5f5;
   color: #555555;
-  height: auto
+  height: 100vh
 }
 
 .bigpic {

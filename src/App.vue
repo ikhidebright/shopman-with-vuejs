@@ -9,6 +9,7 @@
 <script>
 import Header from '@/components/Header.vue'
 import Error from '@/components/Error.vue'
+import axios from "axios"
 
 export default {
   name: 'App',
@@ -16,7 +17,16 @@ export default {
     Header,
     Error
   },
+  methods: {
+     async authUser () {
+    let user = await axios.get("http://localhost:6060/authuser", {
+      headers: { Authorization: this.$cookies.get("sp_tk")},
+      })
+      this.$store.commit("setUser", user.data)
+    }
+  },
   created () {
+    this.authUser()
     let items = JSON.parse(localStorage.getItem("cart"))
     if (items.length > 0) {
     this.$store.commit("setCartReload", items)

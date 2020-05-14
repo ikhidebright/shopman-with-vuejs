@@ -41,12 +41,12 @@ export default {
 
 <style scoped>
 .home {
-  background-color: #f1f1f1
+  background: url("https://ng.jumia.is/cms/Homepage/2020/W19/Ramdan_BG_2.jpg")
 }
 
 @media only screen and (min-width: 600px) {
 .home {
-  background-color: #ff9900
+  background: url("https://ng.jumia.is/cms/Homepage/2020/W19/Ramdan_BG_2.jpg")
 }
 
 }

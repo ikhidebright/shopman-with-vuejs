@@ -5,7 +5,7 @@ const clientApi = axios.create({
     withCredentials: false,
     headers: {
         Accept: 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
     }
 })
 
@@ -15,5 +15,8 @@ export default {
     },
     loginUser (userData) {
         return clientApi.post('/login', userData)
+    },
+    authUser () {
+        return clientApi.post('/authuser')
     }
 }

@@ -5,52 +5,49 @@
   <div class='d-lg-flex d-sm-flex flex-sm-column flex-lg-row mt-5'>
    <div class='mt-sm-2 mt-lg-0'>
    <div class='ml-lg-3 third mb-3'>
-      <b-link class="dropdown-item acc" to="/dashboard"><i class="fas fa-user mr-3"></i> My Shopman Account</b-link>
+      <b-link class="dropdown-item" to="/dashboard"><i class="fas fa-user mr-3"></i> My Shopman Account</b-link>
       <b-link class="dropdown-item" to="/orders"><i class="fas fa-box mr-3"></i>Orders</b-link>
       <b-link class="dropdown-item" to="saved"><i class="fas fa-heart mr-3"></i>Saved Items</b-link>
       <div class="dropdown-divider"></div>
-      <b-link class="dropdown-item" to="address">Address Book</b-link>
+      <b-link class="dropdown-item acc" to="address">Address Book</b-link>
       <b-link class="dropdown-item" to="changepass">Change Password</b-link>
       <div class="dropdown-divider"></div>
       <p class='text-center'><button class='mb-2 changepassword2'>LOGOUT</button></p>
  </div>
    </div>
- 
-  
 <div class='d-lg-flex d-sm-flex flex-sm-column flex-lg-row details'>
 <div>
-<p class='mx-3 sidehead'>Account Overview</p>
-   <div class='ml-lg-3 sec mt-n1'>
-  <p class='hee'>ACCOUNT DETAILS <i class="fas fa-pencil-alt float-right"></i></p>
-  
-  <p class='mx-3'>{{ user.first_name }} {{ user.last_name }}</p>
-
-<p class='ml-3 addd'> {{ user.email }} </p>
-
-<button class='mx-3 mt-4 changepassword'>CHANGE PASSWORD</button>
- </div>
-
- <div class='ml-lg-3 sec mt-3'>
-  <p class='hee'>NEWSLETTER PREFERENCES <i class="fas fa-pencil-alt float-right"></i></p>
-  
-  <p class='mx-3'>You are currently subscribed to following newsletters:</p>
-
-<p class='mx-3 addd mt-5'>&#10003; daily newsletters</p>
- </div>
-  </div>
-  
-  <div class='ml-lg-3 sec mt-4 mt-5 mt-3'>
-  <p class='hee'>ADDRESS BOOK <i class="fas fa-pencil-alt float-right"></i></p>
-  
-  <p class='mx-3'>Your default shipping address:</p>
-
-<p class='mx-3 addd'>{{ user.first_name }} {{ user.last_name }}
-<br>
-
-{{ user.address }}
-
-{{ user.phone }}</p>
- </div>
+<p class='mx-3 sidehead'>Add Address</p>
+    <div class="passch">
+     <b-container>
+    <br>
+    <b-form @submit="login">
+      <b-form-group
+        id="input-group-1"
+        label=""
+        label-for="input-1"
+      >
+        <b-form-input
+          id="input-1"
+          v-model="address"
+          type="password"
+          required
+          placeholder="Address"
+        ></b-form-input>
+      </b-form-group>
+      <br>
+      <b-button type="submit" block class="add" 
+      style="background: #ff9900; 
+      color: white;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px 0px #e5e5e5;
+  height: 48px;
+  font-weight: bold">SUBMIT</b-button>
+    </b-form>
+     </b-container>
+    </div>
+    </div>
  </div>
   </div>
 
@@ -87,9 +84,6 @@ export default {
     ProductCard2
   },
   computed: {
-    user () {
-    return this.$store.state.user
-    },
     products () {
     return this.$store.state.products
     }
@@ -98,6 +92,10 @@ export default {
 </script>
 
 <style scoped>
+
+.passch {
+  width: 100%
+}
 
 .changepassword {
   background: white; 
@@ -328,6 +326,7 @@ font-size: 20px
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   width: 100%;
+  margin-top: 1rem;
   font-weight: 600;
   border-bottom: 1px solid #f2f2f2
 }
@@ -384,6 +383,11 @@ p {
 
 
 @media only screen and (min-width: 600px) {
+
+.passch {
+  width: 480px
+}
+
 
 .add1 {
   width: 100%;

@@ -11,6 +11,9 @@ import Orders from '../views/Orders.vue'
 import Saved from '../views/Saved.vue'
 import CheckOut from '../views/CheckOut.vue'
 import Payment from '../views/Payment.vue'
+import Address from '../views/Address.vue'
+import Category from '../views/Category.vue'
+import store from '@/store/index.js'
 
 Vue.use(VueRouter)
 
@@ -21,34 +24,88 @@ const routes = [
     component: Home
   },
   {
+    path: '/address',
+    name: 'Address',
+    component: Address,
+    beforeEnter (to, from, next) {
+      if(store.state.loggedIn) {
+        next()
+      } else {
+        next("/login")
+      }
+    }
+  },
+  {
     path: '/checkout',
     name: 'CheckOut',
-    component: CheckOut 
+    component: CheckOut,
+    beforeEnter (to, from, next) {
+      if(store.state.loggedIn) {
+        next()
+      } else {
+        next("/login")
+      }
+    }
   },
   {
     path: '/payment',
     name: 'Payment',
-    component: Payment
+    component: Payment,
+    beforeEnter (to, from, next) {
+      if(store.state.loggedIn) {
+        next()
+      } else {
+        next("/login")
+      }
+    }
   },
   {
     path: '/saved',
     name: 'Saved',
-    component: Saved
+    component: Saved,
+    beforeEnter (to, from, next) {
+      if(store.state.loggedIn) {
+        next()
+      } else {
+        next("/login")
+      }
+    }
   },
   {
     path: '/orders',
     name: 'Orders',
-    component: Orders
+    component: Orders,
+    beforeEnter (to, from, next) {
+      if(store.state.loggedIn) {
+        next()
+      } else {
+        next("/login")
+      }
+    }
   },
   {
     path: '/changepass',
     name: 'ChangePassword',
-    component: ChangePassword
+    component: ChangePassword,
+    beforeEnter (to, from, next) {
+      if(store.state.loggedIn) {
+        next()
+      } else {
+        next("/login")
+      }
+    }
   },
   {
     path: '/dashboard',
     name: 'Dashboard',
-    component: Dashboard
+    component: Dashboard,
+    beforeEnter (to, from, next) {
+      if(store.state.loggedIn) {
+        next()
+      } else {
+        next("/login")
+      }
+    }
   },
   {
     path: '/product/:id-:name',
@@ -56,14 +113,33 @@ const routes = [
     component: Product
   },
   {
+    path: '/category/:name',
+    name: 'Category',
+    component: Category
+  },
+  {
     path: '/register',
     name: 'Register',
-    component: Register
+    component: Register,
+    beforeEnter (to, from, next) {
+      if(store.state.loggedIn) {
+        next("/dasboard")
+      } else {
+        next()
+      }
+    }
   },
   {
     path: '/login',
     name: 'Login',
-    component: Login
+    component: Login,
+    beforeEnter (to, from, next) {
+      if(store.state.loggedIn) {
+        next("/dasboard")
+      } else {
+        next()
+      }
+    }
   },
   {
     path: '/cart',

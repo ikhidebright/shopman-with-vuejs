@@ -8,6 +8,7 @@ export default new Vuex.Store({
     cart: [],
     loggedIn: false,
     successAlertMessage: null,
+    user: null,
     showSuccessAlert: false,
     errorAlertMessage: null,
     showErrrorAlert: false,
@@ -105,31 +106,48 @@ export default new Vuex.Store({
     setErrorAlert (state, item) {
       state.errorAlertMessage = item.errorMessage
       state.showErrrorAlert = item.showError
+    },
+    // set user
+    setUser (state, item) {
+      state.user = item
+      if (state.user) {
+        state.loggedIn = true
+      } else {
+        state.loggedIn = false
+      }
     }
   },
   getters: {
     // calculate total quantity in cart
     getCartQty (state) {
-      let totalQuantity = []
-             state.cart.forEach((item) => {
-             totalQuantity.push(item.quantity)
-      })
-      let total = totalQuantity.reduce((a, b) => {
-        return a + b
-      })
-      return total
+      if (state.cart.length < 1) {
+        return 0
+      } else {
+        let totalQuantity = []
+               state.cart.forEach((item) => {
+               totalQuantity.push(item.quantity)
+        })
+        let total = totalQuantity.reduce((a, b) => {
+          return a + b
+        })
+        return total
+      }
     },
 
     // calculate total price
     getTotalPrice (state) {
-      let totalPrice = []
-             state.cart.forEach((item) => {
-             totalPrice.push(item.subTotal)
-      })
-      let totalP = totalPrice.reduce((a, b) => {
-        return a + b
-      })
-      return totalP
+      if (state.cart.length < 1) {
+        return 0
+      } else {
+        let totalPrice = []
+               state.cart.forEach((item) => {
+               totalPrice.push(item.subTotal)
+        })
+        let totalP = totalPrice.reduce((a, b) => {
+          return a + b
+        })
+        return totalP
+      }
     }
   },
   actions: {

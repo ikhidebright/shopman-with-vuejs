@@ -13,6 +13,7 @@ import CheckOut from '../views/CheckOut.vue'
 import Payment from '../views/Payment.vue'
 import Address from '../views/Address.vue'
 import Category from '../views/Category.vue'
+import Recover from '../views/Recover.vue'
 import store from '@/store/index.js'
 
 Vue.use(VueRouter)
@@ -22,6 +23,11 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/recover',
+    name: 'Recover',
+    component: Recover
   },
   {
     path: '/address',
@@ -87,13 +93,13 @@ const routes = [
     path: '/changepass',
     name: 'ChangePassword',
     component: ChangePassword,
-    beforeEnter (to, from, next) {
-      if(store.state.loggedIn) {
-        next()
-      } else {
-        next("/login")
-      }
-    }
+    // beforeEnter (to, from, next) {
+    //   if(store.state.loggedIn) {
+    //     next()
+    //   } else {
+    //     next("/login")
+    //   }
+    // }
   },
   {
     path: '/dashboard',

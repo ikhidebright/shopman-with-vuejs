@@ -9,6 +9,7 @@ export default new Vuex.Store({
     loggedIn: false,
     successAlertMessage: null,
     user: null,
+    url: "http://localhost:6060",
     showSuccessAlert: false,
     errorAlertMessage: null,
     showErrrorAlert: false,

@@ -23,7 +23,7 @@
     <div class="passch">
      <b-container>
     <br>
-    <b-form @submit="login">
+    <b-form @submit="changePass">
       <b-form-group
         id="input-group-1"
         label=""
@@ -31,7 +31,7 @@
       >
         <b-form-input
           id="input-1"
-          v-model="oldpassword"
+          v-model="password"
           type="password"
           required
           placeholder="Current Password"
@@ -41,7 +41,7 @@
       <b-form-group id="input-group-2" label="" label-for="input-2">
         <b-form-input
           id="input-2"
-          v-model="password"
+          v-model="newpassword"
           type="password"
           required
           placeholder="New Password"
@@ -51,14 +51,14 @@
  <b-form-group id="input-group-2" label="" label-for="input-2">
         <b-form-input
           id="input-2"
-          v-model="cpassword"
+          v-model="cnewpassword"
           type="password"
           required
           placeholder="Retype New Password"
         ></b-form-input>
       </b-form-group>
       <br>
-      <b-button type="submit" block class="add" 
+      <b-button :disabled="cnewpassword != newpassword || newpassword != cnewpassword"type="submit" block class="add" 
       style="background: #ff9900; 
       color: white;
   border: none;
@@ -97,10 +97,14 @@
 
 <script>
 import ProductCard2 from '@/components/Product/ProductCard2.vue'
+import axios from "axios"
 
 export default {
   name: 'Home',
   data: () => ({
+    password: '',
+    newpassword: '',
+    cnewpassword: '',
   }),
   components: {
     ProductCard2
@@ -108,6 +112,37 @@ export default {
   computed: {
     products () {
     return this.$store.state.products
+    },
+    user () {
+    return this.$store.state.user
+    }
+  },
+  methods: {
+    showError (message, show) {
+        let item = {
+          errorMessage: message,
+          showError: show
+        }
+        this.$store.commit("setErrorAlert", item)
+    },
+      showSuccess (message, show) {
+        let item = {
+          successMessage: message,
+          showSuccess: show
+        }
+        this.$store.commit("setSuccessAlert", item)
+      },
+    async changePass (evt) {
+        evt.preventDefault()
+    let user = await axios.post(`http://localhost:6060/updatepassword/${this.user.id}`, {
+       password: this.password,
+       newpassword: this.newpassword
+      })
+      if (user.status === 200 && user.data.result.affectedRows === 1) {
+        this.showSuccess(user.data.message, true)
+      } else {
+        this.showError(user.data.message, true)
+      }
     }
   }
 }

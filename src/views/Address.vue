@@ -79,6 +79,7 @@ import ProductCard2 from '@/components/Product/ProductCard2.vue'
 export default {
   name: 'Home',
   data: () => ({
+    address: ''
   }),
   components: {
     ProductCard2
@@ -87,6 +88,23 @@ export default {
     products () {
     return this.$store.state.products
     }
+  },
+  methods: {
+    async changeaddress(evt) {
+        evt.preventDefault()
+        try {
+        let res = await axios.post(`http://localhost:6060/updateaddress/${this.user.id}`, {
+          address: this.address,
+        })
+          if (res.status === 200 && res.data.success === true) {
+              this.$router.push("/dashboard")
+          } else {
+              this.showError(res.data.message, true)
+          }
+        } catch (e) {
+          this.showError('Sorry an Error occured', true)
+        }
+      },
   }
 }
 </script>

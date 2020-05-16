@@ -7,6 +7,7 @@
   <div class="bar2"></div>
   <div class="bar3"></div>
 </div>
+
   <a class="navbar-brand" href="http://localhost:8080">Shopman</a>
 
   <b-button variant="p" to="/cart">

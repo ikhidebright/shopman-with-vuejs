@@ -124,9 +124,9 @@ export default {
    },
   methods: {
     setCart () {
-      let qty = this.$store.getters.setCartQty()
-      this.$store.commit("setCartItemQty", qty) 
-      alert(qty)
+      let qty = this.$store.getters.setCartQty
+      // this.$store.commit("setCartItemQty", qty) 
+      // alert(qty)
     },
     addtocart (x) {
       let itemExist = false;

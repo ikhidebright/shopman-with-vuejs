@@ -23,15 +23,16 @@ export default {
       headers: { Authorization: this.$cookies.get("sp_tk")},
       })
       this.$store.commit("setUser", user.data)
+      console.log(user.data)
     }
   },
   created () {
     this.authUser()
     let items = JSON.parse(localStorage.getItem("cart"))
-    if (items.length > 0) {
+    if (items != null) {
     this.$store.commit("setCartReload", items)
     } else {
-      console.log("No items")
+      // console.log("No items")
     }
   }
 }

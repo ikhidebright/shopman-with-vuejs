@@ -35,8 +35,7 @@
    <b-row align-h="end" class="mr-5">
   <div class='d-lg-flex d-sm-flex flex-sm-row flex-lg-row d-xs-block mr-5'>
     <b-button class="add1 mb-2" to="/" @click="hideModal">CONTINUE SHOPPING</b-button>
-    <button to="/checkout" class="add" v-if="this.$store.state.loggedIn">PROCEED TO CHECKOUT</button>
-    <b-button to="/login" v-if="!this.$store.state.loggedIn" class="add">PROCEED TO CHECKOUT</b-button>
+    <b-button to="/checkout" class="add">PROCEED TO CHECKOUT</b-button>
   </div>
   </b-row>
   </b-col>

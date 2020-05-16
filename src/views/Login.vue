@@ -37,18 +37,16 @@
       <b-form-group id="input-group-4">
         <b-form-checkbox-group v-model="checked" id="checkboxes-4">
           <b-form-checkbox class="mr-5" value="me">Remember password</b-form-checkbox>
-          <router-link to='' class="ml-5">Forgot password?</router-link>
+          <router-link to='/recover' class="ml-5">Forgot password?</router-link>
         </b-form-checkbox-group>
       </b-form-group>
-<br>
       <b-button type="submit" block class="add" 
       style="background: #ff9900; 
       color: white;
   border: none;
   border-radius: 4px;
-  box-shadow: 0px 0px 10px 0px #e5e5e5;
-  height: 48px;
-  font-weight: bold"><i class="fas fa-envelope"></i>LOGIN</b-button>
+  box-shadow: 0px 10px 20px 20px #e5e5e5;
+  height: 48px"><i class="fas fa-envelope"></i>LOGIN</b-button>
     </b-form>
     </div>
 
@@ -64,14 +62,12 @@
     <br>
     <br>
     <br>
-    <br>
     <b-button to="/register" block class="add mt-1" style="background: #ff9900; 
       color: white;
   border: none;
   border-radius: 4px;
-  box-shadow: 0px 0px 10px 0px #e5e5e5;
-  height: 48px;
-  font-weight: bold"><i class="fas fa-envelope"></i> 
+  box-shadow: 0px 10px 20px 20px #e5e5e5;
+  height: 48px"><i class="fas fa-envelope"></i> 
     CREATE AN ACCOUNT VIA E-MAIL</b-button>
     </div>
     </div>
@@ -114,18 +110,16 @@
       <b-form-group id="input-group-4">
         <b-form-checkbox-group v-model="checked" id="checkboxes-4">
           <b-form-checkbox class="mr-5" value="me">Remember password</b-form-checkbox>
-          <router-link to='' class="ml-5">Forgot password?</router-link>
+          <router-link to='/recover' class="ml-5">Forgot password?</router-link>
         </b-form-checkbox-group>
       </b-form-group>
-<br>
       <b-button type="submit" block class="add" 
       style="background: #ff9900; 
       color: white;
   border: none;
   border-radius: 4px;
-  box-shadow: 0px 0px 10px 0px #e5e5e5;
-  height: 48px;
-  font-weight: bold"><i class="fas fa-envelope"></i>LOGIN</b-button>
+  box-shadow: 0px 10px 20px 20px #e5e5e5;
+  height: 48px"><i class="fas fa-envelope"></i>LOGIN</b-button>
     </b-form>
      </b-container>
     </div>
@@ -193,9 +187,8 @@
       color: white;
   border: none;
   border-radius: 4px;
-  box-shadow: 0px 0px 10px 0px #e5e5e5;
-  height: 48px;
-  font-weight: bold">REGISTER</b-button>
+  box-shadow: 0px 10px 20px 20px #e5e5e5;
+  height: 48px">REGISTER</b-button>
     </b-form>
     </b-container>
     </div>
@@ -239,6 +232,7 @@ import clientApi from '@/Services/EventService.js'
         let res = await clientApi.loginUser(userData)
           if (res.status === 200 && res.data.success === true) {
               this.$cookies.set("sp_tk", res.data.token, "12d")
+              this.$store.commit("setUser", res.data.data)
               this.$router.push("/dashboard")
           } else {
               this.showError(res.data.message, true)

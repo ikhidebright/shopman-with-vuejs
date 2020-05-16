@@ -1,7 +1,7 @@
 <template>
 <b-container fluid="sm">
-  <div class="mt-1 card">
-  <div class='head d-flex mb-4'>
+  <div class="card">
+  <div class='head d-flex mb-2 mt-n3 mb-2'>
  <div class='he'>Breakfast </div>
  <div class='ml-auto mr-3 see'>SEE ALL</div>
   </div>

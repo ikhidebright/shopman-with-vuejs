@@ -27,7 +27,7 @@
 
 <p class='ml-3 addd'> {{ user.email }} </p>
 
-<button class='mx-3 mt-4 changepassword'>CHANGE PASSWORD</button>
+<b-button class='mx-3 mt-4 changepassword' to="changepass">CHANGE PASSWORD</b-button>
  </div>
 
  <div class='ml-lg-3 sec mt-3'>

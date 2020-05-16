@@ -70,8 +70,7 @@
        border: none;
        border-radius: 4px;
        box-shadow: 0px 0px 10px 0px #e5e5e5;
-       height: 48px;
-       font-weight: bold"
+       height: 48px"
        >REGISTER
        </b-button>
     </b-form>
@@ -122,7 +121,9 @@ import clientApi from '@/Services/EventService.js'
         }
         let res = await clientApi.registerUser(userData)
           if (res.status === 200 && res.data.success === true && res.data.data.result.affectedRows === 1) {
-              this.$router.push("/login")
+              this.$cookies.set("sp_tk", res.data.token, "12d")
+              this.$store.commit("setUser", res.data.user)
+              this.$router.push("/address")
           } else if (res.data.email === true) {
               this.validation = false
               this.showError(res.data.message, true)

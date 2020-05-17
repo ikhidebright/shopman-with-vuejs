@@ -5,12 +5,52 @@
       ">
         <b-navbar-brand style="font-size: 30px" href="/">Shopman</b-navbar-brand>
 
-        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+ <!-- mo -->
+           <b-nav-item-dropdown right class="head3 mt-n6" dark v-if="!loggedIn">
+              <!-- Using 'button-content' slot -->
+              <template v-slot:button-content>
+              <span id="user">
+              <i class="far fa-user"></i>
+              </span>
+              </template>
+              <b-button size="sm" class="pa-4" type="submit" block variant to="/login" id="login">LOGIN</b-button>
+              <p class="text-center mt-3">or</p>
+              <b-button size="sm" class="mt-n2" type="submit" to="/register" block variant id="register">REGISTER</b-button>
+              <div class="dropdown-divider mt-3"></div>
+              <b-link class="dropdown-item acc" to="/dashboard"><i class="fas fa-user mr-3"></i>Account</b-link>
+              <b-link class="dropdown-item" to="/orders"><i class="fas fa-box mr-3"></i>Orders</b-link>
+              <b-link class="dropdown-item" to="saved"><i class="fas fa-heart mr-3"></i>Saved Items</b-link>
+              </b-nav-item-dropdown>
+
+              <b-nav-item-dropdown right class="head3" dark v-if="loggedIn">
+              <!-- Using 'button-content' slot -->
+              <template v-slot:button-content>
+              <i class="fas fa-user"></i>
+              </template>
+              <b-link class="dropdown-item acc" to="/dashboard"><i class="fas fa-user mr-3"></i>Account</b-link>
+              <b-link class="dropdown-item" to="/orders"><i class="fas fa-box mr-3"></i>Orders</b-link>
+              <b-link class="dropdown-item" to="saved"><i class="fas fa-heart mr-3"></i>Saved Items</b-link>
+              <div class="dropdown-divider mt-3"></div>
+               <b-button size="sm" class="mt-2" type="submit" to="/register" block variant id="register">LOGOUT</b-button>
+              </b-nav-item-dropdown>
+
+              <b-navbar-nav class="head2">
+              <b-nav-item to="/cart">
+                <span id="cart">
+                  <i class="fas fa-cart-plus mr-2 ml-3"></i>
+                 <span class="cartc"> {{ cartcount }} </span>
+                </span>
+              </b-nav-item>
+            </b-navbar-nav>
+
 
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav></b-navbar-nav>
 
           <!-- Right aligned nav items -->
+
+
+         
           <b-navbar-nav class="ml-5">
             <b-nav-form @submit="search">
               <input
@@ -105,6 +145,10 @@ export default {
 </script>
 
 <style>
+
+.cart {
+  margin: -12px
+}
 
 b-link:hover {
   color: #f68B1E !important

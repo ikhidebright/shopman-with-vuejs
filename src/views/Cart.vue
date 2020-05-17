@@ -129,7 +129,7 @@ export default {
 .home {
   background-color:#f5f5f5;
   color: #555555;
-  height: 100vh;
+  height: auto;
 }
 
 .bigpic {

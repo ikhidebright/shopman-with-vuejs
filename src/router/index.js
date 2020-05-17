@@ -14,6 +14,7 @@ import Payment from '../views/Payment.vue'
 import Address from '../views/Address.vue'
 import Category from '../views/Category.vue'
 import Recover from '../views/Recover.vue'
+import Search from '../views/Search.vue'
 import store from '@/store/index.js'
 
 Vue.use(VueRouter)
@@ -23,6 +24,12 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/search',
+    name: 'Search',
+    component: Search,
+    props: (route) => ({ query: route.query.q })
   },
   {
     path: '/recover',

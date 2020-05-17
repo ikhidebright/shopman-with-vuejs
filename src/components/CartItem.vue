@@ -1,10 +1,10 @@
 <template>
   <div class="hom mb-2">
-  <b-col lg="9" md="10" xl="10">
+  <b-col lg="9" md="10" xl="10" xs="12">
   <b-card bg-variant="white" text-variant="red">
   <div class='d-lg-flex d-sm-flex flex-sm-column flex-lg-row'>
   <!-- image & name -->
-  <div class='d-flex details border-right'>
+  <div class='d-flex details'>
   <img class='bigpic' :src="cart.img" />
   <div class="ml-2">
   <p ><b>{{ cart.name}}</b></p>
@@ -116,7 +116,48 @@ export default {
 }
 
 .details {
+  width: 100%;
+}
+
+
+a {
+  color: #f68b1e;
+  font-size: 13px
+}
+
+a:hover {
+  color: #f68b1e;
+  text-decoration: none
+}
+
+.fa-heart {
+  color: #f68b1e;
+  font-size: 13px;
+  margin-right: 1vmin
+}
+
+
+.fa-trash {
+  color: #f68b1e;
+  font-size: 13px;
+  margin-right: 1vmin;
+  margin-left: 2vmin
+}
+
+@media only screen and (min-width: 760px) {
+  
+.rightalign {
+  float: right
+}
+
+.bigpic {
+  width: 60px;
+  height: 60px
+}
+
+.details {
   width: 422px;
+  border-right: 1px solid gray
 }
 
 a {
@@ -141,5 +182,6 @@ a:hover {
   font-size: 13px;
   margin-right: 1vmin;
   margin-left: 2vmin
+}
 }
 </style>

@@ -1,10 +1,10 @@
 <template>
-  <div class="home">
+  <div class="home2">
     <div class="wrapper">
       <b-container
         fluid
         class="p-0 content-mt custom-container d-none d-md-block"
-        v-if="!smallScreen"
+        v-if="smallScreen"
       >
         <b-row class="m-0 py-3">
           <b-col
@@ -34,7 +34,7 @@
                 </b-list-group>
               </b-card>
             </b-card-group>
-          </b-col>
+          </b-col> 
           <b-col lg="8" sm="12" md="9">
             <b-row class="px-3 pb-3">
               <b-carousel
@@ -138,7 +138,7 @@
                 </b-card>
               </b-col>
             </b-row> -->
-            <b-row class="mt-3">
+         <!--   <b-row class="mt-3">
               <b-col cols="12" class="py-0">
                 <b-card
                   header="Flash Sales"
@@ -171,8 +171,8 @@
                   </b-row>
                 </b-card>
               </b-col>
-            </b-row>
-            <b-row class="mt-3">
+            </b-row> -->
+         <!--  <b-row class="mt-3">
               <b-col cols="12" class="py-0">
                 <b-card
                   header="Store Recommendation"
@@ -202,7 +202,7 @@
                         </b-card>
                       </a>
                     </b-col>
-                  </b-row>
+                  </b-row> -->
                 </b-card>
               </b-col>
             </b-row>

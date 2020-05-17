@@ -22,7 +22,7 @@
   <div class='ml-lg-3 sec'>
   <p class='pron'> {{ pitem[0].name }} </p>
   <p class='price mt-n3'>₦ {{ pitem[0].price }} </p>
-   <p class='oldprice mt-n3'>₦ 7,650 - ₦ 7,890 </p>
+   <p class='oldprice mt-n3'>₦ {{ pitem[0].price + 15530}} - ₦ {{ pitem[0].price + 22308}} </p>
    <div>
   <b-button v-b-modal.modal-center class="add d-none d-lg-block d-xl-block d-md-block d-sm-block" @click="addtocart(pitem[0])"><i class="fas fa-cart-plus"></i> ADD TO CART</b-button>
   <b-modal id="modal-center" ref="modal-center" centered title="Added to Cart" hide-footer hide-header>

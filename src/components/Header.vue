@@ -3,7 +3,7 @@
     <div>
       <b-navbar toggleable="lg" variant="faded" fixed="top" id="header" type="light
       ">
-        <b-navbar-brand style="font-size: 30px" href="/">CHERRY ONLINE SHOP</b-navbar-brand>
+        <b-navbar-brand style="font-size: 30px" href="/">Shopman</b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -12,55 +12,65 @@
 
           <!-- Right aligned nav items -->
           <b-navbar-nav class="ml-5">
-            <b-nav-form>
+            <b-nav-form @submit="search">
               <input
                 size="sm"
+                v-model="src"
                 id="in"
                 class="mr-sm-2"
                 placeholder=" Search products, brands, categories"
               />
-
               <b-button size="sm" class="my-2 my-sm-0" type="submit" variant id="search">SEARCH</b-button>
             </b-nav-form>
+            <b-nav-item-dropdown right class="head3" dark v-if="!loggedIn">
+              <!-- Using 'button-content' slot -->
+              <template v-slot:button-content>
+              <i class="fas fa-user mr-2"></i> Login
+              </template>
+              <b-button size="sm" class="pa-4" type="submit" block variant to="/login" id="login">LOGIN</b-button>
+              <p class="text-center mt-3">or</p>
+              <b-button size="sm" class="mt-n2" type="submit" to="/register" block variant id="register">REGISTER</b-button>
+              <div class="dropdown-divider mt-3"></div>
+              <b-link class="dropdown-item acc" to="/dashboard"><i class="fas fa-user mr-3"></i>Account</b-link>
+              <b-link class="dropdown-item" to="/orders"><i class="fas fa-box mr-3"></i>Orders</b-link>
+              <b-link class="dropdown-item" to="saved"><i class="fas fa-heart mr-3"></i>Saved Items</b-link>
+              </b-nav-item-dropdown>
+
+              <b-nav-item-dropdown right class="head3" dark v-if="loggedIn">
+              <!-- Using 'button-content' slot -->
+              <template v-slot:button-content>
+              <i class="fas fa-user mr-2"></i> Hi, {{ user.first_name }}
+              </template>
+              <b-link class="dropdown-item acc" to="/dashboard"><i class="fas fa-user mr-3"></i>Account</b-link>
+              <b-link class="dropdown-item" to="/orders"><i class="fas fa-box mr-3"></i>Orders</b-link>
+              <b-link class="dropdown-item" to="saved"><i class="fas fa-heart mr-3"></i>Saved Items</b-link>
+              <div class="dropdown-divider mt-3"></div>
+               <b-button size="sm" class="mt-2" type="submit" to="/register" block variant id="register">LOGOUT</b-button>
+              </b-nav-item-dropdown>
 
             <b-nav-item-dropdown right class="head1">
               <template v-slot:button-content>
-                <strong>Help?</strong>
+              <i class="far fa-question-circle mr-2"></i> Help
               </template>
               <b-dropdown-item href="#">Help Center?</b-dropdown-item>
               <b-dropdown-item href="#">How to shop on Cherry</b-dropdown-item>
               <b-dropdown-item href="#">How to pay on Cherry</b-dropdown-item>
               <b-dropdown-item href="#">How to use a Voucher</b-dropdown-item>
-              <b-dropdown-item href="#">Cherry Express</b-dropdown-item>
+              <b-dropdown-item href="#">Shopma Express</b-dropdown-item>
             </b-nav-item-dropdown>
 
+
             <b-navbar-nav class="head2">
-              <b-nav-item href="#">
-                <strong>Cart</strong>
+              <b-nav-item to="/cart">
                 <span id="cart">
-                  <i class="fas fa-cart-plus"></i>
-                  {{cartCount }}
+                  <i class="fas fa-cart-plus mr-2 ml-3"></i>
+                Cart
+                 <span class="cartc"> {{ cartcount }} </span>
                 </span>
               </b-nav-item>
             </b-navbar-nav>
 
-            <!-- <span id="cart">
-              <i class="fas fa-cart-plus"></i>
-              {{cartCount }} Cart
-            </span>-->
 
-            <b-nav-item-dropdown right class="head3" dark>
-              <!-- Using 'button-content' slot -->
-              <template v-slot:button-content>
-                <strong>Login</strong>
-              </template>
-              <b-dropdown-item href="/login">Log In</b-dropdown-item>
-              <b-dropdown-item>
-                <router-link to="/signup" style="color: black;">Sign Up</router-link>
-              </b-dropdown-item>
-              <b-dropdown-item href="#">Cart</b-dropdown-item>
-              <b-dropdown-item href="#">Sign Out</b-dropdown-item>
-            </b-nav-item-dropdown>
           </b-navbar-nav>
         </b-collapse>
       </b-navbar>
@@ -71,15 +81,91 @@
 <script>
 export default {
   name: "Header",
+  data: () => ({
+    src: ''
+  }),
+  methods: {
+    search (evt) {
+      evt.preventDefault()
+      this.$router.push({ path: 'search', query: { q: this.src } })
+    }
+  },
   computed: {
-    cartCount() {
-      return this.$store.state.cart.length;
+    cartcount () {
+      return this.$store.getters.getCartQty
+    },
+    user () {
+      return this.$store.state.user
+    },
+    loggedIn () {
+      return this.$store.state.loggedIn
     }
   }
 };
 </script>
 
 <style>
+
+b-link:hover {
+  color: #f68B1E !important
+}
+
+.cartc {
+  background: red; 
+  color: #ffffff;
+  padding: 0vmin 0.6vmin 0vmin 0.6vmin;
+  border-radius: 100%;
+  position: relative;
+  right: 8.5vmin;
+  bottom: 1.5vmin
+}
+
+#register {
+  background: white; 
+  color: #f68B1E;
+  width: 90%;
+  margin: 0 auto;
+  border: none;
+  border-radius: 0.5vmin;
+  font-weight: bold;
+}
+
+#register:hover {
+  background: #ffefd8; 
+  color: #ff9900;
+  border: none;
+  border-radius: 0.5vmin;
+  font-weight: bold;
+}
+
+#register:focus {
+ outline: none
+}
+
+#login {
+  background: #f68B1E; 
+  color: #ffffff;
+  width: 90%;
+  margin: 0 auto;
+  border: none;
+  border-radius: 0.5vmin;
+  padding: 1vmin;
+  font-weight: bold;
+}
+
+#login:hover {
+  border: none;
+  border-radius: 0.5vmin;
+  padding: 1vmin;
+  font-weight: bold;
+}
+
+#login:focus {
+ outline: none
+}
+
+
+
 #in {
   width: 500px;
   height: 40px;
@@ -99,6 +185,7 @@ export default {
   height: 45px;
   border-radius: 5px;
   color: white;
+  padding: 0 1vmin 0 1vmin;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   font-size: 14px;
   padding: 12px 16px;

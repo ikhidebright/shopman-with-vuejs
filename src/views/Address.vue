@@ -21,7 +21,7 @@
     <div class="passch">
      <b-container>
     <br>
-    <b-form @submit="login">
+    <b-form @submit.prevent="changeaddress">
       <b-form-group
         id="input-group-1"
         label=""
@@ -30,7 +30,7 @@
         <b-form-input
           id="input-1"
           v-model="address"
-          type="password"
+          type="text"
           required
           placeholder="Address"
         ></b-form-input>
@@ -42,8 +42,7 @@
   border: none;
   border-radius: 4px;
   box-shadow: 0px 0px 10px 0px #e5e5e5;
-  height: 48px;
-  font-weight: bold">SUBMIT</b-button>
+  height: 48px">SUBMIT</b-button>
     </b-form>
      </b-container>
     </div>
@@ -75,6 +74,7 @@
 
 <script>
 import ProductCard2 from '@/components/Product/ProductCard2.vue'
+import clientApi from '@/Services/EventService.js'
 
 export default {
   name: 'Home',
@@ -87,15 +87,24 @@ export default {
   computed: {
     products () {
     return this.$store.state.products
+    },
+    user () {
+    return this.$store.state.user
     }
   },
   methods: {
+      showError (message, show) {
+        let item = {
+          errorMessage: message,
+          showError: show
+        }
+        this.$store.commit("setErrorAlert", item)
+      },
     async changeaddress(evt) {
         evt.preventDefault()
         try {
-        let res = await axios.post(`http://localhost:6060/updateaddress/${this.user.id}`, {
-          address: this.address,
-        })
+        let res = await clientApi.editUserAddress(this.user.id, this.address)
+        console.log(res)
           if (res.status === 200 && res.data.success === true) {
               this.$router.push("/dashboard")
           } else {
@@ -103,6 +112,7 @@ export default {
           }
         } catch (e) {
           this.showError('Sorry an Error occured', true)
+          console.log(e)
         }
       },
   }

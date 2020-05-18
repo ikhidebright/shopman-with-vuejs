@@ -10,19 +10,34 @@ const clientApi = axios.create({
 })
 
 export default {
+
+    // register a user
     registerUser (userData) {
         return clientApi.post('/user', userData)
     },
+
+    // logi a user
     loginUser (userData) {
         return clientApi.post('/login', userData)
     },
+
+    // auth a user
     authUser () {
         return clientApi.post('/authuser')
     },
+
+    // get wishlist
     getSavedProduct (user_id) {
         return clientApi.get(`/wishlist/${user_id}`)
     },
+
+    // delete item from wishlist
     deleteSavedProduct (wishlist_id) {
         return clientApi.delete(`/wishlist/${wishlist_id}`)
-    }
+    },
+
+     // edit user address
+     editUserAddress (user_id, data) {
+        return clientApi.put(`/updateaddress/${user_id}`, data)
+    },
 }

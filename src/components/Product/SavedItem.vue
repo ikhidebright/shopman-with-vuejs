@@ -142,7 +142,6 @@ export default {
   },
   async deleteItem (x) {
     let res = await clientApi.deleteSavedProduct(x.id)
-    console.log(res)
     if (res.status === 200 && res.data.success === true) {
       this.showSuccess(`${x.name} removed from saved items`, true)
         let saved = await clientApi.getSavedProduct(this.user.id)

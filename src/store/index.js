@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import clientApi from '@/Services/EventService.js'
 
 Vue.use(Vuex)
 
@@ -157,6 +158,10 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    async setWishlist({ state, commit}) {
+      let saved = await clientApi.getSavedProduct(state.user.id)
+      commit("setSavedProducts", saved.data)
+    }
   },
   modules: {
   }

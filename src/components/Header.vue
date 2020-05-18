@@ -1,12 +1,14 @@
 <template>
-  <div class="head">
+  <div class="head pb-n3">
     <div>
       <b-navbar toggleable="lg" variant="faded" fixed="top" id="header" type="light
       ">
         <b-navbar-brand style="font-size: 30px" href="/">Shopman</b-navbar-brand>
 
  <!-- mo -->
-           <b-nav-item-dropdown right class="head3 mt-n0 mr-n4" dark v-if="!loggedIn">
+ <!-- actions for mobile-->
+<div class="d-flex d-lg-none d-xl-none d-md-none d-sm-none">
+           <b-nav-item-dropdown right class="head3 mt-n0 mr-n0" dark v-if="!loggedIn">
               <!-- Using 'button-content' slot -->
               <template v-slot:button-content>
               <span class="mt-n4">
@@ -22,7 +24,7 @@
               <b-link class="dropdown-item" to="saved"><i class="fas fa-heart mr-3"></i>Saved Items</b-link>
               </b-nav-item-dropdown>
 
-              <b-nav-item-dropdown right class="head3 mt-n0 mr-n4" dark v-if="loggedIn">
+              <b-nav-item-dropdown right class="head3 mt-n0 mr-n2" dark v-if="loggedIn">
               <!-- Using 'button-content' slot -->
               <template v-slot:button-content>
               <span id="">
@@ -43,6 +45,7 @@
                 </span>
               </b-nav-item>
             </b-navbar-nav>
+            </div>
 
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav></b-navbar-nav>

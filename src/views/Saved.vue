@@ -15,8 +15,6 @@
       <p class='text-center'><button class='mb-2 changepassword2'>LOGOUT</button></p>
  </div>
    </div>
- 
-  
 <div class='d-lg-flex d-sm-flex flex-sm-column flex-lg-row details'>
 <div style="width: 100%">
 <p class='mx-3 sidehead'>Saved Products</p>
@@ -153,7 +151,8 @@ a {
   background-color: white;
   padding: 1rem;
   width: 100%;
-  border-radius: 1vmin
+  border-radius: 1vmin;
+  margin-top: 6vmin
 }
 
 .pron {

@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state: {
     cart: [],
     loggedIn: false,
+    savedProducts: [],
     successAlertMessage: null,
     user: null,
     url: "http://localhost:6060",
@@ -97,6 +98,10 @@ export default new Vuex.Store({
     setRemoveItemCart(state, item) {
       state.cart = item
       localStorage.setItem("cart", JSON.stringify(state.cart))
+    },
+     // set saved product
+     setSavedProducts(state, item) {
+      state.savedProducts = item
     },
     // set success message
     setSuccessAlert (state, item) {

@@ -36,9 +36,8 @@
 
               <b-navbar-nav class="head2">
               <b-nav-item to="/cart">
-                <span id="cart">
-                  <i class="fas fa-cart-plus mr-2 ml-3"></i>
-                 <span class="cartc"> {{ cartcount }} </span>
+                <span id="">
+                  <CartIconM :cartcount="cartcount"/>
                 </span>
               </b-nav-item>
             </b-navbar-nav>
@@ -90,7 +89,7 @@
 
             <b-nav-item-dropdown right class="head1">
               <template v-slot:button-content>
-              <i class="far fa-question-circle mr-2"></i> Help
+              <i class="far fa-question-circle mr-0"></i> Help
               </template>
               <b-dropdown-item href="#">Help Center?</b-dropdown-item>
               <b-dropdown-item href="#">How to shop on Cherry</b-dropdown-item>
@@ -102,10 +101,8 @@
 
             <b-navbar-nav class="head2">
               <b-nav-item to="/cart">
-                <span id="cart">
-                  <i class="fas fa-cart-plus mr-2 ml-3"></i>
-                Cart
-                 <span class="cartc"> {{ cartcount }} </span>
+                <span id="">
+                  <CartIcon :cartcount="cartcount"/>
                 </span>
               </b-nav-item>
             </b-navbar-nav>
@@ -119,11 +116,18 @@
 </template>
 
 <script>
+import CartIcon from '../components/Product/CartIcon'
+import CartIconM from '../components/Product/CartIconM'
+
 export default {
   name: "Header",
   data: () => ({
     src: ''
   }),
+  components: {
+    CartIcon,
+    CartIconM
+  },
   methods: {
     search (evt) {
       evt.preventDefault()
@@ -144,7 +148,7 @@ export default {
 };
 </script>
 
-<style>
+<style scooped>
 
 .cart {
   margin: -12px

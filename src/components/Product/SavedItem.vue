@@ -1,24 +1,23 @@
 <template>
   <div class="hom mb-2">
-  <b-col lg="9" md="10" xl="10" xs="12">
+  <b-col lg="12" md="10" xl="10" xs="12">
   <b-card bg-variant="white" text-variant="red">
   <div class='d-lg-flex d-sm-flex flex-sm-column flex-lg-row'>
   <!-- image & name -->
   <div class='d-flex details'>
-  <img class='bigpic' :src="cart.img" />
+  <img class='bigpic' :src="item.thumb" />
   <div class="ml-2">
-  <p ><b>{{ cart.name}}</b></p>
-  <!-- price on mobile-->
-   <div class='mt-n3 d-lg-none d-xl-none d-md-none d-sm-none'>
-  ₦ {{ subTotal }}
+  <p ><b>{{ item.name }}</b></p>
+   <div class='mt-n3'>
+  ₦ {{ item.price }}
   </div>
-  <div class="d-none d-lg-block d-xl-block d-md-block d-sm-block">
+  <!--<div class="d-none d-lg-block d-xl-block d-md-block d-sm-block">
 <i class="fas fa-heart"></i>  <router-link to='' @click.native="save(cart)">MOVE TO SAVED ITEMS</router-link> <i class="fas fa-trash"></i>   <router-link to='' @click.native="remove(cart)">REMOVE</router-link>
-</div>
+</div> -->
   </div>
   </div>
   <!-- image & name -->
-  <div class='border-right pl-3 pr-3 pt-2 d-none d-lg-block d-xl-block d-md-block d-sm-block'>
+  <!--<div class='border-right pl-3 pr-3 pt-2 d-none d-lg-block d-xl-block d-md-block d-sm-block'>
   <b-form-select
       id="inline-form-custom-select-pref"
       class="mb-2 mr-sm-2 mb-sm-0"
@@ -27,21 +26,24 @@
       :value="null"
       @change="changeQty(quantity)"
     ></b-form-select>
-    </div>
-  <div class='border-right pl-5 pr-5 pt-3 d-none d-lg-block d-xl-block d-md-block d-sm-block'>
-  ₦ {{ cart.unitPrice }}
-  </div>
-  <div class='pl-5 pt-3 pl-5 d-none d-lg-block d-xl-block d-md-block d-sm-block'>
-  ₦ {{ subTotal }}
+    </div>-->
+  <!--<div class='border-right pl-5 pr-5 pt-3 d-none d-lg-block d-xl-block d-md-block d-sm-block'>
+  ₦ {{ item.price }}
+  </div> -->
+  <div class='ml-9 d-none d-lg-block d-xl-block d-md-block d-sm-block'>
+  <b-button size="sm" class="mb-3" type="submit" variant id="search" @click="addtocart(item)">BUY NOW</b-button>
+  
+  <b-button size="sm" class="mt-9 changepassword2" type="submit" variant @click='deleteItem(item)'><i class="fas fa-trash"></i> REMOVE</b-button>
   </div>
   
 
 <!-- actions for mobile-->
 <div class="d-flex d-lg-none d-xl-none d-md-none d-sm-none border-top mt-2 mb-n3">
- <div class='mt-3'>
- <router-link class="border-right pr-2" to='' @click.native="save(cart)"><i class="fas fa-heart"></i></router-link> <i class="fas fa-trash"></i>   <router-link to='' @click.native="remove(cart)">REMOVE</router-link>
-    </div>
-<div class='ml-auto mt-2'>
+  <b-button size="sm" class="mb-3 mt-3" type="submit" variant id="search2" @click="addtocart(item)">BUY NOW</b-button>
+  
+  <b-button size="sm" class="mt-9 ml-auto changepassword2" type="submit" variant @click='deleteItem(item)'><i class="fas fa-trash"></i> REMOVE</b-button>
+
+<!--<div class='ml-auto mt-2'>
   <b-form-select
       id="inline-form-custom-select-pref"
       class="mb-2 mr-sm-2 mb-sm-0"
@@ -50,8 +52,8 @@
       :value="null"
       @change="changeQty(quantity)"
     ></b-form-select>
-    </div>
-</div>
+    </div>-->
+</div> 
 
 
  </div>
@@ -62,10 +64,11 @@
 
 <script>
 import axios from "axios"
+import clientApi from '@/Services/EventService.js'
 
 export default {
   name: 'Home',
-  props: ["cart"],
+  props: ["item"],
   data: () => ({
     categories: null
   }),
@@ -88,9 +91,66 @@ export default {
     }
   },
   methods: {
-      // changeQty (x) {
-      //     alert(x)
-      // },
+      setCart () {
+      let qty = this.$store.getters.setCartQty
+      // this.$store.commit("setCartItemQty", qty) 
+      // alert(qty)
+    },
+      addtocart (x) {
+      let itemExist = false;
+      let quantity = null
+
+      //check if item exist
+      this.$store.state.cart.forEach((item) => {
+        if(item.id === x.product_id) {
+          itemExist = true
+          quantity = item.quantity + 1
+        }
+      })
+      if(itemExist) { 
+
+        // remove item if it exist
+      let item1 = this.cartitem.filter((item) => {
+            return item.id != x.product_id
+        })
+      this.$store.commit("setRemoveItemCart", item1)
+
+      // set removed item with its new quantity
+      let item = {
+        id: x.product_id,
+        img: x.thumb,
+        name: x.name,
+        quantity: quantity,
+        unitPrice: x.price,
+        subTotal: parseInt(x.price) * quantity
+      }
+      this.$store.commit("setCart", item)
+      this.setCart()
+      } else {
+      let item = {
+        id: x.product_id,
+        img: x.thumb,
+        name: x.name,
+        quantity: 1,
+        unitPrice: x.price,
+        subTotal: x.price
+      }
+      this.$store.commit("setCart", item)
+      this.setCart()
+    }
+    this.$router.push("/cart")
+  },
+  async deleteItem (x) {
+    let res = await clientApi.deleteSavedProduct(x.id)
+    console.log(res)
+    if (res.status === 200 && res.data.success === true) {
+      this.showSuccess(`${x.name} removed from saved items`, true)
+        let saved = await clientApi.getSavedProduct(this.user.id)
+        this.$store.commit("setSavedProducts", saved.data)
+    } else {
+      this.showError(`Error removing ${x.name} from saved items`, true)
+    }
+  },
        showError (message, show) {
         let item = {
           errorMessage: message,
@@ -150,6 +210,56 @@ export default {
 
 <style scoped>
 
+#search {
+  background-color: #f68b1e;
+  float: right;
+  border-radius: 5px;
+  color: white;
+  padding: 1vmin;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  padding: 12px 16px;
+  outline-color: none;
+  outline: none;
+  border: none;
+  font-weight: bold;
+}
+
+#search2 {
+  background-color: #f68b1e;
+  float: left;
+  color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  outline-color: none;
+  outline: none;
+  border: none;
+  font-weight: bold;
+}
+
+
+.changepassword2 {
+  float: right;
+  background: white; 
+  color: #f68B1E;
+  border: none;
+  border-radius: 0.5vmin;
+  padding: 1vmin;
+  font-weight: bold;
+}
+
+.changepassword2:hover {
+  background: #ffefd8; 
+  color: #ff9900;
+  border: none;
+  border-radius: 0.5vmin;
+  padding: 1vmin;
+  font-weight: bold;
+}
+
+.changepassword2:focus {
+ outline: none
+}
+
 .rightalign {
   float: right
 }
@@ -201,7 +311,6 @@ a:hover {
 
 .details {
   width: 422px;
-  border-right: 1px solid gray
 }
 
 a {

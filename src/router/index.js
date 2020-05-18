@@ -16,6 +16,7 @@ import Category from '../views/Category.vue'
 import Recover from '../views/Recover.vue'
 import Search from '../views/Search.vue'
 import store from '@/store/index.js'
+import clientApi from '@/Services/EventService.js'
 
 Vue.use(VueRouter)
 
@@ -76,8 +77,11 @@ const routes = [
     path: '/saved',
     name: 'Saved',
     component: Saved,
-    beforeEnter (to, from, next) {
-      if(store.state.loggedIn) {
+    async beforeEnter (to, from, next) {
+      if(store.state.loggedIn || store.state.user) {
+        let saved = await clientApi.getSavedProduct(store.state.user.id)
+        console.log(saved)
+        store.commit("setSavedProducts", saved.data)
         next()
       } else {
         next("/login")

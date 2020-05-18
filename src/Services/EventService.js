@@ -18,5 +18,11 @@ export default {
     },
     authUser () {
         return clientApi.post('/authuser')
+    },
+    getSavedProduct (user_id) {
+        return clientApi.get(`/wishlist/${user_id}`)
+    },
+    deleteSavedProduct (wishlist_id) {
+        return clientApi.delete(`/wishlist/${wishlist_id}`)
     }
 }

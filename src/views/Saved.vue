@@ -18,58 +18,10 @@
  
   
 <div class='d-lg-flex d-sm-flex flex-sm-column flex-lg-row details'>
-<div>
-<p class='mx-3 sidehead'>Account Overview</p>
-   <div class='ml-lg-3 sec mt-n1'>
-  <p class='hee'>ACCOUNT DETAILS <i class="fas fa-pencil-alt float-right"></i></p>
-  
-  <p class='mx-3'>bright ikhide</p>
-
-<p class='ml-3 addd'>
-ikhidebright@gmail.com</p>
-
-<button class='mx-3 mt-4 changepassword'>CHANGE PASSWORD</button>
+<div style="width: 100%">
+<p class='mx-3 sidehead'>Saved Products</p>
+  <SavedItem v-for="item in savedProducts" :item="item" :key="item.id"/>
  </div>
-
- <div class='ml-lg-3 sec mt-3'>
-  <p class='hee'>NEWSLETTER PREFERENCES <i class="fas fa-pencil-alt float-right"></i></p>
-  
-  <p class='mx-3'>You are currently subscribed to following newsletters:</p>
-
-<p class='mx-3 addd mt-5'>&#10003; daily newsletters</p>
- </div>
-  </div>
-  
-  <div class='ml-lg-3 sec mt-4 mt-5 mt-3'>
-  <p class='hee'>ADDRESS BOOK <i class="fas fa-pencil-alt float-right"></i></p>
-  
-  <p class='mx-3'>Your default shipping address:</p>
-
-<p class='mx-3 addd'>bright ikhide
-<br>
-
-Opposite. Railway Station Bassan Airport Village, Abuja
-
-ABUJA AIRPORT ROAD- SAUKA/IMMIGRATION HQ, Federal Capital Territory
-
-+234 9067998961 / +234 8111179806</p>
- </div>
- </div>
-  </div>
-
-
- <div>
-   <div class='third2 mt-4'>
-     <div class='mx-3 mb-3'><h5>Recommended for you</h5></div>
- <b-row>
-    <b-col cols="12" md="12" sm='12'>
-    <div class="d-flex flex-sm-row d-lg-flex flex-lg-row flex-wrap">
-      <div class="mr-auto" v-for='product in products' :key='product.id'>
-  <ProductCard2 :product='product' />
-  </div>
-  </div>
-    </b-col>
-    </b-row>
  </div>
  </div>
  <br>
@@ -81,17 +33,22 @@ ABUJA AIRPORT ROAD- SAUKA/IMMIGRATION HQ, Federal Capital Territory
 
 <script>
 import ProductCard2 from '@/components/Product/ProductCard2.vue'
+import SavedItem from "@/components/Product/SavedItem"
 
 export default {
   name: 'Home',
   data: () => ({
   }),
   components: {
-    ProductCard2
+    ProductCard2,
+    SavedItem
   },
   computed: {
     products () {
     return this.$store.state.products
+    },
+    savedProducts () {
+    return this.$store.state.savedProducts
     }
   }
 }

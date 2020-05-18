@@ -94,7 +94,7 @@ export default {
 
 
 .add {
-  width: 150%;
+  width: auto;
   background: #ff9900;
   color: white;
   border: none;
@@ -129,7 +129,7 @@ export default {
 .home {
   background-color:#f5f5f5;
   color: #555555;
-  height: auto;
+  height: 100vh;
 }
 
 .bigpic {

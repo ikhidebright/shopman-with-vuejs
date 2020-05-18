@@ -22,7 +22,7 @@
               <b-link class="dropdown-item" to="saved"><i class="fas fa-heart mr-3"></i>Saved Items</b-link>
               </b-nav-item-dropdown>
 
-              <b-nav-item-dropdown right class="head3" dark v-if="loggedIn">
+              <b-nav-item-dropdown right class="head3 mt-n0 mr-n4" dark v-if="loggedIn">
               <!-- Using 'button-content' slot -->
               <template v-slot:button-content>
               <span id="">

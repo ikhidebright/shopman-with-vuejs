@@ -6,11 +6,11 @@
         <b-navbar-brand style="font-size: 30px" href="/">Shopman</b-navbar-brand>
 
  <!-- mo -->
-           <b-nav-item-dropdown right class="head3 mt-n6" dark v-if="!loggedIn">
+           <b-nav-item-dropdown right class="head3 mt-n0 mr-n4" dark v-if="!loggedIn">
               <!-- Using 'button-content' slot -->
               <template v-slot:button-content>
-              <span id="user">
-              <i class="far fa-user"></i>
+              <span class="mt-n4">
+                  <UserIcon />
               </span>
               </template>
               <b-button size="sm" class="pa-4" type="submit" block variant to="/login" id="login">LOGIN</b-button>
@@ -25,7 +25,9 @@
               <b-nav-item-dropdown right class="head3" dark v-if="loggedIn">
               <!-- Using 'button-content' slot -->
               <template v-slot:button-content>
-              <i class="fas fa-user"></i>
+              <span id="">
+                  <UserIcon />
+              </span>
               </template>
               <b-link class="dropdown-item acc" to="/dashboard"><i class="fas fa-user mr-3"></i>Account</b-link>
               <b-link class="dropdown-item" to="/orders"><i class="fas fa-box mr-3"></i>Orders</b-link>
@@ -41,6 +43,8 @@
                 </span>
               </b-nav-item>
             </b-navbar-nav>
+
+
 
 
         <b-collapse id="nav-collapse" is-nav>
@@ -118,6 +122,7 @@
 <script>
 import CartIcon from '../components/Product/CartIcon'
 import CartIconM from '../components/Product/CartIconM'
+import UserIcon from '../components/Product/UserIcon'
 
 export default {
   name: "Header",
@@ -126,7 +131,8 @@ export default {
   }),
   components: {
     CartIcon,
-    CartIconM
+    CartIconM,
+    UserIcon
   },
   methods: {
     search (evt) {
@@ -149,6 +155,10 @@ export default {
 </script>
 
 <style scooped>
+
+li {
+  list-style-type: none
+}
 
 .cart {
   margin: -12px

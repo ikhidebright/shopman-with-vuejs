@@ -4,7 +4,7 @@ import router from './router'
 import store from './store'
 import VueCookies from 'vue-cookies'
 
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import { BootstrapVue, IconsPlugin, SidebarPlugin } from 'bootstrap-vue'
 
 // Install BootstrapVue
 Vue.use(BootstrapVue)

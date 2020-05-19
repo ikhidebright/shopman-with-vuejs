@@ -1,23 +1,19 @@
 <template>
-  <div class="hom mb-2">
-  <div class=''>
-
-
+<b-col class="ll mx-auto" lg="3">
   <!-- image & name -->
-  <div class='d-lg-flex d-xs-flex flex-lg-column flex-xs-row details'>
+  <div class='d-flex flex-xs-row d-lg-block d-sm-block d-md-block d-xl-block details'>
   <img class='bigpic' :src="cart.img" />
   <div class="ml-0">
-  <p class="border-top mt-2 ppp">Galaxy A10s 6.2-Inch (2GB,32GB ROM) Android 9.0, (13MP+2MP)+ 8MP Dual SIM 4000mAh 4G LTE Smartphone - Black (BF19)</p>
-  <p class="mt-n3 ppp">₦ {{ cart.unitPrice }}</p>
+  <p class="border-top mt-2 ppp d-none d-lg-block d-sm-block d-md-block d-xl-block">{{ cart.name }}</p>
+  <p class="mt-n3 ppp d-none d-lg-block d-sm-block d-md-block d-xl-block">₦ {{ cart.unitPrice }}</p>
+  <!--mo-->
+  <p class="ml-2 ppp d-block d-lg-none d-sm-none d-md-none d-xl-none">{{ cart.name }}</p>
+  <p class="ml-2 ppp d-block d-lg-none d-sm-none d-md-none d-xl-none">₦ {{ cart.unitPrice }}</p>
   </div>
   </div>
   <!-- image & name -->
-
-  <b-button size="sm" class="my-2 my-sm-0" type="submit" variant id="searc">BUY</b-button>
-            
-
- </div>
-  </div>
+  <b-button size="sm" class="my-2 my-sm-0 searc" type="submit" variant>BUY</b-button>       
+  </b-col>
 </template>
 
 <script>
@@ -96,23 +92,16 @@ export default {
         this.$store.commit("setRemoveItemCart", item)
         this.$router.go()
       },
-
-    //    changeQuantity (x) {
-    //     let item = this.cartitem.filter((item) => {
-    //         return item.id != x.id
-    //     })
-    //     this.$store.commit("setRemoveItemCart", item)
-    //     this.$router.go()
-    //   }
   }
 }
 </script>
 
 <style scoped>
 
-.hom {
+.ll {
   width: 230px;
-  height: 378px
+  height: 378px;
+  padding: 10px
 }
 
 .ppp {
@@ -159,24 +148,37 @@ a:hover {
 
 @media only screen and (min-width: 760px) {
 
-  #searc {
+  .ll .searc {
     display: none
   }
 
-  .hom {
+  .ll {
   width: 230px;
   height: 378px;
   padding: 10px
 }
 
-.hom:hover {
+.ll:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  height: 450px;
-  padding: 15px 10px 15px 10px;
+  height: 378px;
+}
+.ll:hover .searc {
+  display: block;
+  background-color: #f68b1e;
+  height: 45px;
+  border-radius: 5px;
+  color: white;
+  padding: 0 1vmin 0 1vmin;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  padding: 12px 16px;
+  font-weight: 500;
+  outline-color: none;
+  outline: none;
+  border: none;
 }
   
 .ppp {
-  width: 230px;
   font-weight: 500
 }
 
@@ -185,7 +187,7 @@ a:hover {
 }
 
 .bigpic {
-  width: 210px;
+  width: 230px;
   height: 210px
 }
 

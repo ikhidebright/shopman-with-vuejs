@@ -16,8 +16,8 @@
               </span>
               </template>
               <b-button size="sm" class="pa-4" type="submit" block variant to="/login" id="login">LOGIN</b-button>
-              <p class="text-center mt-3">or</p>
-              <b-button size="sm" class="mt-n2" type="submit" to="/register" block variant id="register">REGISTER</b-button>
+              <p class="text-center mt-n3">or</p>
+              <b-button size="sm" class="mt-n6" type="submit" to="/register" block variant id="register">REGISTER</b-button>
               <div class="dropdown-divider mt-3"></div>
               <b-link class="dropdown-item acc" to="/dashboard"><i class="fas fa-user mr-3"></i>Account</b-link>
               <b-link class="dropdown-item" to="/orders"><i class="fas fa-box mr-3"></i>Orders</b-link>
@@ -94,10 +94,10 @@
               <i class="far fa-question-circle mr-0"></i> Help
               </template>
               <b-dropdown-item href="#">Help Center?</b-dropdown-item>
-              <b-dropdown-item href="#">How to shop on Cherry</b-dropdown-item>
-              <b-dropdown-item href="#">How to pay on Cherry</b-dropdown-item>
+              <b-dropdown-item href="#">How to shop on Shopman</b-dropdown-item>
+              <b-dropdown-item href="#">How to pay on Shopman</b-dropdown-item>
               <b-dropdown-item href="#">How to use a Voucher</b-dropdown-item>
-              <b-dropdown-item href="#">Shopma Express</b-dropdown-item>
+              <b-dropdown-item href="#">Shopman Express</b-dropdown-item>
             </b-nav-item-dropdown>
 
 

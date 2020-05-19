@@ -18,6 +18,12 @@
 <div class='d-lg-flex d-sm-flex flex-sm-column flex-lg-row details'>
 <div style="width: 100%">
 <p class='mx-3 sidehead'>Saved Products</p>
+<div v-if="this.$store.state.savedProducts.length < 1" class="mx-auto emptycart">
+  <br>
+  <br>
+ <h4 class="text-center"> <i class="fas fa-shopping-cart"></i></h4>
+  <p class="text-center">Your Wishlist is empty!</p>
+    </div>
   <SavedItem v-for="item in savedProducts" :item="item" :key="item.id"/>
  </div>
  </div>
@@ -396,7 +402,8 @@ p {
   background-color: white;
   padding: 1rem;
   width: 872px;
-  margin-left: 2vmin
+  margin-left: 2vmin;
+  margin-top: 0vmin
 }
 
 .pron {

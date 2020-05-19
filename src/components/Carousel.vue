@@ -22,14 +22,13 @@
               >
                 <b-list-group class="text-left">
                   <b-list-group-item
-                    style="border: none; font-size: 16px; padding: 0.3rem 1.25rem ;"
+                    style="border: none; font-size: 16px; padding: 0.3rem 1.25rem;"
                     v-for="item in categories"
-                    :key="item.title"
-                    :href="`/category/${item.title}`"
+                    :key="item"
+                    :href="`/category/${item.replace(/[' ']+/g,'-').toLowerCase()}`"
                     class="h5"
                   >
-                    <!-- <span><b-icon icon="alert-triangle"></b-icon></span> -->
-                    {{ item.title }}
+                    {{ item }}
                   </b-list-group-item>
                 </b-list-group>
               </b-card>
@@ -301,38 +300,6 @@
                 </b-carousel-slide>
               </b-carousel>
             </b-row>
-            <b-row class="mt-3">
-              <b-col cols="12" class="p-0 product-sm-px">
-                <b-card
-                  header="Store Recommendation"
-                  class="my-card-title recommendation-sales-title"
-                >
-                  <b-row>
-                    <b-col
-                      sm="4"
-                      cols="6"
-                      key="product.name"
-                      class="p-0 px-3 pb-3"
-                    >
-                      <a @click="gotoProduct(product)" class="product-link">
-                        <b-card>
-                          <img
-                            src="product.pics"
-                            style="width: 100%; margin-bottom: 1rem;"
-                          />
-                          <div class="text-left">
-                            <p class="product-title">
-                              name
-                            </p>
-                            <b-card-text> ₦ price </b-card-text>
-                          </div>
-                        </b-card>
-                      </a>
-                    </b-col>
-                  </b-row>
-                </b-card>
-              </b-col>
-            </b-row>
           </b-col>
         </b-row>
       </b-container>
@@ -354,6 +321,7 @@ export default {
       categoriesclass: '',
       contentClass: '',
       slide: 0,
+      categories: ['Electronics', 'Mobile Phones', 'Home Appliances'],
       sliding: null,
       smallScreen: true,
     }
@@ -394,9 +362,7 @@ export default {
 }
 </script>
 <style scoped>
-.wrapper {
-  background-image: url('https://ng.jumia.is/cms/8-18/fashion-frenzy/BG-FF.jpg');
-}
+
 .card-right-background {
   background-image: url('https://ng.jumia.is//cms/Homepage/2020/W13/1TechWeek_BSB_2pm+9pm-(1).gif');
   background-size: contain;

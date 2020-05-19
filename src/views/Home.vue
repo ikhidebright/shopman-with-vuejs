@@ -2,19 +2,15 @@
   <div class="home">
   <div class="mt-4 home">
   <div class="d-sm-flex flex-sm-column d-lg-flex flex-lg-row">
-    <div class="col-3 mt-5 d-none d-lg-block">
-    <h6 class=""> Category </h6>
-  <div v-for='category in categories' :key='category'>
-  <SideBar :category='category' />
-  </div>
-    </div>
-     <div class="col-9 mt-3">
+     <div class="col-12 mt-3">
   <Carousel />
     </div>
     </div>
-    <Homecards />
+    <Homecards :type="mobile"/>
     <Imageads />
-    <Homecards />
+    <Homecards :type="electro"/>
+    <Imageads />
+    <Homecards :type="homeapp"/>
   </div>
   </div>
 </template>
@@ -28,7 +24,10 @@ import Imageads from '@/components/Imageads.vue'
 export default {
   name: 'Home',
   data: () => ({
-    categories: null
+    categories: null,
+    electro: 'Electronics',
+    mobile: 'Mobile Phones',
+    homeapp: 'Home Appliances'
   }),
   components: {
     Homecards,
@@ -41,12 +40,14 @@ export default {
 
 <style scoped>
 .home {
-  background: url("https://ng.jumia.is/cms/Homepage/2020/W19/Ramdan_BG_2.jpg")
+  background: url("https://ng.jumia.is/cms/Homepage/2020/W19/Ramdan_BG_2.jpg");
+  background-size: 100% 100vh
 }
 
 @media only screen and (min-width: 600px) {
 .home {
-  background: url("https://ng.jumia.is/cms/Homepage/2020/W19/Ramdan_BG_2.jpg")
+  background: url("https://ng.jumia.is/cms/Homepage/2020/W19/Ramdan_BG_2.jpg");
+  background-size: 100% 100vh
 }
 
 }

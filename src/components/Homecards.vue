@@ -1,9 +1,9 @@
 <template>
 <b-container fluid="sm">
   <div class="card">
-  <div class='head d-flex mb-2 mt-n3 mb-2'>
- <div class='he'>Breakfast </div>
- <div class='ml-auto mr-3 see'>SEE ALL</div>
+  <div class='head d-flex mb-2 pt-n3 mb-2 mt-3'>
+ <div class='he mt-n3'>{{ type }} </div>
+ <div class='ml-auto mr-3 see mt-n3'><router-link :to="`/category/${type.replace(/[' ']+/g,'-').toLowerCase()}`">SEE ALL</router-link></div>
   </div>
   <b-row>
     <b-col cols="12" md="12" sm='12'>
@@ -23,6 +23,7 @@ import ProductCard from '@/components/Product/ProductCard.vue'
 
 export default {
   name: 'Home',
+  props: ["type"],
   data: () => ({
     products : null
   }),
@@ -40,7 +41,6 @@ export default {
 .card {
   margin-bottom: 0.5rem;
  border-radius: 0.2rem;
- box-shadow: 1px 1px 5px 0px #f2f2f2;
   padding: 0rem 0 0 0;
 }
 
@@ -76,7 +76,6 @@ export default {
 .card {
   margin-bottom: 0.5rem;
   padding: 0.5rem 0 0 0;
- box-shadow: 0px 0px 0px 0px gray;
 }
 }
 </style>

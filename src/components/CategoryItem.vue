@@ -1,5 +1,5 @@
 <template>
-<b-col class="ll mx-auto" lg="3">
+<b-col class="ll" lg="3" sm="3" md="3" xl="3" col="12">
   <!-- image & name -->
   <div class='d-flex flex-xs-row d-lg-block d-sm-block d-md-block d-xl-block details'>
   <img class='bigpic' :src="cart.img" />
@@ -8,7 +8,7 @@
   <p class="mt-n3 ppp d-none d-lg-block d-sm-block d-md-block d-xl-block">₦ {{ cart.unitPrice }}</p>
   <!--mo-->
   <p class="ml-2 ppp d-block d-lg-none d-sm-none d-md-none d-xl-none">{{ cart.name }}</p>
-  <p class="ml-2 ppp d-block d-lg-none d-sm-none d-md-none d-xl-none">₦ {{ cart.unitPrice }}</p>
+  <p class="ml-2 mt-n6 ppp d-block d-lg-none d-sm-none d-md-none d-xl-none">₦ {{ cart.unitPrice }}</p>
   </div>
   </div>
   <!-- image & name -->
@@ -98,9 +98,13 @@ export default {
 
 <style scoped>
 
+.searc {
+  display: none
+}
+
 .ll {
   width: 230px;
-  height: 378px;
+  height: auto;
   padding: 10px
 }
 

@@ -5,13 +5,13 @@
   <div class='d-lg-flex d-sm-flex flex-sm-column flex-lg-row mt-5'>
 <div class='d-lg-flex d-sm-flex flex-sm-column flex-lg-row details'>
   <div class='fir'>
-  <img class='bigpic' :src="`${pic}`" />
+  <img class='bigpic' :src="`${product.thumb}`" />
   <div class='d-flex mt-1 border-bottom pb-2 mb-1'>
-  <div v-for="img in pitem[0].moreimg" :key='img'>
+  <!--<div v-for="img in pitem[0].moreimg" :key='img'>
     <img class='smimg ml-1' :src="`${img}`" @click='chagepic(img)' />
-  <!--  <img class='smimg ml-1' src="https://ng.jumia.is/unsafe/fit-in/150x150/filters:fill(white)/product/02/486062/2.jpg?7638" />
-    <img class='smimg ml-1' src="https://ng.jumia.is/unsafe/fit-in/150x150/filters:fill(white)/product/02/486062/3.jpg?7638" /> -->
-    </div>
+  <img class='smimg ml-1' src="https://ng.jumia.is/unsafe/fit-in/150x150/filters:fill(white)/product/02/486062/2.jpg?7638" />
+    <img class='smimg ml-1' src="https://ng.jumia.is/unsafe/fit-in/150x150/filters:fill(white)/product/02/486062/3.jpg?7638" /> 
+    </div>-->
     </div>
     <div class="d-none d-lg-block d-sm-block d-xl-block d-md-block">
     <p> 
@@ -20,15 +20,15 @@
     </div>
   </div>
   <div class='ml-lg-3 sec'>
-  <p class='pron'> {{ pitem[0].name }} </p>
-  <p class='price mt-n3'>₦ {{ pitem[0].price }} </p>
-   <p class='oldprice mt-n3'>₦ {{ pitem[0].price + 15530}} - ₦ {{ pitem[0].price + 22308}} </p>
+  <p class='pron'> {{ product.name }} </p>
+  <p class='price mt-n3 border-top'>₦ {{ product.price }} </p>
+   <p class='oldprice mt-n3'>₦ {{ product.price + 15530}} - ₦ {{ product.price + 22308}} </p>
    <div>
-  <b-button v-b-modal.modal-center class="add d-none d-lg-block d-xl-block d-md-block d-sm-block" @click="addtocart(pitem[0])"><i class="fas fa-cart-plus"></i> ADD TO CART</b-button>
+  <b-button v-b-modal.modal-center class="add d-none d-lg-block d-xl-block d-md-block d-sm-block" @click="addtocart(product)"><i class="fas fa-cart-plus"></i> ADD TO CART</b-button>
   <b-modal id="modal-center" ref="modal-center" centered title="Added to Cart" hide-footer hide-header>
   <h4>Added to Cart</h4>
   <br>
-  <p>{{ pitem[0].name }} added to Cart</p>
+  <p>{{ product.name }} added to Cart</p>
   <div class='d-lg-flex d-sm-flex flex-sm-row flex-lg-row d-xs-block'>
     <button class="add1" @click="hideModal">CONTINUE SHOPPING</button>
     <button class="add" @click="opencart">VIEW CART AND CHECKOUT</button>
@@ -89,7 +89,7 @@
      <div class='hee2 mt-3'><h6>Product details</h6></div>
    <div class='third2'>
  <p>
-{{ pitem[0].desc }}
+{{ product.description }}
 </p>
  </div>
  </div>
@@ -103,7 +103,7 @@
 
   <div class='mobile d-lg-none d-xl-none d-md-none d-sm-none mt-sm-5'> 
   <button class="phone"> <i class="fas fa-phone"></i></button>
-  <b-button v-b-modal.modal-center class="add2"  @click="addtocart(pitem[0])"><i class="fas fa-cart-plus"></i> ADD TO CART</b-button>
+  <b-button v-b-modal.modal-center class="add2"  @click="addtocart(product)"><i class="fas fa-cart-plus"></i> ADD TO CART</b-button>
   </div>
   </div>
 </template>
@@ -113,13 +113,14 @@
 export default {
   name: 'Home',
   data: () => ({
-    pitem: [],
-    products: null,
     pic: null
   }),
    computed: {
     cartitem () {
       return this.$store.state.cart
+    },
+    product () {
+      return this.$store.state.productDetails
     }
    },
   methods: {
@@ -134,7 +135,7 @@ export default {
 
       //check if item exist
       this.$store.state.cart.forEach((item) => {
-        if(item.id === x.id) {
+        if(item.id === x.product_id) {
           itemExist = true
           quantity = item.quantity + 1
         }
@@ -143,14 +144,14 @@ export default {
 
         // remove item if it exist
       let item1 = this.cartitem.filter((item) => {
-            return item.id != x.id
+            return item.id != x.product_id
         })
       this.$store.commit("setRemoveItemCart", item1)
 
       // set removed item with its new quantity
       let item = {
         id: x.id,
-        img: x.img,
+        img: x.thumb,
         name: x.name,
         quantity: quantity,
         unitPrice: x.price,
@@ -160,8 +161,8 @@ export default {
       this.setCart()
       } else {
       let item = {
-        id: x.id,
-        img: x.img,
+        id: x.product_id,
+        img: x.thumb,
         name: x.name,
         quantity: 1,
         unitPrice: x.price,
@@ -183,13 +184,6 @@ export default {
      hideModal() {
         this.$refs['modal-center'].hide()
       },
-  },
-  created () {
-      this.products = this.$store.state.products
-      this.pitem = this.products.filter((item) => {
-         return item.id == parseInt(this.$route.params.id)
-      })
-      this.pic = this.pitem[0].img
   }
 }
 </script>
@@ -261,7 +255,7 @@ a {
 
 .add {
   width: 100%;
-  background: #ff9900;
+ background-color: #f68b1e;
   color: white;
   border: none;
   border-radius: 4px;
@@ -415,6 +409,7 @@ p {
 
 .add {
   margin-left: 0.1rem;
+  background-color: #f68b1e;
 }
   
 .fa-facebook, .fa-twitter {
@@ -457,7 +452,16 @@ p {
 }
 
 .pron {
-  font-size: 20px
+  font-size: 1.25rem;
+  padding-bottom: 4px;
+  padding-top: 8px;
+  font-weight: 400;
+  box-sizing: border-box;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  font-family: Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+  color: #282828;
+  box-sizing: border-box
 }
 
 .price {
@@ -466,20 +470,39 @@ p {
 }
 
 .oldprice {
-  font-size: 16px;
+  font-size: 1rem;
   color: #75757A;
+  text-decoration: line-through;
+  text-align: left;
+  direction: ltr;
+  unicode-bidi: isolate;
+  -webkit-font-smoothing: antialiased;
+  font-family: Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+  box-sizing: border-box
 
 }
 
 .add {
   width: 100%;
-  background: #ff9900;
+  background-color: #f68b1e;
   color: white;
   border: none;
   border-radius: 4px;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
   box-shadow: 0px 0px 10px 0px #e5e5e5;
   height: 48px;
-  font-weight: bold
+  font-size: .875rem;
+  line-height: 1rem;
+  text-transform: uppercase;
+ font-weight: 500;
+ font-family: Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+ padding: 16px;
+ transition: transform 1s, opacity 1s;
+}
+
+.add::after {
+    background: radial-gradient(circle, #fff 10%, transparent 10%) center;
 }
 
 .add:hover {

@@ -204,9 +204,9 @@
                   </b-row> -->
                 </b-card>
               </b-col>
-            </b-row>
-          </b-col>
-          <b-col cols="2" class="p-0 pr-3 d-none d-sm-none d-lg-block">
+              
+
+<b-col cols="2" class="p-0 pr-3 d-none d-sm-none d-lg-block">
             <b-row class="m-0">
               <b-col cols="12 p-0">
                 <b-card
@@ -220,6 +220,13 @@
               </b-col>
             </b-row>
           </b-col>
+
+
+
+
+            </b-row>
+          </b-col>
+          
         </b-row>
       </b-container>
       <b-container
@@ -230,7 +237,8 @@
         <b-row class="m-0 pb-3">
           <b-col>
             <b-row class="pb-3">
-              <b-carousel
+              
+            <!--<b-carousel
                 id="carousel-1"
                 v-model="slide"
                 :interval="3000"
@@ -242,7 +250,7 @@
                 @sliding-start="onSlideStart"
                 @sliding-end="onSlideEnd"
               >
-                <!-- Text slides with image -->
+                < Text slides with image 
                 <b-carousel-slide>
                   <template v-slot:img>
                     <img
@@ -254,7 +262,7 @@
                   ></b-carousel-slide
                 >
 
-                <!-- Slides with custom text -->
+                < Slides with custom text 
                 <b-carousel-slide>
                   <template v-slot:img>
                     <img
@@ -265,7 +273,7 @@
                   </template>
                 </b-carousel-slide>
 
-                <!-- Slides with image only -->
+                <Slides with image only 
                 <b-carousel-slide>
                   <template v-slot:img>
                     <img
@@ -276,8 +284,8 @@
                   </template>
                 </b-carousel-slide>
 
-                <!-- Slides with img slot -->
-                <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
+                 Slides with img slot 
+                < Note the classes .d-block and .img-fluid to prevent browser default image alignment 
                 <b-carousel-slide>
                   <template v-slot:img>
                     <img
@@ -288,7 +296,7 @@
                   </template>
                 </b-carousel-slide>
 
-                <!-- Slide with blank fluid image to maintain slide aspect ratio -->
+                < Slide with blank fluid image to maintain slide aspect ratio 
                 <b-carousel-slide>
                   <template v-slot:img>
                     <img
@@ -298,7 +306,9 @@
                     />
                   </template>
                 </b-carousel-slide>
-              </b-carousel>
+              </b-carousel>-->
+
+
             </b-row>
           </b-col>
         </b-row>
@@ -327,9 +337,6 @@ export default {
     }
   },
   computed: {
-    categories() {
-      return this.$store.state.categories
-    },
     products() {
       return this.$store.state.products
     },

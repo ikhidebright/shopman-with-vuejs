@@ -124,7 +124,14 @@ const routes = [
   {
     path: '/product/:id-:name',
     name: 'Product',
-    component: Product
+    component: Product,
+    beforeEnter: (to, from, next) => {
+      store.dispatch({
+        type: "setProductDetails",
+        product_id: to.params.id
+      })
+      next()
+    }
   },
   {
     path: '/category/:name',

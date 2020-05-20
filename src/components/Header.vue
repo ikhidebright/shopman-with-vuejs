@@ -35,7 +35,7 @@
               <b-link class="dropdown-item" to="/orders"><i class="fas fa-box mr-3"></i>Orders</b-link>
               <b-link class="dropdown-item" to="saved"><i class="fas fa-heart mr-3"></i>Saved Items</b-link>
               <div class="dropdown-divider mt-3"></div>
-               <b-button size="sm" class="mt-2" type="submit" to="/register" block variant id="register">LOGOUT</b-button>
+               <b-button size="sm" class="mt-2" type="submit" @click="logOut" block variant id="register">LOGOUT</b-button>
               </b-nav-item-dropdown>
 
               <b-navbar-nav class="head2">
@@ -86,7 +86,7 @@
               <b-link class="dropdown-item" to="/orders"><i class="fas fa-box mr-3"></i>Orders</b-link>
               <b-link class="dropdown-item" to="saved"><i class="fas fa-heart mr-3"></i>Saved Items</b-link>
               <div class="dropdown-divider mt-3"></div>
-               <b-button size="sm" class="mt-2" type="submit" to="/register" block variant id="register">LOGOUT</b-button>
+               <b-button size="sm" class="mt-2" type="submit" @click="logOut" block variant id="register">LOGOUT</b-button>
               </b-nav-item-dropdown>
 
             <b-nav-item-dropdown right class="head1">
@@ -136,6 +136,11 @@ export default {
     search (evt) {
       evt.preventDefault()
       this.$router.push({ path: 'search', query: { q: this.src } })
+    },
+    logOut () {
+      this.$cookies.remove("sp_tk")
+      this.$store.dispatch("logOutUser")
+      this.$router.push('/')
     }
   },
   computed: {

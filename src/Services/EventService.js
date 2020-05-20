@@ -40,4 +40,19 @@ export default {
      editUserAddress (user_id, data) {
         return clientApi.put(`/updateaddress/${user_id}`, data)
     },
+
+    // add order
+    makeOrder (orderData) {
+        return clientApi.post('/order', orderData)
+    },
+
+    // get products
+    getProducts () {
+        return clientApi.get('products')
+    },
+
+    // get productsDetails
+    getProductDetails (product_id) {
+        return clientApi.get(`products/${product_id}`)
+    },
 }

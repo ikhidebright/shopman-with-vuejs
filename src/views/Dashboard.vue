@@ -12,7 +12,7 @@
       <b-link class="dropdown-item" to="address">Address Book</b-link>
       <b-link class="dropdown-item" to="changepass">Change Password</b-link>
       <div class="dropdown-divider"></div>
-      <p class='text-center'><button class='mb-2 changepassword2'>LOGOUT</button></p>
+      <p class='text-center'><button class='mb-2 changepassword2' @click="logOut">LOGOUT</button></p>
  </div>
    </div>
  
@@ -93,6 +93,13 @@ export default {
     products () {
     return this.$store.state.products
     }
+  },
+  methods: {
+     logOut () {
+      this.$cookies.remove("sp_tk")
+      this.$store.dispatch("logOutUser")
+      this.$router.push('/')
+    },
   }
 }
 </script>

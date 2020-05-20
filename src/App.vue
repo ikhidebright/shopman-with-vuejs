@@ -19,20 +19,24 @@ export default {
   },
   methods: {
      async authUser () {
+    let isToken = this.$cookies.isKey("sp_tk")
+    if (!isToken) {
+      // not
+    } else {
     let user = await axios.get("http://localhost:6060/authuser", {
       headers: { Authorization: this.$cookies.get("sp_tk")},
       })
       this.$store.commit("setUser", user.data)
-      console.log(user.data)
     }
-  },
+  }
+},
   created () {
     this.authUser()
     let items = JSON.parse(localStorage.getItem("cart"))
     if (items != null) {
     this.$store.commit("setCartReload", items)
     } else {
-      // console.log("No items")
+      // not
     }
   }
 }

@@ -4,11 +4,14 @@
 class='product'
 @click='open(product)'>
 <img 
-:src="`${ product.img }`" 
+:src="`${ product.thumb }`" 
 class='pic' 
 alt='' />
 <div class='details'>
-<p class='name'>{{ product.name }} <br> <b> ₦ {{ product.price }}</b> </p>
+<p class='name' v-if="product.name.length < 57">{{ product.name }} <br> <b> ₦ {{ product.price }}</b> </p>
+<p class='name' v-if="product.name.length >= 57">{{ product.name.split('').slice(0, -37).join('') + '...' }} <br> 
+<b> ₦ {{ product.price }}</b> </p>
+<p class='discount mt-n4 ml-2 d-none d-lg-block d-md-block d-xl-block d-sm-block'>₦ {{ discount }}</p>
 </div>
 </div>
 </div>
@@ -21,10 +24,16 @@ export default {
   props: ['product'],
   components: {
   },
+  computed: {
+    discount () {
+      let diff = this.product.price * 30 /100
+      return this.product.price + diff
+    }
+  },
   methods: {
     open (product) {
       let name = product.name.replace(/[' ']+/g,'-').toLowerCase()
-      this.$router.push({ name: 'Product', params: { id: product.id, name: name } })
+      this.$router.push({ name: 'Product', params: { id: product.product_id, name: name } })
     }
   }
 }
@@ -32,8 +41,12 @@ export default {
 
 <style scoped>
 .pic {
-  width: 150px;
-  height: 150px
+  width: 104px;
+  height: auto;
+  border-style: none;
+  box-sizing: border-box;
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
 }
 
 p {
@@ -42,6 +55,11 @@ p {
 
 .price {
   margin: 0;
+  font-size: .75rem;
+  text-overflow: ellipsis;
+  padding-left: 16px;
+  font-family: -apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-weight: 400
 }
 
 .product {
@@ -54,7 +72,6 @@ p {
 }
 
 .product:hover {
-  border-radius: 10px;
   box-shadow: 0px 0px 10px 0px #e5e5e5;
 } 
 
@@ -67,14 +84,42 @@ p {
   text-align: center;
 }
 
+
 @media only screen and (min-width: 600px) {
+
+  .discount {
+    font-size: .75rem;
+    font-weight: 400;
+    color: #75757a;
+    text-decoration: line-through;
+  }
+
   .name {
   text-align: left;
+  font-size: 14px;
+  padding: 8px 8px 4px;
+  color: #282828
+}
+
+.product {
+  margin: 4px;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  overflow: hidden;
+  padding: 0px 0px 8px;
+  width: 185.33px;
+  height: 255.33px;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  font-family: Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
 }
 
 .pic {
-  width: 185px;
-  height: 185px
+  width: 185.33px;
+  height: 185.33px
 }
 
 p {
@@ -83,6 +128,9 @@ p {
 
 .price {
   margin: 0;
+  font-size: 16px;
+  padding: 4px 8px 16px;
+  color: #282828
 }
 }
 </style>

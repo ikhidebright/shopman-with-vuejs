@@ -1,9 +1,9 @@
 <template>
-<b-container fluid="sm">
-  <div class="card">
+<b-container fluid>
+  <div class="card mx-auto">
   <div class='head d-flex mb-2 pt-n3 mb-2 mt-3'>
- <div class='he mt-n3'>{{ type }} </div>
- <div class='ml-auto mr-3 see mt-n3'><router-link :to="`/category/${type.replace(/[' ']+/g,'-').toLowerCase()}`">SEE ALL</router-link></div>
+ <div class='he mt-n3'>{{ products[0].category }} </div>
+ <div class='ml-auto mr-3 see mt-n3'><router-link :to="`/category/${products[0].category.replace(/[' ']+/g,'-').toLowerCase()}`">SEE ALL</router-link></div>
   </div>
   <b-row>
     <b-col cols="12" md="12" sm='12'>
@@ -23,16 +23,14 @@ import ProductCard from '@/components/Product/ProductCard.vue'
 
 export default {
   name: 'Home',
-  props: ["type"],
+  props: ["products"],
   data: () => ({
-    products : null
   }),
   components: {
     ProductCard
   },
   created () {
-    this.products = this.$store.state.products
-    this.categories = this.$store.state.categories
+    console.log(this.products)
   }
 }
 </script>
@@ -59,11 +57,33 @@ export default {
 
 .link {
   float: right;
-  font-weight: 600
+  font-weight: 600;
+  color: #f68b1e;
+}
+
+a {
+  color: #f68b1e
+}
+
+a:hover {
+  color: #f68b1e;
+  text-decoration: none
 }
 
 .see {
-  margin-top: 0.5rem
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding-bottom: 4px;
+  padding-top: 4px;
+  align-items: center;
+  display: flex;
+  color: #f68b1e;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-size: .875rem;
+  font-family: Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+  box-sizing: border-box;
 }
 
 @media only screen and (min-width: 600px) {
@@ -73,9 +93,22 @@ export default {
   color: black;
 }
 
+.he {
+  font-size: 1.25rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 500;
+  overflow: hidden;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  font-family: Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif
+}
+
 .card {
   margin-bottom: 0.5rem;
-  padding: 0.5rem 0 0 0;
+  padding: 8px;
+  height: 335.55px;
+  width: 1184px
 }
 }
 </style>

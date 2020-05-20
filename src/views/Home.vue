@@ -6,11 +6,9 @@
   <Carousel />
     </div>
     </div>
-    <Homecards :type="mobile"/>
     <Imageads />
-    <Homecards :type="electro"/>
+    <Homecards :products="electronics"/>
     <Imageads />
-    <Homecards :type="homeapp"/>
   </div>
   </div>
 </template>
@@ -20,20 +18,26 @@ import Carousel from '@/components/Carousel.vue'
 import Homecards from '@/components/Homecards.vue'
 import SideBar from '@/components/SideBar.vue'
 import Imageads from '@/components/Imageads.vue'
+import { mapState } from 'vuex'
 
 export default {
   name: 'Home',
   data: () => ({
     categories: null,
-    electro: 'Electronics',
-    mobile: 'Mobile Phones',
-    homeapp: 'Home Appliances'
   }),
   components: {
     Homecards,
     Imageads,
     Carousel,
     SideBar
+  },
+  beforeCreate () {
+    this.$store.dispatch("setHomepageProducts")
+  },
+  computed: {
+    electronics () {
+      return this.$store.getters.products('Electronics')
+    }
   }
 }
 </script>

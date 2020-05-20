@@ -41,7 +41,7 @@
         </b-form-checkbox-group>
       </b-form-group>
       <b-button type="submit" block class="add" 
-      style="background: #ff9900; 
+      style="background: #f68b1e; 
       color: white;
   border: none;
   border-radius: 4px;
@@ -62,7 +62,7 @@
     <br>
     <br>
     <br>
-    <b-button to="/register" block class="add mt-1" style="background: #ff9900; 
+    <b-button to="/register" block class="add mt-1" style="background: #f68b1e; 
       color: white;
   border: none;
   border-radius: 4px;
@@ -114,7 +114,7 @@
         </b-form-checkbox-group>
       </b-form-group>
       <b-button type="submit" block class="add" 
-      style="background: #ff9900; 
+      style="background: #f68b1e; 
       color: white;
   border: none;
   border-radius: 4px;
@@ -183,7 +183,7 @@
         </b-form-checkbox-group>
       </b-form-group>
 <br>
-      <b-button type="submit" block class="add" style="background: #ff9900; 
+      <b-button type="submit" block class="add" style="background: #f68b1e; 
       color: white;
   border: none;
   border-radius: 4px;
@@ -297,7 +297,7 @@ import clientApi from '@/Services/EventService.js'
 
 .add {
   width: 100%;
-  background: #ff9900;
+  background: #f68b1e;
   color: white;
   border: none;
   border-radius: 4px;
@@ -338,7 +338,7 @@ import clientApi from '@/Services/EventService.js'
 
 .add {
   width: 100%;
-  background: #ff9900;
+  background: #f68b1e;
   color: white;
   border: none;
   border-radius: 4px;

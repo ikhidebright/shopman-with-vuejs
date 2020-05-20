@@ -65,7 +65,7 @@
       </b-form-group>
 <br>
       <b-button type="submit" block class="add" style=
-      "background: #ff9900; 
+      "background: #f68b1e; 
        color: white;
        border: none;
        border-radius: 4px;
@@ -146,12 +146,12 @@ import clientApi from '@/Services/EventService.js'
 
 a {
   text-decoration: none;
-  color: #ff9900;
+  color: #f68b1e;
 }
 
 .head {
   text-decoration: none;
-  color: #ff9900;
+  color: #f68b1e;
   font-weight: bold;
 }
 
@@ -173,7 +173,7 @@ a:hover {
 
 .regbtn {
   width: 100%;
-  background: #ff9900;
+  background: #f68b1e;
   color: white;
   border: none;
   border-radius: 4px;
@@ -192,12 +192,12 @@ a:hover {
 @media only screen and (min-width: 768px) {
   a {
   text-decoration: none;
-  color: #ff9900;
+  color: #f68b1e;
 }
 
 .head {
   text-decoration: none;
-  color: #ff9900;
+  color: #f68b1e;
   font-weight: bold;
 }
 
@@ -219,7 +219,7 @@ a:hover {
 
 .regbtn {
   width: 100%;
-  background: #ff9900;
+  background: #f68b1e;
   color: white;
   border: none;
   border-radius: 4px;

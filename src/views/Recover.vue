@@ -9,7 +9,7 @@
   <div class="log mx-auto">
     <h5 class="mb-4 text-center head">Account Recovery</h5>
     <br>
-    <b-form @submit="login">
+    <b-form @submit.prevent="recover">
       <b-form-group
         id="input-group-1"
         label=""
@@ -44,35 +44,26 @@ import clientApi from '@/Services/EventService.js'
   export default {
     data() {
       return {
-        form: {
-          first_name: '',
-          last_name: '',
-          email: '',
-          phone: '',
-          password: '',
-          checked: false
-        },
-        show: true,
-        validation: true,
-        // login data
-        email: '',
-        password: '',
-        checked: false
+        email: ''
       }
     },
     methods: {
-       async login(evt) {
+      // recover () {
+      //   this.$store.dispatch({
+      //     type: "accountRecovery",
+      //     email: this.email
+      //   })
+      // },
+       async recover(evt) {
         evt.preventDefault()
         try {
-        let userData = {
-          email: this.email,
-          password: this.password,
-        }
-        let res = await clientApi.loginUser(userData)
+        let email = this.email
+        let res = await clientApi.accountRecovery(email)
+        console.log(res)
           if (res.status === 200 && res.data.success === true) {
               this.$cookies.set("sp_tk", res.data.token, "12d")
               this.$store.commit("setUser", res.data.data)
-              this.$router.push("/dashboard")
+              this.$router.push("/login")
           } else {
               this.showError(res.data.message, true)
           }
@@ -86,27 +77,6 @@ import clientApi from '@/Services/EventService.js'
           showError: show
         }
         this.$store.commit("setErrorAlert", item)
-      },
-    async register(evt) {
-        evt.preventDefault()
-        try {
-        let userData = {
-          first_name: this.form.first_name,
-          last_name: this.form.last_name,
-          email: this.form.email,
-          phone: this.form.phone,
-          password: this.form.password,
-        }
-        let res = await clientApi.registerUser(userData)
-          if (res.status === 200 && res.data.success === true && res.data.data.result.affectedRows === 1) {
-              this.$router.push("/login")
-          } else if (res.data.email === true) {
-              this.validation = false
-              this.showError(res.data.message, true)
-          }
-        } catch (e) {
-          this.showError('Sorry an Error occured', true)
-        }
       }
     }
   }

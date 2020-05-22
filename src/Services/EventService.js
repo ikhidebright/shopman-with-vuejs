@@ -46,6 +46,11 @@ export default {
         return clientApi.post('/order', orderData)
     },
 
+    // account recovery
+    accountRecovery (email) {
+        return clientApi.post('/recover', email)
+    },
+
     // get products
     getProducts () {
         return clientApi.get('products')

@@ -111,6 +111,10 @@ export default new Vuex.Store({
       let saved = await clientApi.getSavedProduct(state.user.id)
       commit("setSavedProducts", saved.data)
     },
+    async accountRecovery({ state, commit}, payload) {
+      let saved = await clientApi.accountRecovery(payload.email)
+      console.log(saved)
+    },
     async addOrder({ state }, order) {
       let saved = await clientApi.makeOrder(order)
     },

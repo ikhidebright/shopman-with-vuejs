@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const clientApi = axios.create({
-    baseURL: '//localhost:6060',
+    baseURL: 'https://shopman-backend.herokuapp.com/',
     withCredentials: false,
     headers: {
         Accept: 'application/json',

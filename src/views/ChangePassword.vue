@@ -139,7 +139,7 @@ export default {
       },
     async changePass (evt) {
         evt.preventDefault()
-    let user = await axios.post(`http://localhost:6060/updatepassword/${this.user.id}`, {
+    let user = await axios.post(`https://shopman-backend.herokuapp.com/updatepassword/${this.user.id}`, {
        password: this.password,
        newpassword: this.newpassword
       })

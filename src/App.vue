@@ -23,7 +23,7 @@ export default {
     if (!isToken) {
       // not
     } else {
-    let user = await axios.get("http://localhost:6060/authuser", {
+    let user = await axios.get("https://shopman-backend.herokuapp.com/authuser", {
       headers: { Authorization: this.$cookies.get("sp_tk")},
       })
       this.$store.commit("setUser", user.data)

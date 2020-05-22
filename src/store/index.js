@@ -13,7 +13,7 @@ export default new Vuex.Store({
     successAlertMessage: null,
     user: null,
     homepageProducts: [],
-    url: "http://localhost:6060",
+    url: "https://shopman-backend.herokuapp.com/",
     showSuccessAlert: false,
     errorAlertMessage: null,
     showErrrorAlert: false,

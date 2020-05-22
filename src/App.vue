@@ -30,7 +30,7 @@ export default {
     }
   }
 },
-  created () {
+ created () {
     this.authUser()
     let items = JSON.parse(localStorage.getItem("cart"))
     if (items != null) {

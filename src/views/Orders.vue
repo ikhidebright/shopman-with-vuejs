@@ -1,128 +1,287 @@
 <template>
-  <div class="maindash">
-  <b-container>
-  <br>
-  <div class='d-lg-flex d-sm-flex flex-sm-column flex-lg-row mt-5'>
-   <div class='mt-sm-2 mt-lg-0'>
-   <div class='ml-lg-3 third'>
-      <b-link class="dropdown-item" to="/dashboard"><i class="fas fa-user mr-3"></i> My Shopman Account</b-link>
-      <b-link class="dropdown-item acc" to="/orders"><i class="fas fa-box mr-3"></i>Orders</b-link>
-      <b-link class="dropdown-item" to="saved"><i class="fas fa-heart mr-3"></i>Saved Items</b-link>
-      <div class="dropdown-divider"></div>
-      <b-link class="dropdown-item" to="address">Address Book</b-link>
-      <b-link class="dropdown-item" to="changepass">Change Password</b-link>
-      <div class="dropdown-divider"></div>
-      <p class='text-center'><button class='mb-2 changepassword2' @click="logOut">LOGOUT</button></p>
- </div>
-   </div>
- 
-  
-<div class='d-lg-flex d-sm-flex flex-sm-column flex-lg-row details'>
-<div>
-<p class='mx-3 sidehead'>Account Overview</p>
-   <div class='ml-lg-3 sec mt-n1'>
-  <p class='hee'>ACCOUNT DETAILS <i class="fas fa-pencil-alt float-right"></i></p>
-  
-  <p class='mx-3'>bright ikhide</p>
-
-<p class='ml-3 addd'>
-ikhidebright@gmail.com</p>
-
-<button class='mx-3 mt-4 changepassword'>CHANGE PASSWORD</button>
- </div>
-
- <div class='ml-lg-3 sec mt-3'>
-  <p class='hee'>NEWSLETTER PREFERENCES <i class="fas fa-pencil-alt float-right"></i></p>
-  
-  <p class='mx-3'>You are currently subscribed to following newsletters:</p>
-
-<p class='mx-3 addd mt-5'>&#10003; daily newsletters</p>
- </div>
+  <div class="hom mb-2">
+  <b-col lg="12" md="10" xl="10" xs="12">
+  <b-card bg-variant="white" text-variant="red">
+  <div class='d-lg-flex d-sm-flex flex-sm-column flex-lg-row'>
+  <!-- image & name -->
+  <div class='d-flex details'>
+  <img class='bigpic' :src="item.thumb" />
+  <div class="ml-2">
+  <p class="name" @click="open(item)">{{ item.name }}</p>
+   <div class='mt-n3 subTotal'>
+  ₦ {{ item.price.toLocaleString() }}
   </div>
-  
-  <div class='ml-lg-3 sec mt-4 mt-5 mt-3'>
-  <p class='hee'>ADDRESS BOOK <i class="fas fa-pencil-alt float-right"></i></p>
-  
-  <p class='mx-3'>Your default shipping address:</p>
-
-<p class='mx-3 addd'>bright ikhide
-<br>
-
-Opposite. Railway Station Bassan Airport Village, Abuja
-
-ABUJA AIRPORT ROAD- SAUKA/IMMIGRATION HQ, Federal Capital Territory
-
-+234 9067998961 / +234 8111179806</p>
- </div>
- </div>
-  </div>
-
-
- <div>
-   <div class='third2 mt-4'>
-     <div class='mx-3 mb-3'><h5>Recommended for you</h5></div>
- <b-row>
-    <b-col cols="12" md="12" sm='12'>
-    <div class="d-flex flex-sm-row d-lg-flex flex-lg-row flex-wrap">
-      <div class="mr-auto" v-for='product in products' :key='product.id'>
-  <ProductCard2 :product='product' />
+  <!--<div class="d-none d-lg-block d-xl-block d-md-block d-sm-block">
+<i class="fas fa-heart"></i>  <router-link to='' @click.native="save(cart)">MOVE TO SAVED ITEMS</router-link> <i class="fas fa-trash"></i>   <router-link to='' @click.native="remove(cart)">REMOVE</router-link>
+</div> -->
   </div>
   </div>
-    </b-col>
-    </b-row>
+  <!-- image & name -->
+  <!--<div class='border-right pl-3 pr-3 pt-2 d-none d-lg-block d-xl-block d-md-block d-sm-block'>
+  <b-form-select
+      id="inline-form-custom-select-pref"
+      class="mb-2 mr-sm-2 mb-sm-0"
+      v-model="quantity"
+      :options="[{ text: '1', value: 1 }, { text: '2', value: 2 }, '3', '4', '5', '6', '7', '8', '9', '10']"
+      :value="null"
+      @change="changeQty(quantity)"
+    ></b-form-select>
+    </div>-->
+  <!--<div class='border-right pl-5 pr-5 pt-3 d-none d-lg-block d-xl-block d-md-block d-sm-block'>
+  ₦ {{ item.price }}
+  </div> -->
+  <div class='ml-9 d-none d-lg-block d-xl-block d-md-block d-sm-block'>
+  <b-button size="sm" class="mb-3" type="submit" variant id="search" @click="addtocart(item)">BUY NOW</b-button>
+  
+  <b-button size="sm" class="mt-9 changepassword2" type="submit" variant @click='deleteItem(item)'><i class="fas fa-trash"></i> REMOVE</b-button>
+  </div>
+  
+
+<!-- actions for mobile-->
+<div class="d-flex d-lg-none d-xl-none d-md-none d-sm-none border-top mt-2 mb-n3">
+  <b-button size="sm" class="mb-3 mt-3" type="submit" variant id="search2" @click="addtocart(item)">BUY NOW</b-button>
+  
+  <b-button size="sm" class="mt-9 ml-auto changepassword2" type="submit" variant @click='deleteItem(item)'><i class="fas fa-trash"></i> REMOVE</b-button>
+
+<!--<div class='ml-auto mt-2'>
+  <b-form-select
+      id="inline-form-custom-select-pref"
+      class="mb-2 mr-sm-2 mb-sm-0"
+      v-model="quantity"
+      :options="[{ text: '1', value: 1 }, { text: '2', value: 2 }, '3', '4', '5', '6', '7', '8', '9', '10']"
+      :value="null"
+      @change="changeQty(quantity)"
+    ></b-form-select>
+    </div>-->
+</div> 
+
+
  </div>
- </div>
- <br>
-  <br>
-   <br>
-  </b-container>
+</b-card>
+</b-col>
   </div>
 </template>
 
 <script>
-import ProductCard2 from '@/components/Product/ProductCard2.vue'
+import axios from "axios"
+import clientApi from '@/Services/EventService.js'
 
 export default {
   name: 'Home',
+  props: ["item"],
   data: () => ({
+    categories: null
   }),
-  components: {
-    ProductCard2
-  },
+  
   computed: {
-    products () {
-    return this.$store.state.products
+    cartitem () {
+      return this.$store.state.cart
+    },
+    user () {
+      return this.$store.state.user
+    },
+    quantity () {
+        return this.cart.quantity
+    },
+    subTotal () {
+       return this.cart.subTotal
+    },
+    loggedIn () {
+      return this.$store.state.loggedIn
     }
   },
   methods: {
-     logOut () {
-      this.$cookies.remove("sp_tk")
-      this.$store.dispatch("logOutUser")
-      this.$router.push('/')
+     open (product) {
+      let name = product.name.replace(/[' ']+/g,'-').toLowerCase()
+      this.$router.push({ name: 'Product', params: { id: product.product_id, name: name } })
     },
+      setCart () {
+      let qty = this.$store.getters.setCartQty
+      // this.$store.commit("setCartItemQty", qty) 
+      // alert(qty)
+    },
+      addtocart (x) {
+      let itemExist = false;
+      let quantity = null
+
+      //check if item exist
+      this.$store.state.cart.forEach((item) => {
+        if(item.id === x.product_id) {
+          itemExist = true
+          quantity = item.quantity + 1
+        }
+      })
+      if(itemExist) { 
+
+        // remove item if it exist
+      let item1 = this.cartitem.filter((item) => {
+            return item.id != x.product_id
+        })
+      this.$store.commit("setRemoveItemCart", item1)
+
+      // set removed item with its new quantity
+      let item = {
+        id: x.product_id,
+        img: x.thumb,
+        name: x.name,
+        quantity: quantity,
+        unitPrice: x.price,
+        subTotal: parseInt(x.price) * quantity
+      }
+      this.$store.commit("setCart", item)
+      this.setCart()
+      } else {
+      let item = {
+        id: x.product_id,
+        img: x.thumb,
+        name: x.name,
+        quantity: 1,
+        unitPrice: x.price,
+        subTotal: x.price
+      }
+      this.$store.commit("setCart", item)
+      this.setCart()
+    }
+    this.$router.push("/cart")
+  },
+  async deleteItem (x) {
+    let res = await clientApi.deleteSavedProduct(x.id)
+    if (res.status === 200 && res.data.success === true) {
+      this.showSuccess(`${x.name} removed from saved items`, true)
+        let saved = await clientApi.getSavedProduct(this.user.id)
+        this.$store.commit("setSavedProducts", saved.data)
+    } else {
+      this.showError(`Error removing ${x.name} from saved items`, true)
+    }
+  },
+       showError (message, show) {
+        let item = {
+          errorMessage: message,
+          showError: show
+        }
+        this.$store.commit("setErrorAlert", item)
+    },
+      showSuccess (message, show) {
+        let item = {
+          successMessage: message,
+          showSuccess: show
+        }
+        this.$store.commit("setSuccessAlert", item)
+      },
+     async save (x) {
+        if (!this.loggedIn) {
+          this.$router.push('/login')
+        } else {
+          let save = await axios.post(`${this.$store.state.url}/wishlist`, {
+            product_id: x.id,
+            name: x.name,
+            price: x.unitPrice,
+            description: x.name,
+            customer_id: this.user.id,
+            thumb: x.img
+          })
+          console.log(save)
+          if (save.status === 200 && save.data.result.affectedRows === 1) {
+            this.showSuccess(`Saved ${x.name}`, true)
+          } else {
+            if (save.data.errorcode === 1062) {
+              this.showError(`${x.name} already saved`, true)
+            } else {
+              this.showError(`Error adding ${x.name} to saved items`)
+            }
+          }
+        }
+      },
+      remove (x) {
+        let item = this.cartitem.filter((item) => {
+            return item.id != x.id
+        })
+        this.$store.commit("setRemoveItemCart", item)
+        this.$router.go()
+      },
+
+    //    changeQuantity (x) {
+    //     let item = this.cartitem.filter((item) => {
+    //         return item.id != x.id
+    //     })
+    //     this.$store.commit("setRemoveItemCart", item)
+    //     this.$router.go()
+    //   }
   }
 }
 </script>
 
 <style scoped>
 
-.changepassword {
-  background: white; 
-  color: #f68B1E;
+.subTotal {
+   line-height: inherit;
+    vertical-align: inherit;
+    display: inline-block;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    color: #f68b1e;
+    resize: none;
+    outline: 0;
+    font: 1.5rem/1.33;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+#search {
+  background-color: #f68b1e;
+  float: right;
+  border-radius: 5px;
+  color: white;
+  padding: 1vmin;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  padding: 12px 16px;
+  outline-color: none;
+  outline: none;
   border: none;
-  padding: 2vmin;
   font-weight: bold;
 }
 
-.changepassword:hover {
-  background: #ffefd8; 
-  color: #ff9900;
+#search2 {
+  background-color: #f68b1e;
+  float: left;
+  color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  outline-color: none;
+  outline: none;
   border: none;
-  padding: 2vmin;
   font-weight: bold;
 }
+
+
+.name {
+  font: 1.5rem/1.33;
+  text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    max-height: 2.824em;
+    color: #000;
+    text-decoration: none;
+    background-color: transparent;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none;
+    resize: none;
+    outline: 0;
+    direction: ltr;
+    cursor: pointer;
+}
+
+.name:hover {
+  color: #f68b1e;
+  text-decoration: none
+}
+
 
 .changepassword2 {
+  float: right;
   background: white; 
   color: #f68B1E;
   border: none;
@@ -144,450 +303,114 @@ export default {
  outline: none
 }
 
-.changepassword:focus {
- outline: none
+.rightalign {
+  float: right
 }
 
-.sidehead {
-  font-size: 1.5rem
+.bigpic {
+  width: 60px;
+  height: 60px
 }
 
-.addd {
-  color: #75757A;
+.details {
+  width: 100%;
 }
 
-.fa-star {
-  color: black
-}
 
 a {
-  font-size: 0.9rem
+  color: #f68b1e;
+  font-size: 13px
 }
 
-.fa-facebook, .fa-twitter {
-  font-size: 20px;
-  margin-top: 5px
+a:hover {
+  color: #f68b1e;
+  text-decoration: none
 }
 
-.fa-shuttle-van, .fa-telegram-plane {
-  font-size: 26px
-}
-
-.fa-telegram-plane {
-  font-size: 30px
-}
-
-.maindash {
-  background-color: #f1f1f1;
-  height: auto
-}
-
-.sec {
-  width: 100%;
-  border: 1px solid #f1f1f1;
-  border-radius: 0.5rem;
-}
-
-.bigpic {
-  width: 305px;
-  height: 305px;
-  border-radius: 5px
-}
-
-.smimg {
-  width: 38px;
-  height: 38px
-}
-
-.details {
-  background-color: white;
-  padding: 1rem;
-  width: 100%;
-  border-radius: 1vmin
-}
-
-.pron {
-  font-size: 20px
-}
-
-.price {
-  font-size: 24px;
-  font-weight: bold
-}
-
-.oldprice {
-  font-size: 16px;
-  color: #75757A;
-
-}
-
-.add {
-  width: 100%;
-  background: #ff9900;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  box-shadow: 0px 0px 10px 0px #e5e5e5;
-  height: 48px;
-  font-weight: bold
-}
-
-.add1 {
-  width: 100%;
-  background: #fff;
-  color: #ff9900;
-  border: none;
-  border-radius: 4px;
-  box-shadow: 0px 0px 10px 0px #e5e5e5;
-  height: 48px;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.add1:focus {
-  outline: none
-}
-
-.add:hover {
-  background: #ffad33;
-}
-
-.fa-cart-plus {
-font-size: 20px
-}
-
-.phone {
-  width: 15%;
-  background: white;
-  color: #ff9900;
-  border: none;
-  border-radius: 4px;
-  box-shadow: 0px 0px 10px 0px #e5e5e5;
-  height: 48px;
-   margin-right: 1vmin;
-  font-weight: bold
-}
-
-.phone:focus {
- outline: none
-}
-
-.mobile {
-  position: fixed;
-  display: flex;
-  bottom: 0;
-  width: 100%;
-  margin-top: 2rem;
-  padding: 9px 9px 9px 9px;
-  background-color: white;
-  box-shadow: 0px 0px 10px 0px #e5e5e5;
+.fa-heart {
+  color: #f68b1e;
+  font-size: 13px;
+  margin-right: 1vmin
 }
 
 
-.add:focus {
-  outline: none
-}
-
-.add2 {
-  width: 85%;
-  background: #ff9900;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  box-shadow: 0px 0px 10px 0px #e5e5e5;
-  height: 48px;
-  font-weight: bold
-}
-
-.add2:hover {
-  background: #ffad33;
-}
-
-.fa-cart-plus {
-font-size: 20px
-}
-
-.add2:focus {
-  outline: none
-}
-
-.third {
-  background-color: white;
-  padding: 0.5rem;
-  width: 100%
-}
-
-.third2 {
-  background-color: white;
-  padding: 0.5rem;
-  width: 100%;
-  border-radius: 4px;
-}
-
-.fa-cart-plus {
-  float: left
-}
-
-.hee {
-  background-color: #EDEDED;
-  padding: 0.5rem;
-  color: #282828;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  width: 100%;
-  margin-top: 1rem;
-  font-weight: 600;
-  border-bottom: 1px solid #f2f2f2
-}
-
-.dropdown-item {
-  padding: 1rem;
-  color: #282828;
-  width: 100%;
-}
-
-.acc {
-  padding: 1rem;
-  color: #282828;
-  background-color: #EDEDED;
-  font-weight: 600;
-}
-
-.dropdown-item:hover {
-  padding: 1rem;
-   background-color: #EDEDED;
-  color: #282828;
-  width: 100%;
-  font-weight: 600;
-}
-
-.active {
-  padding: 1rem;
-  background-color: #EDEDED;
-  color: #282828;
-  width: 100%;
-  font-weight: 600;
-}
-
-.hee2 {
-  background-color: white;
-  padding: 0.5rem;
-  color: #282828;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  width: 100%;
-  font-weight: 600;
-  border-bottom: 1px solid #f2f2f2
-}
-
-.oldprice {
-  text-decoration: line-through;
-  color: gray
-}
-
-p {
-  font-size: 14px;
-  color: #282828
-}
-
-
-@media only screen and (min-width: 600px) {
-
-.add1 {
-  width: 100%;
-  background: #fff;
-  color: #ff9900;
-  border: none;
-  border-radius: 4px;
-  box-shadow: 0px 0px 10px 0px #e5e5e5;
-  height: 48px;
-  font-weight: bold;
-  margin-right: 0.1rem;
-}
-
-.add {
-  margin-left: 0.1rem;
-}
-  
-.fa-facebook, .fa-twitter {
-  font-size: 20px;
-  margin-top: 5px
-}
-
-.fa-shuttle-van, .fa-telegram-plane {
-  font-size: 26px
-}
-
-.fa-telegram-plane {
-  font-size: 30px
-}
-
-.maindash {
-  background-color: #f5f5f5;
-  height: auto;
-}
-
-.sec {
-  width: 360px;
-  height: 242px
-}
-
-.bigpic {
-  width: 305px;
-  height: 290px;
-  border-radius: 5px
-}
-
-.smimg {
-  width: 38px;
-  height: 38px
-}
-
-.details {
-  background-color: white;
-  padding: 1rem;
-  width: 872px;
+.fa-trash {
+  color: #f68b1e;
+  font-size: 13px;
+  margin-right: 1vmin;
   margin-left: 2vmin
 }
 
-.pron {
-  font-size: 20px
+@media only screen and (min-width: 760px) {
+
+   .subTotal {
+    display: inline-block;
+    box-sizing: border-box;
+    direction: ltr;
+    unicode-bidi: isolate;
+    color: #f68b1e;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+
+   .name {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.25;
+    margin-bottom: 6px!important;
+    display: inline-block!important;
+    color: #000;
+    text-decoration: none;
+    background-color: transparent;
+    box-sizing: border-box;
+    text-align: left;
+    border-collapse: collapse;
+    cursor: pointer;
+  }
+
+  .name:hover {
+  color: #f68b1e;
+  text-decoration: none
+}
+  
+.rightalign {
+  float: right
 }
 
-.price {
-  font-size: 24px;
-  font-weight: bold
+.bigpic {
+  width: 60px;
+  height: 60px
 }
 
-.oldprice {
-  font-size: 16px;
-  color: #75757A;
-
+.details {
+  width: 422px;
 }
 
-.add {
-  width: 100%;
-  background: #ff9900;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  box-shadow: 0px 0px 10px 0px #e5e5e5;
-  height: 48px;
-  font-weight: bold
+a {
+  color: #f68b1e;
+  font-size: 13px
 }
 
-.add:hover {
-  background: #ffad33;
+a:hover {
+  color: #f68b1e;
+  text-decoration: none
 }
 
-.fa-cart-plus {
-font-size: 20px
-}
-
-.phone {
-  width: 15%;
-  background: white;
-  color: #ff9900;
-  border: none;
-  border-radius: 4px;
-  box-shadow: 0px 0px 10px 0px #e5e5e5;
-  height: 48px;
- 
-  font-weight: bold
-}
-
-.mobile {
-  position: fixed;
-  display: flex;
-  bottom: 0;
-  width: 100%;
-  padding: 5px;
-  background-color: white;
-  box-shadow: 0px 0px 10px 0px #e5e5e5;
+.fa-heart {
+  color: #f68b1e;
+  font-size: 13px;
+  margin-right: 1vmin
 }
 
 
-.add:focus {
-  outline: none
-}
-
-.add2 {
-  width: 85%;
-  background: #ff9900;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  box-shadow: 0px 0px 10px 0px #e5e5e5;
-  height: 48px;
-  font-weight: bold
-}
-
-.add2:hover {
-  background: #ffad33;
-}
-
-.fa-cart-plus {
-font-size: 20px
-}
-
-.add2:focus {
-  outline: none
-}
-
-.third {
-  background-color: white;
-  padding: 0.0rem;
-  width: 296px
-}
-
-.third2 {
-  background-color: white;
-  padding: 0.5rem;
-  width: 100%;
-  border-radius: 4px;
-}
-
-.fa-cart-plus {
-  float: left
-}
-
-.hee {
-  background-color: #EDEDED;
-  padding: 0.5rem;
-  color: #282828;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  width: 100%;
-  margin-top: 0rem;
-  font-weight: 600;
-  border-bottom: 1px solid #f2f2f2
-}
-
-.hee p {
-  font-size: 14px;
-  font-family: "Roboto";
-  color: #282828;
-}
-
-.hee2 {
-  background-color: #EDEDED;
-  padding: 0.5rem;
-  color: #282828;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  width: 100%;
-  font-weight: 600;
-  border-bottom: 1px solid #f2f2f2
-}
-
-.oldprice {
-  text-decoration: line-through;
-  color: gray
-}
-
-p {
-  font-size: 14px;
-  color: #282828
+.fa-trash {
+  color: #f68b1e;
+  font-size: 13px;
+  margin-right: 1vmin;
+  margin-left: 2vmin
 }
 }
 </style>

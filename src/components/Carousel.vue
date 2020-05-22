@@ -1,5 +1,5 @@
 <template>
-  <div class="home2">
+  <div class="home2 mt-n3">
     <div class="wrapper">
       <b-container
         fluid
@@ -17,16 +17,25 @@
               <b-card
                 no-body
                 style="border: none; font-size: 16px;"
-                header="Categories"
                 class="text-left h3"
               >
                 <b-list-group class="text-left">
                   <b-list-group-item
-                    style="border: none; font-size: 16px; padding: 0.3rem 1.25rem;"
+                    style="border: none; 
+                          text-overflow: ellipsis;
+                          white-space: nowrap;
+                          overflow: hidden;
+                          box-sizing: border-box;
+                          font-size: .75rem;
+                          color: #282828;
+                          font-weight: 400;
+                          font-family: Roboto,-apple-system,BlinkMacSystemFont,Arial,sans-serif;
+                          direction: ltr;
+                          -webkit-font-smoothing: antialiased;"
                     v-for="item in categories"
                     :key="item"
                     :href="`/category/${item.replace(/[' ']+/g,'-').toLowerCase()}`"
-                    class="h5"
+                    class="links"
                   >
                     {{ item }}
                   </b-list-group-item>
@@ -44,7 +53,7 @@
                 controls
                 indicators
                 background="#ababab"
-                style="text-shadow: 1px 1px 2px #333; width: 100%;"
+                style="text-shadow: 1px 1px 2px #333; width: 100%; z-index: 0;"
                 @sliding-start="onSlideStart"
                 @sliding-end="onSlideEnd"
               >
@@ -53,19 +62,18 @@
                   <template v-slot:img>
                     <img
                       class="d-block img-fluid w-100 carousel-container-height"
-                      src="https://ng.jumia.is/cms/Homepage/2020/W13/Wednesday/Slider-3.jpg"
+                      src="https://ng.jumia.is/cms/Homepage/2020/W21/Slider--Office-Consumables.jpg"
                       alt="image slot"
                     />
                   </template>
-                  ></b-carousel-slide
-                >
+                  ></b-carousel-slide>
 
                 <!-- Slides with custom text -->
                 <b-carousel-slide>
                   <template v-slot:img>
                     <img
                       class="d-block img-fluid w-100 carousel-container-height"
-                      src="https://ng.jumia.is/cms/Homepage/2020/W13/upd-techweek_wof4.jpg"
+                      src="https://ng.jumia.is/cms/Homepage/2020/W21/Slider-samsung.jpg"
                       alt="image slot"
                     />
                   </template>
@@ -76,7 +84,7 @@
                   <template v-slot:img>
                     <img
                       class="d-block img-fluid w-100 carousel-container-height"
-                      src="https://ng.jumia.is/cms/Homepage/2020/W13/DailyEssentials.jpg"
+                      src="https://ng.jumia.is/cms/Homepage/2020/W21/FLOORS/eid.jpg"
                       alt="image slot"
                     />
                   </template>
@@ -88,7 +96,7 @@
                   <template v-slot:img>
                     <img
                       class="d-block img-fluid w-100 carousel-container-height"
-                      src="https://ng.jumia.is/cms/8-18/stay-safe/updated/s-ss.jpg"
+                      src="https://ng.jumia.is/cms/Homepage/2020/W21/FLOORS/Self-care.jpg"
                       alt="image slot"
                     />
                   </template>
@@ -99,7 +107,7 @@
                   <template v-slot:img>
                     <img
                       class="d-block img-fluid w-100 carousel-container-height"
-                      src="https://ng.jumia.is/cms/Homepage/2020/W13/Wednesday/NG_W13_S_WED_TECHWEEK_1.jpg"
+                      src="https://ng.jumia.is/cms/Homepage/2020/W21/BRANDDAY/0-Slider.jpg"
                       alt="image slot"
                     />
                   </template>
@@ -375,7 +383,7 @@ export default {
   background-size: contain;
 }
 .card-right-background-2 {
-  background-image: url('https://res.cloudinary.com/css-tricks/image/upload/f_auto,q_auto/v1554737513/woocommerce_kqwhux.png');
+  background-image: url('https://ng.jumia.is//cms/Homepage/2020/W21/FLOORS/BSB_FreeDelivery.jpg');
   background-size: contain;
 }
 .custom-container {

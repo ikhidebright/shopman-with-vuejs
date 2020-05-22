@@ -8,10 +8,10 @@ class='product'
 class='pic' 
 alt='' />
 <div class='details'>
-<p class='name' v-if="product.name.length < 57">{{ product.name }} <br> <b> ₦ {{ product.price }}</b> </p>
+<p class='name' v-if="product.name.length < 57">{{ product.name }} <br> <b> ₦ {{ product.price.toLocaleString() }}</b> </p>
 <p class='name' v-if="product.name.length >= 57">{{ product.name.split('').slice(0, -37).join('') + '...' }} <br> 
-<b> ₦ {{ product.price }}</b> </p>
-<p class='discount mt-n4 ml-2 d-none d-lg-block d-md-block d-xl-block d-sm-block'>₦ {{ discount }}</p>
+<b> ₦ {{ product.price.toLocaleString() }}</b> </p>
+<p class='discount mt-n4 ml-2 d-none d-lg-block d-md-block d-xl-block d-sm-block'>₦ {{ discount.toLocaleString() }}</p>
 </div>
 </div>
 </div>

@@ -7,10 +7,11 @@
   <div class='d-flex details'>
   <img class='bigpic' :src="item.thumb" />
   <div class="ml-2">
-  <p ><b>{{ item.name }}</b></p>
-   <div class='mt-n3'>
-  ₦ {{ item.price }}
+  <p class="name" @click="open(item)">{{ item.name }}</p>
+   <div class='mt-2 subTotal'>
+  ₦ {{ item.price.toLocaleString() }}
   </div>
+  
   <!--<div class="d-none d-lg-block d-xl-block d-md-block d-sm-block">
 <i class="fas fa-heart"></i>  <router-link to='' @click.native="save(cart)">MOVE TO SAVED ITEMS</router-link> <i class="fas fa-trash"></i>   <router-link to='' @click.native="remove(cart)">REMOVE</router-link>
 </div> -->
@@ -91,6 +92,10 @@ export default {
     }
   },
   methods: {
+     open (product) {
+      let name = product.name.replace(/[' ']+/g,'-').toLowerCase()
+      this.$router.push({ name: 'Product', params: { id: product.product_id, name: name } })
+    },
       setCart () {
       let qty = this.$store.getters.setCartQty
       // this.$store.commit("setCartItemQty", qty) 
@@ -209,6 +214,19 @@ export default {
 
 <style scoped>
 
+.subTotal {
+   line-height: inherit;
+    vertical-align: inherit;
+    display: inline-block;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    color: #f68b1e;
+    resize: none;
+    outline: 0;
+    font: 1.5rem/1.33;
+    -webkit-tap-highlight-color: transparent;
+  }
+
 #search {
   background-color: #f68b1e;
   float: right;
@@ -233,6 +251,33 @@ export default {
   outline: none;
   border: none;
   font-weight: bold;
+}
+
+
+.name {
+  font: 1.5rem/1.33;
+  text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    max-height: 2.824em;
+    color: #000;
+    text-decoration: none;
+    background-color: transparent;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none;
+    resize: none;
+    outline: 0;
+    direction: ltr;
+    cursor: pointer;
+}
+
+.name:hover {
+  color: #f68b1e;
+  text-decoration: none
 }
 
 
@@ -298,6 +343,39 @@ a:hover {
 }
 
 @media only screen and (min-width: 760px) {
+
+   .subTotal {
+    display: inline-block;
+    box-sizing: border-box;
+    direction: ltr;
+    unicode-bidi: isolate;
+    color: #f68b1e;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+
+   .name {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.25;
+    margin-bottom: 6px!important;
+    display: inline-block!important;
+    color: #000;
+    text-decoration: none;
+    background-color: transparent;
+    box-sizing: border-box;
+    text-align: left;
+    border-collapse: collapse;
+    cursor: pointer;
+  }
+
+  .name:hover {
+  color: #f68b1e;
+  text-decoration: none
+}
   
 .rightalign {
   float: right

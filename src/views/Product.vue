@@ -21,7 +21,7 @@
   </div>
   <div class='ml-lg-3 sec'>
   <p class='pron'> {{ product.name }} </p>
-  <p class='price mt-n3 border-top'>₦ {{ product.price }} </p>
+  <p class='price mt-n3 border-top'>₦ {{ product.price.toLocaleString() }} </p>
    <p class='oldprice mt-n3'>₦ {{ product.price + 15530}} - ₦ {{ product.price + 22308}} </p>
    <div>
   <b-button v-b-modal.modal-center class="add d-none d-lg-block d-xl-block d-md-block d-sm-block" @click="addtocart(product)"><i class="fas fa-cart-plus"></i> ADD TO CART</b-button>
@@ -50,7 +50,19 @@
      <div class='ml-lg-3 hee'>DELIVERY & RETURNS</div>
    <div class='ml-lg-3 third'>
     <div class="d-flex">
-  <i class="fas fa-shuttle-van mr-3"></i><div><h6> Delivery Information</h6>
+  <i class="fas fa-shuttle-van mr-3" style="border: 1px solid #ededed; 
+                                              border-radius: 4px; 
+                                              padding: 3px; 
+                                              fill: #282828;
+                                              box-sizing: border-box;
+                                              width: 40;
+                                              height: 40;
+                                              font-size: 30px;
+                                              direction: ltr;
+                                              -webkit-font-smoothing: antialiased;
+                                              color: #888888;
+                                              height: 36px;"
+                                              ></i><div><h6> Delivery Information</h6>
  <p>
  Normally delivered between Friday 3 Apr and Monday 6 Apr. Please check exact dates in the Checkout page
  </p>
@@ -58,7 +70,19 @@
  </div>
 
 <div class="d-flex">
-  <i class="fab fa-telegram-plane mr-4"></i></i><div>
+  <i class="fab fa-telegram-plane mr-4" style="border: 1px solid #ededed; 
+                                              border-radius: 4px; 
+                                              padding: 3px; 
+                                              fill: #282828;
+                                              box-sizing: border-box;
+                                              width: 40;
+                                              height: 40;
+                                              font-size: 30px;
+                                              direction: ltr;
+                                              -webkit-font-smoothing: antialiased;
+                                              color: #888888;
+                                              height: 36px;"
+                                              ></i><div>
   <h6> Return Policy</h6>
 <p>Free return within 15 days for Jumia Mall items and 7 days for other eligible items.</p>
    </div>
@@ -129,28 +153,26 @@ export default {
       // this.$store.commit("setCartItemQty", qty) 
       // alert(qty)
     },
-    addtocart (x) {
+    async addtocart (x) {
       let itemExist = false;
       let quantity = null
 
       //check if item exist
-      this.$store.state.cart.forEach((item) => {
-        if(item.id === x.product_id) {
+      await this.$store.state.cart.forEach((item) => {
+        if(item.id == x.product_id) {
           itemExist = true
-          quantity = item.quantity + 1
+          quantity = parseInt(item.quantity) + 1
         }
       })
       if(itemExist) { 
-
         // remove item if it exist
-      let item1 = this.cartitem.filter((item) => {
+      let item1 = await this.$store.state.cart.filter((item) => {
             return item.id != x.product_id
         })
       this.$store.commit("setRemoveItemCart", item1)
-
       // set removed item with its new quantity
       let item = {
-        id: x.id,
+        id: x.product_id,
         img: x.thumb,
         name: x.name,
         quantity: quantity,

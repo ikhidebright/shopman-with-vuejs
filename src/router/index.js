@@ -91,6 +91,7 @@ const routes = [
     component: Orders,
     beforeEnter (to, from, next) {
       if(store.state.loggedIn) {
+        store.dispatch("setWishlist")
         next()
       } else {
         next("/login")

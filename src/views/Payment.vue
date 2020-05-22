@@ -10,10 +10,9 @@
  <p>
 <b>{{ user.first_name }} {{ user.last_name }}</b>
 <br>
-Opposite. Railway Station Bassan Airport Village, Abuja, ABUJA AIRPORT <br> 
-ROAD- SAUKA/IMMIGRATION HQ, Federal Capital Territory
+{{ user.address }}
 <br>
-+2349067998961
+{{ user.phone }}
 </p>
  </div>
  <div>
@@ -22,7 +21,7 @@ ROAD- SAUKA/IMMIGRATION HQ, Federal Capital Territory
    <p>
 <b>Door Delivery</b>
 <br>
-Delivered between Friday 15 May and Thursday 18 June for ₦ {{ shippingAmount }}
+Delivered between Friday 15 May and Thursday 18 June for ₦ {{ shippingAmount.toLocaleString() }}
 <br>
 </p>
  </div>
@@ -35,7 +34,7 @@ Delivered between Friday 15 May and Thursday 18 June for ₦ {{ shippingAmount }
 <br>
 <b>Stay Safe, go cashless with ShopmanPay.</b>
 <br>
-New Customers get 10% additional discount when you pay with your MasterCard capped at N1000.
+New Customers get 10% additional discount when you pay with your MasterCard capped at N1,000.
 <br>
 Card payments are supported by all banks.
 </p>
@@ -55,7 +54,7 @@ Subtotal
 </p>
 
 <p class='ml-auto'>
-₦ {{ totalPrice }}
+₦ {{ totalPrice.toLocaleString() }}
 </p>
 </div>
 
@@ -69,7 +68,7 @@ Shipping amount
 
 <p class='ml-auto'>
 <b>
-₦ {{ shippingAmount }}
+₦ {{ shippingAmount.toLocaleString() }}
 </b>
 </p>
 </div>
@@ -88,7 +87,7 @@ Total
 </p>
 
 <p class='ml-auto totalPay'>
-₦ {{ totalPayment }}
+₦ {{ totalPayment.toLocaleString() }}
 </p>
 </div>
 
@@ -102,8 +101,7 @@ Total
   border: none;
   border-radius: 4px;
   box-shadow: 0px 0px 10px 0px #e5e5e5;
-  height: 48px;
-  font-weight: bold" type="button" @click="payWithPaystack()">CONFIRM ORDER 
+  height: 48px;" type="button" @click="payWithPaystack()">CONFIRM ORDER 
   </button> 
   </div>
  </div>
@@ -113,7 +111,7 @@ Total
 <h6 class="ml-3 mb-3 d-none d-lg-block d-xl-block d-md-block d-sm-block">ORDER SUMMARY</h6>
 <h6 class="mb-3 d-lg-none d-xl-none d-md-none d-sm-none mt-3">ORDER SUMMARY</h6>
    <div class='mt-sm-2 mt-lg-0'>
-     <div class='ml-lg-3 hee'>YOUR ORDER ({{ cartQty }} items)</div>
+     <div class='ml-lg-3 hee'>YOUR ORDER ({{ cartQty.toLocaleString() }} items)</div>
    <div class='ml-lg-3 third'>
     <div class="">
     <CheckOutCartItem v-for="cart in cartitem" :key="cart.id" :cart="cart"/>
@@ -128,7 +126,7 @@ Subtotal
 </p>
 
 <p class='ml-auto'>
-₦ {{ totalPrice }}
+₦ {{ totalPrice.toLocaleString() }}
 </p>
 </div>
 
@@ -142,7 +140,7 @@ Shipping amount
 
 <p class='ml-auto'>
 <b>
-₦ {{ shippingAmount }}
+₦ {{ shippingAmount.toLocaleString() }}
 </b>
 </p>
 </div>
@@ -161,7 +159,7 @@ Total
 </p>
 
 <p class='ml-auto totalPay'>
-₦ {{ totalPayment }}
+₦ {{ totalPayment.toLocaleString() }}
 </p>
 </div>
 
@@ -351,7 +349,6 @@ a {
   border-radius: 4px;
   box-shadow: 0px 0px 10px 0px #e5e5e5;
   height: 48px;
-  font-weight: bold
 }
 
 .add1 {
@@ -562,7 +559,6 @@ p {
   border-radius: 4px;
   box-shadow: 0px 0px 10px 0px #e5e5e5;
   height: 48px;
-  font-weight: bold
 }
 
 .add:hover {

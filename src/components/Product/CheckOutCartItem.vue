@@ -7,9 +7,9 @@
   <div class='d-flex details'>
   <img class='bigpic' :src="cart.img" />
   <div class="ml-2">
-  <p>{{ cart.name}}</p>
-  <p class="mt-n3 color">₦ {{ cart.unitPrice }}</p>
-  <p class="mt-n3 mb-n3">Qty: {{ quantity }}</b></p>
+  <p class="mt-n3 name mb-n1" @click="open(cart)">{{ cart.name}}</p>
+  <p class="mt-2 price">₦ {{ cart.unitPrice.toLocaleString() }}</p>
+  <p class="mt-n2 mb-n3 qty">Qty: {{ quantity.toLocaleString() }}</b></p>
  </div>
   </div>
   </div>
@@ -25,6 +25,13 @@ export default {
   props: ["cart"],
   data: () => ({
   }),
+
+  methods: {
+     open (product) {
+      let name = product.name.replace(/[' ']+/g,'-').toLowerCase()
+      this.$router.push({ name: 'Product', params: { id: product.product_id, name: name } })
+    },
+  },
   
   computed: {
     cartitem () {
@@ -44,9 +51,44 @@ export default {
 
 <style scoped>
 
-.color {
-color: #f68b1e;
+.name {
+color: #000;
+overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+max-height: 2.824em;
+cursor: pointer;
+font-size: 13px;
+-webkit-tap-highlight-color: transparent;
+direction: ltr;
 }
+
+.name:hover {
+  color: #f68b1e;
+  text-decoration: none
+}
+
+.price {
+  color: #f68b1e;
+  display: inline-block;
+  box-sizing: border-box;
+  direction: ltr;
+  unicode-bidi: isolate;
+  font-size: 13px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.qty {
+  color: gray;
+  font-size: 13px;
+  line-height: 1.42857;
+  -webkit-tap-highlight-color: transparent;
+  direction: ltr;
+}
+
+
 .bigpic {
   width: 60px;
   height: 60px

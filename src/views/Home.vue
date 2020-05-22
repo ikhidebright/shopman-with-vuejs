@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home mt-n4">
   <div class="mt-4 home">
   <div class="d-sm-flex flex-sm-column d-lg-flex flex-lg-row">
      <div class="col-12 mt-3">
@@ -45,7 +45,7 @@ export default {
 <style scoped>
 .home {
   background: url("https://ng.jumia.is/cms/Homepage/2020/W19/Ramdan_BG_2.jpg");
-  background-size: 100% 100vh
+  background-size: 100% 100vh;
 }
 
 @media only screen and (min-width: 600px) {

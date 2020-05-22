@@ -46,9 +46,8 @@
 
 <p class='mx-3 addd'>{{ user.first_name }} {{ user.last_name }}
 <br>
-
 {{ user.address }}
-
+<br>
 {{ user.phone }}</p>
  </div>
  </div>

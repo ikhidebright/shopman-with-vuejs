@@ -46,8 +46,7 @@ We are unable to deliver to Borno and Yobe due to the COVID 19 pandemic lockdown
   border: none;
   border-radius: 4px;
   box-shadow: 0px 0px 10px 0px #e5e5e5;
-  height: 48px;
-  font-weight: bold">
+  height: 48px;">
 PROCEED TO NEXT STEP
 </b-button>
   </div>
@@ -61,7 +60,7 @@ PROCEED TO NEXT STEP
 <h6 class="ml-3 mb-3 d-none d-lg-block d-xl-block d-md-block d-sm-block">ORDER SUMMARY</h6>
 <h6 class="mb-3 d-lg-none d-xl-none d-md-none d-sm-none mt-3">ORDER SUMMARY</h6>
    <div class='mt-sm-2 mt-lg-0'>
-     <div class='ml-lg-3 hee'>YOUR ORDER ({{ cartQty }} items)</div>
+     <div class='ml-lg-3 hee'>YOUR ORDER ({{ cartQty.toLocaleString() }} items)</div>
    <div class='ml-lg-3 third'>
     <div class="">
     <CheckOutCartItem v-for="cart in cartitem" :key="cart.id" :cart="cart"/>
@@ -75,7 +74,7 @@ Subtotal
 </p>
 
 <p class='ml-auto'>
-₦ {{ totalPrice }}
+₦ {{ totalPrice.toLocaleString() }}
 </p>
 </div>
 
@@ -89,7 +88,7 @@ Shipping amount
 
 <p class='ml-auto'>
 <b>
-₦ {{ shippingAmount }}
+₦ {{ shippingAmount.toLocaleString() }}
 </b>
 </p>
 </div>
@@ -108,7 +107,7 @@ Total
 </p>
 
 <p class='ml-auto totalPay'>
-₦ {{ totalPayment }}
+₦ {{ totalPayment.toLocaleString() }}
 </p>
 </div>
 

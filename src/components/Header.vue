@@ -1,9 +1,9 @@
 <template>
-  <div class="head pb-n3">
-    <div>
+  <div class="headdd pb-n3" >
+    <div class="mx-auto">
       <b-navbar toggleable="lg" variant="faded" fixed="top" id="header" type="light
       ">
-        <b-navbar-brand style="font-size: 30px" href="/">Shopman</b-navbar-brand>
+        <b-navbar-brand style="" href="/">SHOPMAN</b-navbar-brand>
 
  <!-- mo -->
  <!-- actions for mobile-->
@@ -46,6 +46,9 @@
               </b-nav-item>
             </b-navbar-nav>
             </div>
+ <!-- mo -->
+ <!-- actions for mobile-->
+
 
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav></b-navbar-nav>
@@ -58,15 +61,15 @@
                 size="sm"
                 v-model="src"
                 id="in"
-                class="mr-sm-2"
+                class="mr-sm-2 src"
                 placeholder=" Search products, brands, categories"
               />
               <b-button size="sm" class="my-2 my-sm-0" type="submit" variant id="search">SEARCH</b-button>
             </b-nav-form>
-            <b-nav-item-dropdown right class="head3" dark v-if="!loggedIn">
+            <b-nav-item-dropdown right class="head3 ml-3" dark v-if="!loggedIn">
               <!-- Using 'button-content' slot -->
               <template v-slot:button-content>
-              <i class="fas fa-user mr-2"></i> Login
+              <i class="fas fa-user mr-2 mt-2"></i> Login
               </template>
               <b-button size="sm" class="pa-4" type="submit" block variant to="/login" id="login">LOGIN</b-button>
               <p class="text-center mt-3">or</p>
@@ -77,10 +80,10 @@
               <b-link class="dropdown-item" to="saved"><i class="fas fa-heart mr-3"></i>Saved Items</b-link>
               </b-nav-item-dropdown>
 
-              <b-nav-item-dropdown right class="head3" dark v-if="loggedIn">
+              <b-nav-item-dropdown right class="head3 ml-3" dark v-if="loggedIn">
               <!-- Using 'button-content' slot -->
               <template v-slot:button-content>
-              <i class="fas fa-user mr-2"></i> Hi, {{ user.first_name }}
+              <i class="fas fa-user mr-2 mt-2"></i> Hi, {{ user.first_name }}
               </template>
               <b-link class="dropdown-item acc" to="/dashboard"><i class="fas fa-user mr-3"></i>Account</b-link>
               <b-link class="dropdown-item" to="/orders"><i class="fas fa-box mr-3"></i>Orders</b-link>
@@ -89,9 +92,9 @@
                <b-button size="sm" class="mt-2" type="submit" @click="logOut" block variant id="register">LOGOUT</b-button>
               </b-nav-item-dropdown>
 
-            <b-nav-item-dropdown right class="head1">
+            <b-nav-item-dropdown right class="head1 ml-3">
               <template v-slot:button-content>
-              <i class="far fa-question-circle mr-0"></i> Help
+              <i class="far fa-question-circle mr-0 mt-2"></i> Help
               </template>
               <b-dropdown-item href="#">Help Center?</b-dropdown-item>
               <b-dropdown-item href="#">How to shop on Shopman</b-dropdown-item>
@@ -101,7 +104,7 @@
             </b-nav-item-dropdown>
 
 
-            <b-navbar-nav class="head2">
+            <b-navbar-nav class="head2 ml-3">
               <b-nav-item to="/cart">
                 <span id="">
                   <CartIcon :cartcount="cartcount"/>
@@ -238,8 +241,15 @@ b-link:hover {
   border: 1px #c7c7cd solid;
   
 }
-.head {
-  margin-bottom: 40px;
+.headdd {
+  box-shadow: 0 4px 4px -4px rgba(0,0,0,0.12);
+  background-color: #fff;
+  display: block;
+  width: 100%;
+  height: 63px;
+  position: fixed;
+  top: 0;
+  z-index: 1;
 }
 #search {
   background-color: #f68b1e;
@@ -258,6 +268,21 @@ b-link:hover {
 
 #header {
   background-color: white !important;
+  max-width: 1184px !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+  height: 62px !important;
+  flex: 0 1 auto !important;
+  display: flex !important;
+  box-sizing: border-box !important;
+  direction: ltr !important;
+    -webkit-font-smoothing: antialiased !important;
+    font-size: .875rem !important;
+    font-weight: 600;
+    color: #282828 !important;
 }
 .head1 {
   color: #282828 !important;
@@ -277,5 +302,40 @@ b-link:hover {
 }
 #focus:focus {
   outline: none !important;
+}
+
+
+.src {
+  font-size: 1rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 8px;
+  height: 100%;
+  box-shadow: none;
+  flex-grow: 1;
+  overflow: hidden;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  box-sizing: border-box;
+  -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: -internal-light-dark-color(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    -webkit-appearance: textfield;
+    background-color: -internal-light-dark-color(white, black);
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    font: 400 13.3333px Arial;
+    padding: 1px 0px;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
 }
 </style>

@@ -1,16 +1,16 @@
 <template>
   <a
     href="https://www.jumia.com.ng/cart/"
-    class="osh-btn -plain -cart -jewel"
+    class="osh-btn -plain -cart -jewel ml-3 mt-n1"
     data-js-event="non"
     data-js-element="#cart"
   >
-    <i class="fas fa-cart-plus" style="font-size: 25px"></i>
+    <i class="fas fa-shopping-cart" style="font-size: 19px"></i>
     <span
       class="label"
       >{{ cartcount }}</span
     >
-    <span class="sub-label" style="font-size: 1rem; margin-left: 10px"><b>Cart</b></span>
+    <span class="sub-label" style="font-size: 1rem; font-weight: 400; margin-left: 8px; margin-top: 4px"><b>Cart</b></span>
   </a>
 </template>
 
@@ -30,7 +30,6 @@ export default {
   cursor: pointer;
   display: inline-block;
   font-family: Roboto, Helvetica, Arial, sans-serif;
-  font-weight: 700;
   font-size: 12px;
   font-style: normal;
   line-height: 1.42857;
@@ -50,7 +49,6 @@ a.osh-btn {
   color: #6e6e6e;
   border: none;
   font-size: 14px;
-  font-weight: 500;
   line-height: 15px;
   text-transform: capitalize;
   text-align: left;
@@ -78,7 +76,6 @@ a.osh-btn {
   -moz-osx-font-smoothing: grayscale;
   font-style: normal;
   font-variant: normal;
-  font-weight: 400;
   font-size: 16px;
   text-decoration: none;
   text-transform: none;
@@ -101,7 +98,6 @@ a.osh-btn {
   color: #fff;
   min-width: 22px;
   min-height: 22px;
-  font-weight: 700;
   text-align: center;
   letter-spacing: -1px;
   text-indent: -1px;

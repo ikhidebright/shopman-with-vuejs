@@ -14,15 +14,15 @@
   <p class="text-center">Already have an account? <router-link to='/login'>login</router-link> to see the items in your cart.</p>
    <h4 class="text-center ml-3"> <b-button to="/" class="add" style="float: center">START SHOPPING</b-button></h4>
     </div>
-  <h4 v-if="this.$store.state.cart.length > 0">Cart ({{ totalQuantity }} items)</h4>
+  <h4 v-if="this.$store.state.cart.length > 0">Cart ({{ totalQuantity.toLocaleString() }} items)</h4>
   <br>
-  <div v-for="cart in cartitem" :key="cart.id">
-  <CartItem :cart="cart"/>
+  <div class="mx-auto">
+  <CartItem v-for="cart in cartitem" :key="cart.id" :cart="cart"/>
   </div>
   <b-col lg="10" md="10" xl="10">
   <b-row align-h="end" class="mr-0">
    <div class="text-right mr-1" v-if="this.$store.state.cart.length > 0">
-  <h5>Total:	₦ {{ totalPrice }} </h5>
+  <h5>Total:	₦ {{ totalPrice.toLocaleString() }} </h5>
  Shipping fees not included yet <br> 
  Customs Fee not included yet
   </div>
@@ -129,7 +129,7 @@ export default {
 .home {
   background-color:#f5f5f5;
   color: #555555;
-  height: 100vh;
+  height: auto;
 }
 
 .bigpic {
@@ -217,7 +217,7 @@ a:hover {
 .home {
   background-color:#f5f5f5;
   color: #555555;
-  height: 100vh
+  height: auto
 }
 
 .bigpic {

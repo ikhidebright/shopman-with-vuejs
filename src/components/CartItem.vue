@@ -1,16 +1,17 @@
 <template>
   <div class="hom mb-2">
-  <b-col lg="9" md="10" xl="10" xs="12">
-  <b-card bg-variant="white" text-variant="red">
+  <b-col lg="12" md="10" xl="10" xs="12">
+  <b-card  text-variant="red">
   <div class='d-lg-flex d-sm-flex flex-sm-column flex-lg-row'>
   <!-- image & name -->
   <div class='d-flex details'>
   <img class='bigpic' :src="cart.img" />
   <div class="ml-2">
-  <p ><b>{{ cart.name}}</b></p>
+  <p class="seller d-none d-lg-block d-xl-block d-md-block d-sm-block">Seller: Shopman</p>
+  <p class="name" @click="open(cart)">{{ cart.name}}</p>
   <!-- price on mobile-->
    <div class='mt-n3 d-lg-none d-xl-none d-md-none d-sm-none'>
-  ₦ {{ subTotal }}
+  <p class="subTotal mt-4">₦ {{ subTotal.toLocaleString() }}</p>
   </div>
   <div class="d-none d-lg-block d-xl-block d-md-block d-sm-block">
 <i class="fas fa-heart"></i>  <router-link to='' @click.native="save(cart)">MOVE TO SAVED ITEMS</router-link> <i class="fas fa-trash"></i>   <router-link to='' @click.native="remove(cart)">REMOVE</router-link>
@@ -18,7 +19,7 @@
   </div>
   </div>
   <!-- image & name -->
-  <div class='border-right pl-3 pr-3 pt-2 d-none d-lg-block d-xl-block d-md-block d-sm-block'>
+  <div class='border-right pl-3 pr-3 pt-2 d-none d-lg-block d-xl-block d-md-block d-sm-block select'>
   <b-form-select
       id="inline-form-custom-select-pref"
       class="mb-2 mr-sm-2 mb-sm-0"
@@ -28,11 +29,13 @@
       @change="changeQty(quantity)"
     ></b-form-select>
     </div>
-  <div class='border-right pl-5 pr-5 pt-3 d-none d-lg-block d-xl-block d-md-block d-sm-block'>
-  ₦ {{ cart.unitPrice }}
+  <div class='border-right pl-5 pr-5 pt-3 d-none d-lg-block d-xl-block d-md-block d-sm-block prices'>
+  <p class="unitPrice mb-n4 ml-n3">₦ {{ cart.unitPrice.toLocaleString() }}</p>
+  <p class="disPrice mt-n3 ml-1">₦ {{ discount.toLocaleString() }}</p>
+  <p class="save mt-n3 ml-n3">Savings: ₦ {{ savings.toLocaleString() }}</p>
   </div>
   <div class='pl-5 pt-3 pl-5 d-none d-lg-block d-xl-block d-md-block d-sm-block'>
-  ₦ {{ subTotal }}
+  <p class="subTotal">₦ {{ subTotal.toLocaleString() }}</p>
   </div>
   
 
@@ -85,12 +88,20 @@ export default {
     },
     loggedIn () {
       return this.$store.state.loggedIn
+    },
+    discount () {
+      let diff = this.cart.unitPrice * 30 /100
+      return this.cart.unitPrice + diff
+    },
+    savings () {
+      return this.discount - this.cart.unitPrice
     }
   },
   methods: {
-      // changeQty (x) {
-      //     alert(x)
-      // },
+      open (product) {
+      let name = product.name.replace(/[' ']+/g,'-').toLowerCase()
+      this.$router.push({ name: 'Product', params: { id: product.product_id, name: name } })
+    },
        showError (message, show) {
         let item = {
           errorMessage: message,
@@ -110,12 +121,12 @@ export default {
           this.$router.push('/login')
         } else {
           let save = await axios.post(`${this.$store.state.url}/wishlist`, {
-            product_id: x.id,
+            product_id: x.product_id,
             name: x.name,
             price: x.unitPrice,
-            description: x.name,
+            description: x.description,
             customer_id: this.user.id,
-            thumb: x.img
+            thumb: x.thumb
           })
           console.log(save)
           if (save.status === 200 && save.data.result.affectedRows === 1) {
@@ -130,8 +141,8 @@ export default {
         }
       },
       remove (x) {
-        let item = this.cartitem.filter((item) => {
-            return item.id != x.id
+        let item = this.$store.state.cart.filter((item) => {
+            return item.id != x.product_id
         })
         this.$store.commit("setRemoveItemCart", item)
         this.$router.go()
@@ -149,6 +160,40 @@ export default {
 </script>
 
 <style scoped>
+
+.subTotal {
+   line-height: inherit;
+    vertical-align: inherit;
+    display: inline-block;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    color: #f68b1e;
+    resize: none;
+    outline: 0;
+    font: 1.5rem/1.33;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+.name {
+  font: 1.5rem/1.33;
+  text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    max-height: 2.824em;
+    color: #000;
+    text-decoration: none;
+    background-color: transparent;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none;
+    resize: none;
+    outline: 0;
+    direction: ltr;
+    cursor: pointer;
+}
 
 .rightalign {
   float: right
@@ -174,6 +219,11 @@ a:hover {
   text-decoration: none
 }
 
+.name:hover {
+  color: #f68b1e;
+  text-decoration: none
+}
+
 .fa-heart {
   color: #f68b1e;
   font-size: 13px;
@@ -189,6 +239,93 @@ a:hover {
 }
 
 @media only screen and (min-width: 760px) {
+  .select {
+    width: 104px
+  }
+
+  .prices {
+    width: 172px
+  }
+
+  .seller {
+    color: #ababab;
+    font-size: 14px;
+    line-height: 1;
+    margin-bottom: 6px!important;
+    text-align: left;
+    -webkit-tap-highlight-color: transparent;
+    direction: ltr;
+  }
+
+  .subTotal {
+    display: inline-block;
+    box-sizing: border-box;
+    direction: ltr;
+    unicode-bidi: isolate;
+    color: #f68b1e;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .save {
+    color: #7ed321;
+    font-weight: 400;
+    font-size: 12px;
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+    direction: ltr;
+    width: 108px
+  }
+
+  .disPrice {
+    text-decoration: line-through;
+    display: inline-block;
+    box-sizing: border-box;
+    color: #ababab;
+    font-weight: 400;
+    font-size: 13px;
+    direction: ltr;
+    unicode-bidi: isolate;
+    text-align: center;
+    border-collapse: collapse;
+  }
+
+  .unitPrice {
+    -webkit-tap-highlight-color: transparent;
+    line-height: 1.42857;
+    border-collapse: collapse;
+    text-align: center;
+    width: 108px;
+    color: #000;
+    font-size: 15px;
+    direction: ltr;
+    unicode-bidi: isolate;
+    display: inline-block;
+    box-sizing: border-box;
+  }
+
+  .name {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.25;
+    margin-bottom: 6px!important;
+    display: inline-block!important;
+    color: #000;
+    text-decoration: none;
+    background-color: transparent;
+    box-sizing: border-box;
+    text-align: left;
+    border-collapse: collapse;
+    cursor: pointer;
+  }
+
+  .name:hover {
+  color: #f68b1e;
+  text-decoration: none
+}
+
   
 .rightalign {
   float: right
@@ -201,7 +338,8 @@ a:hover {
 
 .details {
   width: 422px;
-  border-right: 1px solid gray
+  border-right: 1px solid #e5e5e5;
+  height: auto
 }
 
 a {

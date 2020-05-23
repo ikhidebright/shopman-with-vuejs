@@ -3,12 +3,22 @@
 <div 
 class='product mb-4'
 @click='open(product)'>
+
+
 <img 
 :src="`${ product.thumb }`" 
-class='pic' 
-alt='' />
+class='pic d-none d-lg-block d-md-block d-xl-block d-sm-block' 
+:alt="`${ product.name }`" />
+
+<img 
+:src="`${ product.thumb }`" 
+class='pic ml-3 d-lg-none d-md-none d-xl-none d-sm-none' 
+:alt="`${ product.name }`" />
+
+
 <div class='details'>
 <p class='name mb-3 mt-n2'>{{ product.name }}</p>
+<p class='price mt-n2 ml-2 d-lg-none d-md-none d-xl-none d-sm-none'>₦ {{ product.price.toLocaleString() }}</p>
 <p class='priceee price mt-n2 ml-2 d-none d-lg-block d-md-block d-xl-block d-sm-block'>₦ {{ product.price.toLocaleString() }}</p>
 <p class='discount mt-n3 ml-2 d-none d-lg-block d-md-block d-xl-block d-sm-block'>₦ {{ discount.toLocaleString() }}</p>
 </div>
@@ -41,8 +51,8 @@ export default {
 <style scoped>
 .pic {
   width: 104px;
-  height: auto;
   margin: 0 auto;
+  height: auto;
   border-style: none;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
@@ -54,10 +64,12 @@ p {
 
 .price {
   margin: 0;
-  font-size: .75rem;
+  font-size: .875rem;
   text-overflow: ellipsis;
   font-family: -apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",Arial,sans-serif;
-  font-weight: 400
+  font-weight: 500;
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .product {
@@ -106,6 +118,7 @@ direction: ltr;
   -moz-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto;
+  text-align: center;
 }
 
 

@@ -10,6 +10,7 @@
     <Imageads />
     <Homecards :products="electronics"/>
     <Imageads />
+     <Homecards :products="home"/>
   </div>
   </div>
 </template>
@@ -41,6 +42,9 @@ export default {
     },
      phones () {
       return this.$store.getters.products('Phones') 
+    },
+     home () {
+      return this.$store.getters.products('Home Appliances') 
     }
   }
 }

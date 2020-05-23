@@ -8,8 +8,7 @@ class='product'
 class='pic' 
 alt='' />
 <div class='details'>
-<p class='name' v-if="product.name.length < 57">{{ product.name }} <br> <b> ₦ {{ product.price.toLocaleString() }}</b> </p>
-<p class='name' v-if="product.name.length >= 57">{{ product.name.split('').slice(0, -37).join('') + '...' }} <br> 
+<p class='name' v-if="product.name.length >= 19">{{ product.name.split('').slice(0, -Math.round(product.name.length/250)).join('') + '...' }} <br> 
 <b> ₦ {{ product.price.toLocaleString() }}</b> </p>
 <p class='discount mt-n4 ml-2 d-none d-lg-block d-md-block d-xl-block d-sm-block'>₦ {{ discount.toLocaleString() }}</p>
 </div>

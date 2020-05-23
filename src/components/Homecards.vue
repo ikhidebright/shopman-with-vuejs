@@ -1,5 +1,23 @@
 <template>
-<b-container fluid>
+<div>
+<div class="card mx-auto d-lg-none d-xl-none d-sm-none d-md-none">
+  <div class='head d-flex mb-2 pt-n3 mb-2 mt-0'>
+ <div class='he mt-n3'>{{ products[0].category }} </div>
+ <div class='ml-auto mr-3 see mt-n3'><router-link :to="`/category/${products[0].category.replace(/[' ']+/g,'-').toLowerCase()}`">SEE ALL</router-link></div>
+  </div>
+  <b-row>
+    <b-col cols="12" md="12" sm='12'>
+    <div class="d-flex flex-sm-row d-lg-flex flex-lg-row flex-wrap">
+      <div class="mr-auto" v-for='product in products' :key='product.id'>
+  <ProductCard :product='product' />
+  </div>
+  </div>
+    </b-col>
+    </b-row>
+  </div>
+
+
+<b-container fluid class="d-none d-lg-block d-xl-block d-sm-block d-md-block">
   <div class="card mx-auto">
   <div class='head d-flex mb-2 pt-n3 mb-2 mt-3'>
  <div class='he mt-n3'>{{ products[0].category }} </div>
@@ -16,6 +34,7 @@
     </b-row>
   </div>
   </b-container>
+  </div>
 </template>
 
 <script>
@@ -38,8 +57,6 @@ export default {
 <style scoped>
 .card {
   margin-bottom: 0.5rem;
- border-radius: 0.2rem;
-  padding: 0rem 0 0 0;
 }
 
 .he {
@@ -47,22 +64,23 @@ export default {
 }
 
 .head {
-  padding: 0 0 0 1rem;
+  padding: 1rem;
   color: black;
-  font-weight: 600;
-  border-top-left-radius: 0.2rem;
- border-top-right-radius: 0.2rem;
-  background-color: #ff9900;
+  margin-top: -2rem;
+  font-weight: 400;
+  font-size: 0.8rem;
+  background: rgb(255, 165, 0);
+  box-sizing: border-box;
 }
 
 .link {
   float: right;
   font-weight: 600;
-  color: #f68b1e;
+  color: #000000;
 }
 
 a {
-  color: #f68b1e
+  color: #000000
 }
 
 a:hover {
@@ -78,6 +96,28 @@ a:hover {
   padding-top: 4px;
   align-items: center;
   display: flex;
+  color: #000000;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-size: .875rem;
+  font-family: Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+  box-sizing: border-box;
+}
+
+.card {
+  width: 100%
+}
+
+@media only screen and (min-width: 600px) {
+
+  .see {
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding-bottom: 4px;
+  padding-top: 4px;
+  align-items: center;
+  display: flex;
   color: #f68b1e;
   text-decoration: none;
   box-sizing: border-box;
@@ -86,7 +126,6 @@ a:hover {
   box-sizing: border-box;
 }
 
-@media only screen and (min-width: 600px) {
   .head {
   padding: 0 0 0 1rem;
   background-color: white;

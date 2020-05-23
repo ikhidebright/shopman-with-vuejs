@@ -17,7 +17,7 @@
               </template>
               <b-button size="sm" class="pa-4" type="submit" block variant to="/login" id="login">LOGIN</b-button>
               <p class="text-center mt-n3">or</p>
-              <b-button size="sm" class="mt-n6" type="submit" to="/register" block variant id="register">REGISTER</b-button>
+              <b-button size="sm" class="mt-n6" type="submit" to="/login" block variant id="register">REGISTER</b-button>
               <div class="dropdown-divider mt-3"></div>
               <b-link class="dropdown-item acc" to="/dashboard"><i class="fas fa-user mr-3"></i>Account</b-link>
               <b-link class="dropdown-item" to="/orders"><i class="fas fa-box mr-3"></i>Orders</b-link>

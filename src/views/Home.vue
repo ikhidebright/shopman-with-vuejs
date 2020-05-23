@@ -6,6 +6,7 @@
   <Carousel />
     </div>
     </div>
+    <Homecards :products="phones"/>
     <Imageads />
     <Homecards :products="electronics"/>
     <Imageads />
@@ -36,7 +37,10 @@ export default {
   },
   computed: {
     electronics () {
-      return this.$store.getters.products('Electronics')
+      return this.$store.getters.products('Electronics') 
+    },
+     phones () {
+      return this.$store.getters.products('Phones') 
     }
   }
 }

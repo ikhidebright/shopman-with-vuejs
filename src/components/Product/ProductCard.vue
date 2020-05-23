@@ -19,7 +19,7 @@ class='pic ml-3 d-lg-none d-md-none d-xl-none d-sm-none'
 <div class='details'>
 <p class='name mb-3 mt-n2'>{{ product.name }}</p>
 <p class='price mt-n2 ml-2 d-lg-none d-md-none d-xl-none d-sm-none'>₦ {{ product.price.toLocaleString() }}</p>
-<p class='priceee price mt-n2 ml-2 d-none d-lg-block d-md-block d-xl-block d-sm-block'>₦ {{ product.price.toLocaleString() }}</p>
+<p class='priceee mt-n2 ml-2 d-none d-lg-block d-md-block d-xl-block d-sm-block'>₦ {{ product.price.toLocaleString() }}</p>
 <p class='discount mt-n3 ml-2 d-none d-lg-block d-md-block d-xl-block d-sm-block'>₦ {{ discount.toLocaleString() }}</p>
 </div>
 </div>

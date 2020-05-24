@@ -51,6 +51,11 @@ export default {
 
 <style scoped>
 
+.details {
+  width: auto;
+}
+
+
 .name {
 text-align: left;
 color: #282828;
@@ -110,9 +115,6 @@ direction: ltr;
   height: 60px
 }
 
-.details {
-  width: 422px;
-}
 
 a {
   color: #f68b1e;

@@ -4,7 +4,7 @@
       <b-container
         fluid
         class="p-0 content-mt custom-container d-none d-md-block"
-        v-if="smallScreen"
+        v-if="!smallScreen"
       >
         <b-row class="m-0 py-3">
           <b-col
@@ -114,106 +114,9 @@
                 </b-carousel-slide>
               </b-carousel>
             </b-row>
-          <!--  <b-row>
-              <b-col cols="12" class="py-0">
-                <b-card header="Featured Products" class="my-card-title">
-                  <b-row>
-                    <b-col
-                      lg="3"
-                      md="4"
-                      cols="6"
-                      v-for="product in products"
-                      :key="product.name"
-                      class="p-0 px-3 pb-3"
-                    >
-                      <a @click="gotoProduct(product)" class="product-link">
-                        <b-card>
-                          <img
-                            :src="product.pics"
-                            style="width: 100%; margin-bottom: 1rem;"
-                          />
-                          <div class="text-left">
-                            <p class="product-title">
-                              {{ product.name }}
-                            </p>
-                            <b-card-text> ₦ {{ product.price }} </b-card-text>
-                          </div>
-                        </b-card>
-                      </a>
-                    </b-col>
-                  </b-row>
                 </b-card>
               </b-col>
-            </b-row> -->
-         <!--   <b-row class="mt-3">
-              <b-col cols="12" class="py-0">
-                <b-card
-                  header="Flash Sales"
-                  class="my-card-title flash-sales-title"
-                >
-                  <b-row>
-                    <b-col
-                      lg="3"
-                      md="4"
-                      cols="6"
-                      v-for="product in products"
-                      :key="product.name"
-                      class="p-0 px-3 pb-3"
-                    >
-                      <a @click="gotoProduct(product)" class="product-link">
-                        <b-card>
-                          <img
-                            :src="product.pics"
-                            style="width: 100%; margin-bottom: 1rem;"
-                          />
-                          <div class="text-left">
-                            <p class="product-title">
-                              {{ product.name }}
-                            </p>
-                            <b-card-text> ₦ {{ product.price }} </b-card-text>
-                          </div>
-                        </b-card>
-                      </a>
-                    </b-col>
-                  </b-row>
-                </b-card>
-              </b-col>
-            </b-row> -->
-         <!--  <b-row class="mt-3">
-              <b-col cols="12" class="py-0">
-                <b-card
-                  header="Store Recommendation"
-                  class="my-card-title recommendation-sales-title"
-                >
-                  <b-row>
-                    <b-col
-                      lg="3"
-                      md="4"
-                      cols="6"
-                      v-for="product in products"
-                      :key="product.name"
-                      class="p-0 px-3 pb-3"
-                    >
-                      <a @click="gotoProduct(product)" class="product-link">
-                        <b-card>
-                          <img
-                            :src="product.pics"
-                            style="width: 100%; margin-bottom: 1rem;"
-                          />
-                          <div class="text-left">
-                            <p class="product-title">
-                              {{ product.name }}
-                            </p>
-                            <b-card-text> ₦ {{ product.price }} </b-card-text>
-                          </div>
-                        </b-card>
-                      </a>
-                    </b-col>
-                  </b-row> -->
-                </b-card>
-              </b-col>
-              
-
+            
 <b-col cols="2" class="p-0 pr-3 d-none d-sm-none d-lg-block">
             <b-row class="m-0">
               <b-col cols="12 p-0">
@@ -228,15 +131,11 @@
               </b-col>
             </b-row>
           </b-col>
-
-
-
-
-            </b-row>
-          </b-col>
-          
+        </b-row>
+          </b-col> 
         </b-row>
       </b-container>
+      <!-- for smaalscreens -->
       <b-container
         v-else
         fluid
@@ -244,9 +143,9 @@
       >
         <b-row class="m-0 pb-3">
           <b-col>
-            <b-row class="pb-3">
+            <b-row class="pb-3 mt-5 mb-n3">
               
-            <!--<b-carousel
+            <b-carousel
                 id="carousel-1"
                 v-model="slide"
                 :interval="3000"
@@ -258,24 +157,21 @@
                 @sliding-start="onSlideStart"
                 @sliding-end="onSlideEnd"
               >
-                < Text slides with image 
                 <b-carousel-slide>
                   <template v-slot:img>
                     <img
                       class="d-block img-fluid w-100 carousel-container-height"
-                      src="https://ng.jumia.is/cms/Homepage/2020/W13/Wednesday/Slider-3.jpg"
+                      src="https://ng.jumia.is/cms/Homepage/2020/W21/Slider--Office-Consumables.jpg"
                       alt="image slot"
                     />
                   </template>
                   ></b-carousel-slide
                 >
-
-                < Slides with custom text 
                 <b-carousel-slide>
                   <template v-slot:img>
                     <img
                       class="d-block img-fluid w-100 carousel-container-height"
-                      src="https://ng.jumia.is/cms/Homepage/2020/W13/upd-techweek_wof4.jpg"
+                      src="https://ng.jumia.is/cms/Homepage/2020/W21/Slider-samsung.jpg"
                       alt="image slot"
                     />
                   </template>
@@ -286,15 +182,13 @@
                   <template v-slot:img>
                     <img
                       class="d-block img-fluid w-100 carousel-container-height"
-                      src="https://ng.jumia.is/cms/Homepage/2020/W13/DailyEssentials.jpg"
+                      src="https://ng.jumia.is/cms/Homepage/2020/W21/FLOORS/eid.jpg"
                       alt="image slot"
                     />
                   </template>
                 </b-carousel-slide>
 
-                 Slides with img slot 
-                < Note the classes .d-block and .img-fluid to prevent browser default image alignment 
-                <b-carousel-slide>
+               <b-carousel-slide>
                   <template v-slot:img>
                     <img
                       class="d-block img-fluid w-100 carousel-container-height"
@@ -304,19 +198,16 @@
                   </template>
                 </b-carousel-slide>
 
-                < Slide with blank fluid image to maintain slide aspect ratio 
                 <b-carousel-slide>
                   <template v-slot:img>
                     <img
                       class="d-block img-fluid w-100 carousel-container-height"
-                      src="https://ng.jumia.is/cms/Homepage/2020/W13/Wednesday/NG_W13_S_WED_TECHWEEK_1.jpg"
+                      src="https://ng.jumia.is/cms/Homepage/2020/W21/FLOORS/Self-care.jpg"
                       alt="image slot"
                     />
                   </template>
                 </b-carousel-slide>
-              </b-carousel>-->
-
-
+              </b-carousel>
             </b-row>
           </b-col>
         </b-row>
@@ -350,10 +241,6 @@ export default {
     },
   },
   methods: {
-    gotoProduct(product) {
-      this.$store.commit('setSelectedProductValue', product)
-      this.$router.push({ path: '/product' })
-    },
     onResize() {
       if (window.innerWidth < 768) {
         this.smallScreen = true
@@ -388,6 +275,7 @@ export default {
 }
 .custom-container {
   max-width: 1200px;
+  z-index: 0
 }
 .content-mt {
   margin-top: 56px;
@@ -402,6 +290,7 @@ export default {
   position: -webkit-sticky;
   position: sticky;
   top: 62px;
+  z-index: 0;
   height: 402px;
 }
 .my-card-title .card-header {

@@ -11,7 +11,7 @@
   <p class="name" @click="open(cart)">{{ cart.name}}</p>
   <!-- price on mobile-->
    <div class='mt-n3 d-lg-none d-xl-none d-md-none d-sm-none'>
-  <p class="subTotal mt-4">₦ {{ subTotal.toLocaleString() }}</p>
+  <p class="subTotal mt-1">₦ {{ subTotal.toLocaleString() }}</p>
   </div>
   <div class="d-none d-lg-block d-xl-block d-md-block d-sm-block">
 <i class="fas fa-heart"></i>  <router-link to='' @click.native="save(cart)">MOVE TO SAVED ITEMS</router-link> <i class="fas fa-trash"></i>   <router-link to='' @click.native="remove(cart)">REMOVE</router-link>
@@ -175,12 +175,32 @@ export default {
   }
 
 .name {
+text-align: left;
+overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+max-height: 4.824em;
+max-width: 12.824em;
+cursor: pointer;
   font: 1.5rem/1.33;
-  text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    max-height: 2.824em;
+-webkit-tap-highlight-color: transparent;
+direction: ltr;
+ /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
     color: #000;
     text-decoration: none;
     background-color: transparent;
@@ -192,7 +212,6 @@ export default {
     resize: none;
     outline: 0;
     direction: ltr;
-    cursor: pointer;
 }
 
 .rightalign {
@@ -313,6 +332,7 @@ a:hover {
     margin-bottom: 6px!important;
     display: inline-block!important;
     color: #000;
+    max-width: 20.824em;
     text-decoration: none;
     background-color: transparent;
     box-sizing: border-box;

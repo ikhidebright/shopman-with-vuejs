@@ -156,6 +156,7 @@ const routes = [
     name: 'Login',
     component: Login,
     beforeEnter (to, from, next) {
+      console.log(from)
       if(store.state.loggedIn) {
         next("/dasboard")
       } else {

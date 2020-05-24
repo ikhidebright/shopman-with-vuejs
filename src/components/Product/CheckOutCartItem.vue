@@ -52,13 +52,15 @@ export default {
 <style scoped>
 
 .name {
-color: #000;
+text-align: left;
+color: #282828;
 overflow: hidden;
 text-overflow: ellipsis;
 display: -webkit-box;
 -webkit-line-clamp: 2;
 -webkit-box-orient: vertical;
 max-height: 2.824em;
+max-width: 9.824em;
 cursor: pointer;
 font-size: 13px;
 -webkit-tap-highlight-color: transparent;
@@ -68,8 +70,7 @@ direction: ltr;
   word-wrap: break-word;
 
   -ms-word-break: break-all;
-  /* This is the dangerous one in WebKit, as it breaks things wherever */
-  word-break: break-all;
+
   /* Instead use this non-standard one: */
   word-break: break-word;
 

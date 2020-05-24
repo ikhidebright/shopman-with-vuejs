@@ -1,4 +1,5 @@
 <template>
+<div class="goback">
   <div class="home2 mt-n3">
     <div class="wrapper">
       <b-container
@@ -214,6 +215,7 @@
       </b-container>
     </div>
   </div>
+  </div>
 </template>
 <style scoped>
 .remove-border {
@@ -264,6 +266,10 @@ export default {
 }
 </script>
 <style scoped>
+
+.goback {  
+  z-index: -1;
+}
 
 .card-right-background {
   background-image: url('https://ng.jumia.is//cms/Homepage/2020/W13/1TechWeek_BSB_2pm+9pm-(1).gif');

@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div class="main mt-1">
 <b-container>
   <br>
   <br>

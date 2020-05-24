@@ -2,8 +2,8 @@
 <div>
 <div class="card mx-auto d-lg-none d-xl-none d-sm-none d-md-none">
   <div class='head d-flex mb-2 pt-n3 mb-2 mt-0'>
- <div class='he mt-n3'>{{ products[0].category }} </div>
- <div class='ml-auto mr-3 see mt-n3'><router-link :to="`/category/${products[0].category.replace(/[' ']+/g,'-').toLowerCase()}`">SEE ALL</router-link></div>
+ <div class='he mt-n1'>{{ products[0].category }} </div>
+ <div class='ml-auto mr-3 mt-n1 see'><router-link :to="`/category/${products[0].category.replace(/[' ']+/g,'-').toLowerCase()}`">SEE ALL</router-link></div>
   </div>
   <b-row>
     <b-col cols="12" md="12" sm='12'>
@@ -64,11 +64,9 @@ export default {
 }
 
 .head {
-  padding: 1rem;
   color: black;
-  margin-top: -2rem;
   font-weight: 400;
-  font-size: 0.8rem;
+  font-size: 0.5rem;
   background: rgb(255, 165, 0);
   box-sizing: border-box;
 }

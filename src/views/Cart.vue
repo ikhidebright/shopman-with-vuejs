@@ -35,7 +35,7 @@
    <b-row align-h="end" class="mr-5">
   <div class='d-lg-flex d-sm-flex flex-sm-row flex-lg-row d-xs-block mr-5'>
     <b-button class="add1 mb-2" to="/" @click="hideModal">CONTINUE SHOPPING</b-button>
-    <b-button to="/checkout" class="add">PROCEED TO CHECKOUT</b-button>
+    <b-button to="/checkout" class="addd">PROCEED TO CHECKOUT</b-button>
   </div>
   </b-row>
   </b-col>
@@ -100,6 +100,17 @@ export default {
   border: none;
   border-radius: 4px;
   margin-bottom: 3rem;
+  box-shadow: 0px 0px 10px 0px #e5e5e5;
+  height: 48px;
+  font-weight: bold
+}
+
+.addd {
+  width: 150%;
+  background: #ff9900;
+  color: white;
+  border: none;
+  border-radius: 4px;
   box-shadow: 0px 0px 10px 0px #e5e5e5;
   height: 48px;
   font-weight: bold

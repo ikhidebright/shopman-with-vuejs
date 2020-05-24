@@ -60,7 +60,7 @@ display: -webkit-box;
 -webkit-line-clamp: 2;
 -webkit-box-orient: vertical;
 max-height: 2.824em;
-max-width: 9.824em;
+max-width: 15.824em;
 cursor: pointer;
 font-size: 13px;
 -webkit-tap-highlight-color: transparent;

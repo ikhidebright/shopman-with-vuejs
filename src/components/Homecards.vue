@@ -47,9 +47,6 @@ export default {
   }),
   components: {
     ProductCard
-  },
-  created () {
-    console.log(this.products)
   }
 }
 </script>

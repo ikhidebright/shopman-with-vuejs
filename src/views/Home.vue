@@ -3,13 +3,16 @@
   <div class="mt-4 home">
   <div class="d-sm-flex flex-sm-column d-lg-flex flex-lg-row">
      <div class="col-12 mt-3">
-  <Carousel />
+  <Carousel v-if="electronics.length > 0"/>
     </div>
+    </div>
+    <div class="text-center roll" v-if="electronics.length < 1">
+    <b-spinner class="" label="Spinning"></b-spinner>
     </div>
     <Homecards :products="phones"/>
-    <Imageads />
+    <Imageads v-if="electronics.length > 0"/>
     <Homecards :products="electronics"/>
-    <Imageads />
+    <Imageads v-if="electronics.length > 0"/>
      <Homecards :products="home"/>
   </div>
   </div>
@@ -51,6 +54,14 @@ export default {
 </script>
 
 <style scoped>
+
+.roll {
+  padding-top: 50vh;
+  background: white;
+  width: 100%;
+  height: 100vh
+}
+
 .home {
   background: url("https://ng.jumia.is/cms/Homepage/2020/W19/Ramdan_BG_2.jpg");
   background-size: 100% 100vh;

@@ -1,18 +1,17 @@
 <template>
 <b-col class="ll" lg="3" sm="3" md="3" xl="3" col="12">
   <!-- image & name -->
-  <div class='d-flex flex-xs-row d-lg-block d-sm-block d-md-block d-xl-block details'>
+  <div class='d-lg-block d-sm-block d-md-block d-xl-block details'>
   <img class='bigpic' :src="cart.thumb" />
   <div class="ml-0">
-  <p class="border-top mt-2 ppp d-none d-lg-block d-sm-block d-md-block d-xl-block">{{ cart.name }}</p>
-  <p class="mt-n3 ppp d-none d-lg-block d-sm-block d-md-block d-xl-block">₦ {{ cart.price }}</p>
+  <p class="mt-2 ppp d-lg-block d-sm-block d-md-block d-xl-block name">{{ cart.name }}</p>
+  <p class="mt-n2  d-lg-block d-sm-block d-md-block d-xl-block priceee ml-2">₦ {{ cart.price }}</p>
+  <p class='discount mt-n3 ml-2  d-lg-block d-md-block d-xl-block d-sm-block'>₦ {{ discount.toLocaleString() }}</p>
   <!--mo-->
-  <p class="ml-2 ppp d-block d-lg-none d-sm-none d-md-none d-xl-none mb-n1 name2">{{ cart.name }}</p>
-  <p class="ml-2 mt-n0 ppp d-block d-lg-none d-sm-none d-md-none d-xl-none">₦ {{ cart.price }}</p>
   </div>
   </div>
   <!-- image & name -->
-  <b-button size="sm" class="my-2 my-sm-0 searc" type="submit" variant>BUY</b-button>       
+  <b-button size="sm" class="my-2 my-sm-0 searc" type="submit" variant @click="addtocart(cart)">BUY</b-button>       
   </b-col>
 </template>
 
@@ -27,6 +26,10 @@ export default {
   }),
   
   computed: {
+    discount () {
+      let diff = this.cart.price * 30 /100
+      return this.cart.price + diff
+    },
     cartitem () {
       return this.$store.state.cart
     },
@@ -44,9 +47,6 @@ export default {
     }
   },
   methods: {
-      // changeQty (x) {
-      //     alert(x)
-      // },
        showError (message, show) {
         let item = {
           errorMessage: message,
@@ -61,37 +61,47 @@ export default {
         }
         this.$store.commit("setSuccessAlert", item)
       },
-     async save (x) {
-        if (!this.loggedIn) {
-          this.$router.push('/login')
-        } else {
-          let save = await axios.post(`${this.$store.state.url}/wishlist`, {
-            product_id: x.id,
-            name: x.name,
-            price: x.unitPrice,
-            description: x.name,
-            customer_id: this.user.id,
-            thumb: x.img
-          })
-          console.log(save)
-          if (save.status === 200 && save.data.result.affectedRows === 1) {
-            this.showSuccess(`Saved ${x.name}`, true)
-          } else {
-            if (save.data.errorcode === 1062) {
-              this.showError(`${x.name} already saved`, true)
-            } else {
-              this.showError(`Error adding ${x.name} to saved items`)
-            }
-          }
+     async addtocart (x) {
+      let itemExist = false;
+      let quantity = null
+
+      //check if item exist
+      await this.$store.state.cart.forEach((item) => {
+        if(item.id == x.product_id) {
+          itemExist = true
+          quantity = parseInt(item.quantity) + 1
         }
-      },
-      remove (x) {
-        let item = this.cartitem.filter((item) => {
-            return item.id != x.id
+      })
+      if(itemExist) { 
+        // remove item if it exist
+      let item1 = await this.$store.state.cart.filter((item) => {
+            return item.id != x.product_id
         })
-        this.$store.commit("setRemoveItemCart", item)
-        this.$router.go()
-      },
+      this.$store.commit("setRemoveItemCart", item1)
+      // set removed item with its new quantity
+      let item = {
+        id: x.product_id,
+        img: x.thumb,
+        name: x.name,
+        quantity: quantity,
+        unitPrice: x.price,
+        subTotal: parseInt(x.price) * quantity
+      }
+      this.$store.commit("setCart", item)
+      this.showSuccess(`${x.name} Succesfully added to Cart`, true)
+      } else {
+      let item = {
+        id: x.product_id,
+        img: x.thumb,
+        name: x.name,
+        quantity: 1,
+        unitPrice: x.price,
+        subTotal: x.price
+      }
+      this.$store.commit("setCart", item)
+      this.showSuccess(`${x.name} Succesfully added to Cart`, true)
+    }
+  },
   }
 }
 </script>
@@ -103,13 +113,14 @@ export default {
 }
 
 .searc {
-  display: none
+  display: none;
+  background: white;
 }
 
 .ll {
   width: 230px;
   height: auto;
-  padding: 10px
+  padding: 10px;
 }
 
 .ppp {
@@ -154,7 +165,123 @@ a:hover {
   margin-left: 2vmin
 }
 
+.ll {
+  background: white;
+  }
+
+
+.name {
+  text-align: left;
+  font-size: 14px;
+  padding-left: 8px;
+  color: #282828;
+   color: #000;
+overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+max-width: 7.824em;
+max-height: 2.95em;
+cursor: pointer;
+font-size: 13px;
+  background: white;
+-webkit-tap-highlight-color: transparent;
+direction: ltr;
+ /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+
+.priceee {
+    font-size: .875rem;
+  background: white;
+    text-overflow: ellipsis;
+  width: 103px;
+    white-space: nowrap;
+    line-height: 1;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 700;
+    font-family: Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+  }
+
+.discount {
+    font-size: .75rem;
+    font-weight: 400;
+    color: #75757a;
+    text-decoration: line-through;
+  }
+
+
 @media only screen and (min-width: 760px) {
+
+.name {
+  text-align: left;
+  font-size: 14px;
+  padding-left: 8px;
+  color: #282828;
+   color: #000;
+overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+max-width: 15.824em;
+max-height: 2.95em;
+cursor: pointer;
+font-size: 13px;
+-webkit-tap-highlight-color: transparent;
+direction: ltr;
+ /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+
+.priceee {
+    font-size: .875rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 1;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 700;
+    font-family: Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+  }
+
+.discount {
+    font-size: .75rem;
+    font-weight: 400;
+    color: #75757a;
+    text-decoration: line-through;
+  }
+
 
   .ll .searc {
     display: none
@@ -168,7 +295,7 @@ a:hover {
 
 .ll:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  height: 378px;
+  height: auto;
 }
 .ll:hover .searc {
   display: block;
@@ -176,6 +303,7 @@ a:hover {
   height: 45px;
   border-radius: 5px;
   color: white;
+  width: 100%;
   padding: 0 1vmin 0 1vmin;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   font-size: 14px;
@@ -184,10 +312,6 @@ a:hover {
   outline-color: none;
   outline: none;
   border: none;
-}
-  
-.ppp {
-  font-weight: 500
 }
 
 .rightalign {

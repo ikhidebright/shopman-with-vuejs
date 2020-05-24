@@ -39,6 +39,10 @@ export default {
 </script>
 
 <style scoped>
+.hom {
+  background: #f5f5f5
+}
+
 .fa-shopping-cart {
   font-size: 20vmin;
 }

@@ -57,16 +57,18 @@ export default {
 <style scoped>
 .card {
   margin-bottom: 0.5rem;
+  border-radius: 0px;
 }
 
 .he {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .head {
   color: black;
   font-weight: 400;
-  font-size: 0.5rem;
+  font-size: .775rem;
   background: rgb(255, 165, 0);
   box-sizing: border-box;
 }
@@ -97,9 +99,13 @@ a:hover {
   color: #000000;
   text-decoration: none;
   box-sizing: border-box;
-  font-size: .875rem;
+  font-size: .775rem;
   font-family: Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
   box-sizing: border-box;
+}
+
+.see:hover {
+  color: #000;
 }
 
 .card {

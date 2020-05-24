@@ -1,67 +1,143 @@
 <template>
-<div class='catt'>
-<b-container fluid="sm">
-<div class='catt2'>
-    <div class='d-flex'>
-    <img class='imad' :src="require('@/assets/pic2.jpg')" />
-    <img class='imad2' :src="require('@/assets/pic.jpg')" />
-    </div>
-     </div>
-    </b-container>
+<div>
+<div class='cardcol'>
+<div class='card mx-auto'>
+    <img class='img' :src="require('@/assets/pic2.jpg')" />
+    <img class='img2' :src="require('@/assets/pic.jpg')" />
 </div>
+</div>
+  </div>
 </template>
 
 <script>
+import ProductCard from '@/components/Product/ProductCard.vue'
 
 export default {
-  name: 'Imageadd',
-  components: {
-  }
+  name: 'Home',
+  props: ["products"],
+  data: () => ({
+  })
 }
 </script>
 
 <style scoped>
-.imad, .imad2 {
-  max-width: 50%;
-  height: 15vh;
+.cardcol {
+  box-sizing: border-box;
+  display: block;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  flex-basis: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  width: 100%;
+}
+
+.img {
+  height: 100%;
+  width: 50%;
+  top: 0;
+  padding: 4px;
+  left: 0;
+  position: absolute;
+  border-style: none;
+  box-sizing: border-box;
   border-radius: 4px;
+  color: inherit;
+  cursor: pointer;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  font-family: Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
 }
 
-.imad {
-  margin-right: 0.2rem
+.img2 {
+  height: 100%;
+  width: 50%;
+  padding: 4px;
+  top: 0;
+  right: 0;
+  position: absolute;
+  border-style: none;
+  box-sizing: border-box;
+  border-radius: 4px;
+  color: inherit;
+  cursor: pointer;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  font-family: Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
 }
 
-.imad2 {
-  margin-left: 0.2rem
+.card {
+  margin-bottom: 0.5rem;
+  padding: 8px;
+  height: 140px;
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  border-radius: 0px;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  font-size: .875rem;
+  font-family: Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
 }
-
-.catt {
-  box-shadow: 0 0 6px 1px gray;
-  padding: 4px
-}
-
-.catt2 {
-  background-color: white;
-  padding: 0px 6px 0px 0px;
-  border-radius: 0px
-}
-
 @media only screen and (min-width: 600px) {
-  .catt {
-  box-shadow: 0 0 0px 0px gray;
-  padding: 4px
+
+.cardcol {
+  padding: 8px;
+  box-sizing: border-box;
+  display: block;
+  direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    flex-basis: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    width: 100%;
 }
 
-.imad, .imad2 {
-  max-width: 50%;
-  height: 40vh;
+.img {
   border-radius: 4px;
+  height: 100%;
+  width: 50%;
+  top: 0;
+  padding: 4px;
+  left: 0;
+  position: absolute;
+  border-style: none;
+  box-sizing: border-box;
+  color: inherit;
+  cursor: pointer;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  font-family: Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
 }
 
-.catt2 {
-  background-color: white;
-  padding: 10px 16px 10px 10px;
-  border-radius: 4px
+.img2 {
+  border-radius: 4px;
+  height: 100%;
+  width: 50%;
+  padding: 4px;
+  top: 0;
+  right: 0;
+  position: absolute;
+  border-style: none;
+  box-sizing: border-box;
+  color: inherit;
+  cursor: pointer;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  font-family: Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+}
+
+.card {
+  margin-bottom: 0.5rem;
+  padding: 8px;
+  height: 266.2px;
+  width: 1184px;
+  display: flex;
+  box-sizing: border-box;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  font-size: .875rem;
+  font-family: Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
 }
 }
 </style>

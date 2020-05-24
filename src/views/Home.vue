@@ -1,5 +1,5 @@
 <template>
-  <div class="home mt-n4">
+  <div class="home mt-n4 pb-1">
   <div class="mt-4 home">
   <div class="d-sm-flex flex-sm-column d-lg-flex flex-lg-row">
      <div class="col-12 mt-3">

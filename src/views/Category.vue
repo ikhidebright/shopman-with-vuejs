@@ -130,6 +130,11 @@ a:hover {
 }
 
 @media only screen and (min-width: 768px) {
+
+  .hom {
+  background: #fff
+}
+
   .fa-shopping-cart {
   font-size: 20vmin;
 }

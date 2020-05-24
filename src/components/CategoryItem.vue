@@ -114,7 +114,6 @@ export default {
 
 .searc {
   display: none;
-  background: white;
 }
 
 .ll {
@@ -165,11 +164,6 @@ a:hover {
   margin-left: 2vmin
 }
 
-.ll {
-  background: white;
-  }
-
-
 .name {
   text-align: left;
   font-size: 14px;
@@ -185,7 +179,6 @@ max-width: 7.824em;
 max-height: 2.95em;
 cursor: pointer;
 font-size: 13px;
-  background: white;
 -webkit-tap-highlight-color: transparent;
 direction: ltr;
  /* These are technically the same, but use both */
@@ -208,7 +201,6 @@ direction: ltr;
 
 .priceee {
     font-size: .875rem;
-  background: white;
     text-overflow: ellipsis;
   width: 103px;
     white-space: nowrap;

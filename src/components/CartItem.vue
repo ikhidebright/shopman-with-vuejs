@@ -158,7 +158,7 @@ export default {
         id: x.id,
         img: x.img,
         name: x.name,
-        quantity: quantity,
+        quantity: parseInt(quantity),
         unitPrice: x.unitPrice,
         subTotal: parseInt(x.unitPrice) * quantity
       }

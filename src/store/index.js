@@ -9,6 +9,7 @@ export default new Vuex.Store({
     cart: [],
     loggedIn: false,
     savedProducts: [],
+    categoryProducts: [],
     productDetails: [],
     successAlertMessage: null,
     user: null,
@@ -19,6 +20,10 @@ export default new Vuex.Store({
     showErrrorAlert: false,
   },
   mutations: {
+    // set categoryProducts
+    setCategoryProducts(state, item) {
+      state.categoryProducts = item
+    },
     setCart(state, item) {
       state.cart.unshift(item)
       localStorage.setItem("cart", JSON.stringify(state.cart))
@@ -100,10 +105,9 @@ export default new Vuex.Store({
     // get dynamic Homepage products
     products: (state) => (category) => {
       let items = state.homepageProducts.filter((item) => {
-        return item.category == category
+        return item.category.toLowerCase() == category.toLowerCase()
       })
       return items;
-      console.log(category)
     }
   },
   actions: {
@@ -124,6 +128,10 @@ export default new Vuex.Store({
     async setHomepageProducts({ state, commit}) {
       let saved = await clientApi.getProducts()
       commit("setHomepageProducts", saved.data)
+    },
+    async setCategoryProducts({ state, commit}, payload) {
+      let saved = await clientApi.getCategoryProducts(payload.category)
+      commit("setCategoryProducts", saved.data)
     },
     async setProductDetails ({ state, commit}, payload) {
       let saved = await clientApi.getProductDetails(payload.product_id)

@@ -16,7 +16,7 @@
               </span>
               </template>
               <b-button size="sm" class="pa-4" type="submit" block variant to="/login" id="login">LOGIN</b-button>
-              <p class="text-center mt-n3">or</p>
+              <p class="text-center mt-n2">or</p>
               <b-button size="sm" class="mt-n6" type="submit" to="/login" block variant id="register">REGISTER</b-button>
               <div class="dropdown-divider mt-3"></div>
               <b-link class="dropdown-item acc" to="/dashboard"><i class="fas fa-user mr-3"></i>Account</b-link>
@@ -69,7 +69,7 @@
             <b-nav-item-dropdown right class="head3 ml-3" dark v-if="!loggedIn">
               <!-- Using 'button-content' slot -->
               <template v-slot:button-content>
-              <i class="fas fa-user mr-2 mt-2"></i> Login
+              <i class="fas fa-user mr-2 mt-1"></i> Login
               </template>
               <b-button size="sm" class="pa-4" type="submit" block variant to="/login" id="login">LOGIN</b-button>
               <p class="text-center mt-3">or</p>
@@ -80,10 +80,10 @@
               <b-link class="dropdown-item" to="saved"><i class="fas fa-heart mr-3"></i>Saved Items</b-link>
               </b-nav-item-dropdown>
 
-              <b-nav-item-dropdown right class="head3 ml-3" dark v-if="loggedIn">
+              <b-nav-item-dropdown right class="head3 ml-1" dark v-if="loggedIn">
               <!-- Using 'button-content' slot -->
               <template v-slot:button-content>
-              <i class="fas fa-user mr-2 mt-2"></i> Hi, {{ user.first_name }}
+              <i class="fas fa-user mr-2 mt-2 d-inline"></i><div class="name d-inline"> Hi, {{ user.first_name }}</div>
               </template>
               <b-link class="dropdown-item acc" to="/dashboard"><i class="fas fa-user mr-3"></i>Account</b-link>
               <b-link class="dropdown-item" to="/orders"><i class="fas fa-box mr-3"></i>Orders</b-link>
@@ -92,9 +92,9 @@
                <b-button size="sm" class="mt-2" type="submit" @click="logOut" block variant id="register">LOGOUT</b-button>
               </b-nav-item-dropdown>
 
-            <b-nav-item-dropdown right class="head1 ml-3">
+            <b-nav-item-dropdown right class="head1 ml-1">
               <template v-slot:button-content>
-              <i class="far fa-question-circle mr-0 mt-2"></i> Help
+              <i class="far fa-question-circle mr-0 mt-1"></i> Help
               </template>
               <b-dropdown-item href="#">Help Center?</b-dropdown-item>
               <b-dropdown-item href="#">How to shop on Shopman</b-dropdown-item>
@@ -104,7 +104,7 @@
             </b-nav-item-dropdown>
 
 
-            <b-navbar-nav class="head2 ml-3">
+            <b-navbar-nav class="head2 ml-0">
               <b-nav-item to="/cart">
                 <span id="">
                   <CartIcon :cartcount="cartcount"/>
@@ -161,6 +161,36 @@ export default {
 </script>
 
 <style scooped>
+
+.name {
+text-align: left;
+color: #282828;
+overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 1;
+-webkit-box-orient: vertical;
+max-height: 2.824em;
+max-width: 2.1em;
+cursor: pointer;
+-webkit-tap-highlight-color: transparent;
+direction: ltr;
+ /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  text-align: center;
+}
 
 li {
   list-style-type: none

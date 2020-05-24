@@ -137,7 +137,21 @@ const routes = [
   {
     path: '/category/:name',
     name: 'Category',
-    component: Category
+    component: Category,
+    async beforeEnter (to, from, next) {
+      let check = await store.state.homepageProducts.length > 0;
+      if (check) {
+        let categoryItems = await store.getters.products(to.params.name.replace(/[-]+/g," ").toLowerCase())
+        await store.commit("setCategoryProducts", categoryItems)
+        next()
+      } else {
+        await store.dispatch({
+          type: "setCategoryProducts",
+          category: to.params.name.replace(/[-]+/g," ")
+        })
+        next()
+      }
+    }
   },
   {
     path: '/register',

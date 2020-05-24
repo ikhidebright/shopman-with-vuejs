@@ -60,4 +60,9 @@ export default {
     getProductDetails (product_id) {
         return clientApi.get(`products/${product_id}`)
     },
+    // get getCategoryProducts
+    getCategoryProducts (category) {
+        return clientApi.get(`product/${category}`)
+    },
+    
 }

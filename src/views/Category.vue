@@ -4,11 +4,12 @@
   <br>
   <br>
   <br>
-  <h4>PHONES & TABLETS</h4>
-  <p class="text">23025 products</p>
+  <br>
+  <h4>{{ products[0].category }}</h4>
+  <p class="text">{{ products.length }} products</p>
   <br>
   <b-row>
-  <CategoryItem :cart="cart" v-for="cart in cartitem" :key="cart.id"/>
+  <CategoryItem :cart="cart" v-for="cart in products" :key="cart.id"/>
   </b-row>
 </b-container>
 </div>
@@ -29,17 +30,9 @@ export default {
   data: () => ({
   }),
   computed: {
-    // Get cart
-    cartitem () {
-      return this.$store.state.cart
-    },
-    // get total cart quantity
-    totalQuantity () {
-      return this.$store.getters.getCartQty
-    },
-    // get cart total price
-    totalPrice () {
-      return this.$store.getters.getTotalPrice
+    // Get products
+    products () {
+      return this.$store.state.categoryProducts
     },
   }
 }

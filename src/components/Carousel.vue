@@ -4,8 +4,7 @@
     <div class="wrapper">
       <b-container
         fluid
-        class="p-0 content-mt custom-container d-none d-md-block"
-        v-if="!smallScreen"
+        class="p-0 content-mt custom-container d-none d-md-block d-lg-block d-xl-block d-sm-block"
       >
         <b-row class="m-0 py-3">
           <b-col
@@ -35,7 +34,7 @@
                           -webkit-font-smoothing: antialiased;"
                     v-for="item in categories"
                     :key="item"
-                    :href="`/category/${item.replace(/[' ']+/g,'-').toLowerCase()}`"
+                    :to="`/category/${item.replace(/[' ']+/g,'-').toLowerCase()}`"
                     class="links"
                   >
                     {{ item }}
@@ -138,9 +137,8 @@
       </b-container>
       <!-- for smaalscreens -->
       <b-container
-        v-else
         fluid
-        class="p-0 content-mt-sm custom-container d-md-none"
+        class="p-0 content-mt-sm custom-container d-md-none d-lg-none d-xl-none d-sm-none"
       >
         <b-row class="m-0 pb-3">
           <b-col>
@@ -232,7 +230,7 @@ export default {
       categoriesclass: '',
       contentClass: '',
       slide: 0,
-      categories: ['Electronics', 'Mobile Phones', 'Home Appliances'],
+      categories: ['Electronics', 'Phones', 'Home Appliances'],
       sliding: null,
       smallScreen: true,
     }

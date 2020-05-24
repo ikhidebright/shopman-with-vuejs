@@ -1,8 +1,13 @@
 <template>
   <div class="home mt-4">
+  <br>
+  <br>
+<b-container fluid>
+  <div class="updatealert mt-3">
+Your cart has been updated
+</div>
+</b-container fluid>
   <b-container>
-  <br>
-  <br>
   <br>
   <div v-if="this.$store.state.cart.length < 1" class="mx-auto emptycart">
   <br>
@@ -14,7 +19,7 @@
   <p class="text-center">Already have an account? <router-link to='/login'>login</router-link> to see the items in your cart.</p>
    <h4 class="text-center ml-3"> <b-button to="/" class="add" style="float: center">START SHOPPING</b-button></h4>
     </div>
-  <h4 v-if="this.$store.state.cart.length > 0">Cart ({{ totalQuantity.toLocaleString() }} items)</h4>
+  <h4 class="cartcart" v-if="this.$store.state.cart.length > 0">Cart ({{ totalQuantity.toLocaleString() }} items)</h4>
   <br>
   <div class="mx-auto">
   <CartItem v-for="cart in cartitem" :key="cart.id" :cart="cart"/>
@@ -77,6 +82,29 @@ export default {
 </script>
 
 <style scoped>
+
+.cartcart {
+  font-size: 22px;
+    line-height: 26px;
+    font-weight: 700;
+    color: #000;
+    margin-top: 16px;
+}
+
+.updatealert {
+border-color: #b0da7c;
+    color: #b0da7c;
+    border-width: 1px;
+    border-style: solid;
+    padding: 2px 5px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    display: block;
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    line-height: 1.42857;
+}
+
 .fa-shopping-cart {
   font-size: 20vmin;
 }

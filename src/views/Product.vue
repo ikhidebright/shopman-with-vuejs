@@ -22,7 +22,7 @@
   <div class='ml-lg-3 sec'>
   <p class='pron'> {{ product.name }} </p>
   <p class='price mt-n3 border-top'>₦ {{ product.price.toLocaleString() }} </p>
-   <p class='oldprice mt-n3'>₦ {{ product.price + 15530}} - ₦ {{ product.price + 22308}} </p>
+   <p class='oldprice mt-n3'>₦ {{ (product.price + 15530).toLocaleString()}} - ₦ {{ (product.price + 22308).toLocaleString()}} </p>
    <div>
   <b-button v-b-modal.modal-center class="add d-none d-lg-block d-xl-block d-md-block d-sm-block" @click="addtocart(product)"><i class="fas fa-cart-plus"></i> ADD TO CART</b-button>
   <b-modal id="modal-center" ref="modal-center" centered title="Added to Cart" hide-footer hide-header>
@@ -52,15 +52,15 @@
     <div class="d-flex">
   <i class="fas fa-shuttle-van mr-3" style="border: 1px solid #ededed; 
                                               border-radius: 4px; 
-                                              padding: 3px; 
+                                              padding: 6px 3px 3px 3px; 
                                               fill: #282828;
                                               box-sizing: border-box;
                                               width: 40;
                                               height: 40;
-                                              font-size: 30px;
+                                              font-size: 24px;
                                               direction: ltr;
                                               -webkit-font-smoothing: antialiased;
-                                              color: #888888;
+                                              color: #000;
                                               height: 36px;"
                                               ></i><div><h6> Delivery Information</h6>
  <p>
@@ -80,7 +80,7 @@
                                               font-size: 30px;
                                               direction: ltr;
                                               -webkit-font-smoothing: antialiased;
-                                              color: #888888;
+                                              color: #000;
                                               height: 36px;"
                                               ></i><div>
   <h6> Return Policy</h6>
@@ -92,13 +92,11 @@
    <div class='ml-lg-3 hee mt-3'>SELLER INFORMATION</div>
    <div class='ml-lg-3 third'>
   <h6> 
- KODDS</h6>
- <p>
-80%Positive Seller Score
-2730 Followers</p>
+ SHOPMAN</h6>
+ <p> 80% Positive Seller Score</p>
 
 <h6> Return Policy</h6>
-<p>Free return within 15 days for Jumia Mall items and 7 days for other eligible items.</p>
+<p>Free return within 15 days for Shopman Mall items and 7 days for other eligible items.</p>
    </div>
 
  <div class='ml-lg-3 third mt-3'>

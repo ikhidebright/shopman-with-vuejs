@@ -142,10 +142,9 @@ export default {
       },
       remove (x) {
         let item = this.$store.state.cart.filter((item) => {
-            return item.id != x.product_id
+            return item.id != x.id
         })
         this.$store.commit("setRemoveItemCart", item)
-        this.$router.go()
       },
 
     //    changeQuantity (x) {

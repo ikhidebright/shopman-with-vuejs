@@ -26,7 +26,7 @@
       v-model="quantity"
       :options="[{ text: '1', value: 1 }, { text: '2', value: 2 }, '3', '4', '5', '6', '7', '8', '9', '10']"
       :value="null"
-      @change="changeQty(quantity)"
+      @change="changeQty(cart)"
     ></b-form-select>
     </div>
   <div class='border-right pl-5 pr-5 pt-3 d-none d-lg-block d-xl-block d-md-block d-sm-block prices'>
@@ -51,7 +51,7 @@
       v-model="quantity"
       :options="[{ text: '1', value: 1 }, { text: '2', value: 2 }, '3', '4', '5', '6', '7', '8', '9', '10']"
       :value="null"
-      @change="changeQty(quantity)"
+      @change="changeQty(cart)"
     ></b-form-select>
     </div>
 </div>
@@ -146,14 +146,24 @@ export default {
         })
         this.$store.commit("setRemoveItemCart", item)
       },
-
-    //    changeQuantity (x) {
-    //     let item = this.cartitem.filter((item) => {
-    //         return item.id != x.id
-    //     })
-    //     this.$store.commit("setRemoveItemCart", item)
-    //     this.$router.go()
-    //   }
+       async changeQty (x) {
+        let quantity = await document.getElementById("inline-form-custom-select-pref").value;
+        // remove item 
+        let item1 = await this.$store.state.cart.filter((item) => {
+            return item.id != x.id
+        })
+      await this.$store.commit("setRemoveItemCart", item1)
+      // set removed item with its new quantity
+      let item = {
+        id: x.id,
+        img: x.img,
+        name: x.name,
+        quantity: quantity,
+        unitPrice: x.unitPrice,
+        subTotal: parseInt(x.unitPrice) * quantity
+      }
+      await this.$store.commit("setCart", item)
+  }
   }
 }
 </script>

@@ -41,7 +41,7 @@ export default {
   position: absolute;
   border-style: none;
   box-sizing: border-box;
-  border-radius: 4px;
+  border-radius: 3px;
   color: inherit;
   cursor: pointer;
   direction: ltr;
@@ -58,7 +58,7 @@ export default {
   position: absolute;
   border-style: none;
   box-sizing: border-box;
-  border-radius: 4px;
+  border-radius: 3px;
   color: inherit;
   cursor: pointer;
   direction: ltr;
@@ -69,7 +69,7 @@ export default {
 .card {
   margin-bottom: 0.5rem;
   padding: 8px;
-  height: 140px;
+  height: 22.04724409448819vh;
   width: 100%;
   display: flex;
   box-sizing: border-box;

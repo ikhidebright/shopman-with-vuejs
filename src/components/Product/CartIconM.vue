@@ -5,7 +5,7 @@
     data-js-event="non"
     data-js-element="#cart"
   >
-    <i class="fas fa-cart-plus" style="font-size: 25px"></i>
+    <i class="fas fa-shopping-cart" style="font-size: 25px"></i>
     <span
       class="label"
       >{{ cartcount }}</span

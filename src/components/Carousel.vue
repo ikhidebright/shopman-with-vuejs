@@ -331,12 +331,19 @@ export default {
   cursor: pointer;
 }
 .carousel-container-height {
-  min-height: 347px;
+  min-height: 22.04724409448819vh;
+  z-index: 0;
 }
 .carousel-img-height {
   height: 100%;
 }
 .md-mt-height {
   margin-top: 56px;
+}
+
+@media only screen and (max-width: 768px) {
+.carousel-container-height {
+  height: 22.04724409448819vh;
+ }
 }
 </style>

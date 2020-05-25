@@ -38,8 +38,9 @@ Your cart has been updated
    <b-col lg="12" md="12" xl="12" xs="12">
    <b-row align-h="end" class="mr-5">
   <div class='d-lg-flex d-sm-flex flex-sm-row flex-lg-row d-xs-block mr-5'>
-    <b-button class="add1 mb-2" to="/">CONTINUE SHOPPING</b-button>
+    <b-button class="add1 mb-2 d-none d-sm-block d-lg-block d-xl-block d-md-block" to="/">CONTINUE SHOPPING</b-button>
     <b-button to="/checkout" class="addd">PROCEED TO CHECKOUT</b-button>
+    <b-button class="add1 mb-2 d-sm-none d-lg-none d-xl-none d-md-none mt-2">CALL TO ORDER</b-button>
   </div>
   </b-row>
   </b-col>

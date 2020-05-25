@@ -62,11 +62,11 @@
                   <template v-slot:img>
                     <img
                       class="d-block img-fluid w-100 carousel-container-height"
-                      src="https://ng.jumia.is/cms/Homepage/2020/W21/Slider--Office-Consumables.jpg"
+                      src="https://ng.jumia.is/cms/Homepage/2020/W22/update/s-fsale.jpg"
                       alt="image slot"
                     />
                   </template>
-                  ></b-carousel-slide>
+                  </b-carousel-slide>
 
                 <!-- Slides with custom text -->
                 <b-carousel-slide>
@@ -84,7 +84,7 @@
                   <template v-slot:img>
                     <img
                       class="d-block img-fluid w-100 carousel-container-height"
-                      src="https://ng.jumia.is/cms/Homepage/2020/W21/FLOORS/eid.jpg"
+                      src="https://ng.jumia.is/cms/Homepage/2020/W22/Sliders/smartnow-min.jpg"
                       alt="image slot"
                     />
                   </template>
@@ -160,7 +160,7 @@
                   <template v-slot:img>
                     <img
                       class="d-block img-fluid w-100 carousel-container-height"
-                      src="https://ng.jumia.is/cms/Homepage/2020/W21/Slider--Office-Consumables.jpg"
+                      src="https://ng.jumia.is/cms/Homepage/2020/W22/update/s-fsale.jpg"
                       alt="image slot"
                     />
                   </template>
@@ -191,7 +191,7 @@
                   <template v-slot:img>
                     <img
                       class="d-block img-fluid w-100 carousel-container-height"
-                      src="https://ng.jumia.is/cms/8-18/stay-safe/updated/s-ss.jpg"
+                      src="https://ng.jumia.is/cms/Homepage/2020/W22/Sliders/smartnow-min.jpg"
                       alt="image slot"
                     />
                   </template>

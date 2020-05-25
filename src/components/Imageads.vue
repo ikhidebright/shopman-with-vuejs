@@ -2,8 +2,8 @@
 <div>
 <div class='cardcol'>
 <div class='card mx-auto'>
-    <img class='img' :src="require('@/assets/pic2.jpg')" />
-    <img class='img2' :src="require('@/assets/pic.jpg')" />
+    <img class='img' :src="images.img1" />
+    <img class='img2' :src="images.img2" />
 </div>
 </div>
   </div>
@@ -14,7 +14,7 @@ import ProductCard from '@/components/Product/ProductCard.vue'
 
 export default {
   name: 'Home',
-  props: ["products"],
+  props: ["images"],
   data: () => ({
   })
 }

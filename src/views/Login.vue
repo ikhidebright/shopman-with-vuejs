@@ -260,7 +260,12 @@ import clientApi from '@/Services/EventService.js'
         }
         let res = await clientApi.registerUser(userData)
           if (res.status === 200 && res.data.success === true && res.data.data.result.affectedRows === 1) {
-              this.$router.push("/login")
+              this.$router.push("/address")
+              this.$store.dispatch({
+                type: "setSuccessPage",
+                message: "Registration Successful, Add an Address Now",
+                show: true
+              })
           } else if (res.data.email === true) {
               this.validation = false
               this.showError(res.data.message, true)

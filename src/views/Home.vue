@@ -10,9 +10,9 @@
     <b-spinner class="" label="Spinning"></b-spinner>
     </div>
     <Homecards :products="phones"/>
-    <Imageads v-if="electronics.length > 0"/>
+    <Imageads v-if="electronics.length > 0" :images="images[1]"/>
     <Homecards :products="electronics"/>
-    <Imageads v-if="electronics.length > 0"/>
+    <Imageads v-if="electronics.length > 0" :images="images[0]"/>
      <Homecards :products="home"/>
   </div>
   </div>
@@ -25,10 +25,18 @@ import SideBar from '@/components/SideBar.vue'
 import Imageads from '@/components/Imageads.vue'
 import { mapState } from 'vuex'
 
-export default {
+export default {                                                                                       
   name: 'Home',
   data: () => ({
     categories: null,
+    images: [{
+              img1: `${require('@/assets/pic5.jpg')}`,
+              img2: `${require('@/assets/pic6.jpg')}`
+              },
+              {
+              img1: `${require('@/assets/pic.jpg')}`,
+              img2: `${require('@/assets/pic2.jpg')}`
+              }]
   }),
   components: {
     Homecards,

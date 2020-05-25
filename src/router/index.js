@@ -45,6 +45,11 @@ const routes = [
         next()
       } else {
         next("/login")
+        store.dispatch({
+          type: "setLoginError",
+          message: "Sorry You Have to Login First",
+          show: true
+        })
       }
     }
   },
@@ -57,6 +62,11 @@ const routes = [
         next()
       } else {
         next("/login")
+        store.dispatch({
+          type: "setLoginError",
+          message: "Sorry You Have to Login First",
+          show: true
+        })
       }
     }
   },
@@ -69,6 +79,11 @@ const routes = [
         next()
       } else {
         next("/login")
+        store.dispatch({
+          type: "setLoginError",
+          message: "Sorry You Have to Login First",
+          show: true
+        })
       }
     }
   },
@@ -82,6 +97,11 @@ const routes = [
         next()
       } else {
         next("/login")
+        store.dispatch({
+          type: "setLoginError",
+          message: "Sorry You Have to Login First",
+          show: true
+        })
       }
     }
   },
@@ -95,6 +115,11 @@ const routes = [
         next()
       } else {
         next("/login")
+        store.dispatch({
+          type: "setLoginError",
+          message: "Sorry You Have to Login First",
+          show: true
+        })
       }
     }
   },
@@ -102,13 +127,18 @@ const routes = [
     path: '/changepass',
     name: 'ChangePassword',
     component: ChangePassword,
-    // beforeEnter (to, from, next) {
-    //   if(store.state.loggedIn) {
-    //     next()
-    //   } else {
-    //     next("/login")
-    //   }
-    // }
+    beforeEnter (to, from, next) {
+      if(store.state.loggedIn) {
+        next()
+      } else {
+        next("/login")
+        store.dispatch({
+          type: "setLoginError",
+          message: "Sorry You Have to Login First",
+          show: true
+        })
+      }
+    }
   },
   {
     path: '/dashboard',
@@ -119,6 +149,11 @@ const routes = [
         next()
       } else {
         next("/login")
+        store.dispatch({
+          type: "setLoginError",
+          message: "Sorry You Have to Login First",
+          show: true
+        })
       }
     }
   },

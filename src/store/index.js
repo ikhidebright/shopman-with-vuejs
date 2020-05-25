@@ -115,6 +115,22 @@ export default new Vuex.Store({
       let saved = await clientApi.getSavedProduct(state.user.id)
       commit("setSavedProducts", saved.data)
     },
+    //show error
+      setLoginError ({ commit }, payload) {
+      let item = {
+        errorMessage: payload.message,
+        showError: payload.show
+      }
+      commit("setErrorAlert", item)
+    },
+    //show success
+      setSuccessPage ({ commit }, payload) {
+      let item = {
+        successMessage: payload.message,
+        showSuccess: payload.show
+      }
+      commit("setSuccessAlert", item)
+    },
     async accountRecovery({ state, commit}, payload) {
       let saved = await clientApi.accountRecovery(payload.email)
       console.log(saved)

@@ -124,6 +124,11 @@ import clientApi from '@/Services/EventService.js'
               this.$cookies.set("sp_tk", res.data.token, "12d")
               this.$store.commit("setUser", res.data.user)
               this.$router.push("/address")
+              this.$store.dispatch({
+                type: "setSuccessPage",
+                message: "Registration Successful, Add an Address Now",
+                show: true
+              })
           } else if (res.data.email === true) {
               this.validation = false
               this.showError(res.data.message, true)

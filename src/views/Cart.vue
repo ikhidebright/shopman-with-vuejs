@@ -15,7 +15,7 @@ Your cart has been updated
   <br>
  <h4 class="text-center"> <i class="fas fa-shopping-cart"></i></h4>
   <h4 class="text-center">Your cart is empty!</h4>
-  <p class="text-center">You have an empty cart <router-link to='/'>add items to your cart now.</router-link> it's esay!</p>
+  <p class="text-center"><router-link to='/'>Add items to your Cart now.</router-link> it's easy!</p>
    <h4 class="text-center ml-3"> <b-button to="/" class="add" style="float: center">START SHOPPING</b-button></h4>
     </div>
   <h4 class="cartcart" v-if="this.$store.state.cart.length > 0">Cart ({{ totalQuantity.toLocaleString() }} items)</h4>

@@ -111,6 +111,7 @@ border-color: #b0da7c;
 .emptycart {
   width: 96%;
   margin: 0 auto;
+  height: 100vh
 }
 
 .cartActions {
@@ -211,6 +212,7 @@ a:hover {
 .emptycart {
   width: 50%;
   margin: 0 auto;
+  height: 100vh
 }
 
 .cartActions {

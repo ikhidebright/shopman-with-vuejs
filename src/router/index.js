@@ -63,20 +63,24 @@ const routes = [
     name: 'CheckOut',
     component: CheckOut,
     beforeEnter (to, from, next) {
-      if(store.state.loggedIn) {
-        next()
-      } else {
-        next({
-          path: '/login',
-          query: {
-             r: to.fullPath,
-          }
-      })
-        store.dispatch({
-          type: "setLoginError",
-          message: "Sorry You Have to Login First",
-          show: true
+      if (store.state.cart.length > 0) {
+        if(store.state.loggedIn) {
+          next()
+        } else {
+          next({
+            path: '/login',
+            query: {
+               r: to.fullPath,
+            }
         })
+          store.dispatch({
+            type: "setLoginError",
+            message: "Sorry You Have to Login First",
+            show: true
+          })
+        }
+      } else {
+        next("/cart")
       }
     }
   },
@@ -85,20 +89,24 @@ const routes = [
     name: 'Payment',
     component: Payment,
     beforeEnter (to, from, next) {
-      if(store.state.loggedIn) {
-        next()
-      } else {
-        next({
-          path: '/login',
-          query: {
-             r: to.fullPath,
-          }
-      })
-        store.dispatch({
-          type: "setLoginError",
-          message: "Sorry You Have to Login First",
-          show: true
+      if (store.state.cart.length > 0) {
+        if(store.state.loggedIn) {
+          next()
+        } else {
+          next({
+            path: '/login',
+            query: {
+               r: to.fullPath,
+            }
         })
+          store.dispatch({
+            type: "setLoginError",
+            message: "Sorry You Have to Login First",
+            show: true
+          })
+        }
+      } else {
+        next("/cart")
       }
     }
   },

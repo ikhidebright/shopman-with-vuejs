@@ -12,6 +12,7 @@
   <!-- price on mobile-->
    <div class='mt-n3 d-lg-none d-xl-none d-md-none d-sm-none'>
   <p class="subTotal mt-1">₦ {{ subTotal.toLocaleString() }}</p>
+  <p class="disM d-inline mt-1 ml-2">₦ {{ discountM.toLocaleString() }}</p>
   </div>
   <div class="d-none d-lg-block d-xl-block d-md-block d-sm-block">
 <i class="fas fa-heart"></i>  <router-link to='' @click.native="save(cart)">MOVE TO SAVED ITEMS</router-link> <i class="fas fa-trash"></i>   <router-link to='' @click.native="remove(cart)">REMOVE</router-link>
@@ -93,6 +94,10 @@ export default {
       let diff = this.cart.unitPrice * 30 /100
       return this.cart.unitPrice + diff
     },
+    discountM () {
+      let diff = this.subTotal * 30 /100
+      return this.subTotal + diff
+    },
     savings () {
       return this.discount - this.cart.unitPrice
     }
@@ -169,6 +174,21 @@ export default {
 </script>
 
 <style scoped>
+
+.disM {
+  line-height: inherit;
+    vertical-align: inherit;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    -webkit-tap-highlight-color: transparent;
+    resize: none;
+    outline: 0;
+    direction: ltr;
+    unicode-bidi: isolate;
+    font-size: .8em;
+    color: gray;
+    text-decoration: line-through;
+}
 
 .subTotal {
    line-height: inherit;

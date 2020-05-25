@@ -9,6 +9,7 @@ export default new Vuex.Store({
     cart: [],
     loggedIn: false,
     savedProducts: [],
+    userOrders: [],
     categoryProducts: [],
     productDetails: [],
     successAlertMessage: null,
@@ -58,6 +59,10 @@ export default new Vuex.Store({
     // set homepage Products
     setHomepageProducts(state, item) {
       state.homepageProducts = item
+    },
+    // set User Orders
+    setUserOrder(state, item) {
+      state.userOrders = item
     },
     // set user
     setUser (state, item) {
@@ -111,6 +116,15 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    // Order from API
+    async setUserOrderDB({ state, commit}) {
+      let saved = await clientApi.getProducts()
+      commit("setUserOrder", saved.data)
+    },
+    // Set order from local
+    async setUserOrderLocal({ commit}, payload) {
+      commit("setUserOrder", payload.orders)
+    },
     async setWishlist({ state, commit}) {
       let saved = await clientApi.getSavedProduct(state.user.id)
       commit("setSavedProducts", saved.data)

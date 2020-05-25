@@ -203,11 +203,17 @@ export default {
             }
          ]
       },
-      callback: function(response){
-          alert('success. transaction ref is ' + response.reference);
+      callback: (response) => {
+          // alert('success. transaction ref is ' + response.reference);
+          this.$router.push("/order")
+           this.$store.dispatch({
+                type: "setSuccessPage",
+                message: "Payment Succesfull",
+                show: true
+              })
       },
-      onClose: function(){
-          alert('window closed');
+      onClose: () => {
+          // alert('window closed');
       }
     });
     handler.openIframe();

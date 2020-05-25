@@ -44,7 +44,12 @@ const routes = [
       if(store.state.loggedIn) {
         next()
       } else {
-        next("/login")
+        next({
+          path: '/login',
+          query: {
+             r: to.fullPath,
+          }
+      })
         store.dispatch({
           type: "setLoginError",
           message: "Sorry You Have to Login First",
@@ -61,7 +66,12 @@ const routes = [
       if(store.state.loggedIn) {
         next()
       } else {
-        next("/login")
+        next({
+          path: '/login',
+          query: {
+             r: to.fullPath,
+          }
+      })
         store.dispatch({
           type: "setLoginError",
           message: "Sorry You Have to Login First",
@@ -78,7 +88,12 @@ const routes = [
       if(store.state.loggedIn) {
         next()
       } else {
-        next("/login")
+        next({
+          path: '/login',
+          query: {
+             r: to.fullPath,
+          }
+      })
         store.dispatch({
           type: "setLoginError",
           message: "Sorry You Have to Login First",
@@ -96,7 +111,12 @@ const routes = [
         store.dispatch("setWishlist")
         next()
       } else {
-        next("/login")
+        next({
+          path: '/login',
+          query: {
+             r: to.fullPath,
+          }
+      })
         store.dispatch({
           type: "setLoginError",
           message: "Sorry You Have to Login First",
@@ -114,7 +134,12 @@ const routes = [
         store.dispatch("setWishlist")
         next()
       } else {
-        next("/login")
+        next({
+          path: '/login',
+          query: {
+             r: to.fullPath,
+          }
+      })
         store.dispatch({
           type: "setLoginError",
           message: "Sorry You Have to Login First",
@@ -131,7 +156,12 @@ const routes = [
       if(store.state.loggedIn) {
         next()
       } else {
-        next("/login")
+        next({
+          path: '/login',
+          query: {
+             r: to.fullPath,
+          }
+      })
         store.dispatch({
           type: "setLoginError",
           message: "Sorry You Have to Login First",
@@ -148,7 +178,12 @@ const routes = [
       if(store.state.loggedIn) {
         next()
       } else {
-        next("/login")
+        next({
+          path: '/login',
+          query: {
+             r: to.fullPath,
+          }
+      })
         store.dispatch({
           type: "setLoginError",
           message: "Sorry You Have to Login First",
@@ -205,7 +240,6 @@ const routes = [
     name: 'Login',
     component: Login,
     beforeEnter (to, from, next) {
-      console.log(from)
       if(store.state.loggedIn) {
         next("/dasboard")
       } else {

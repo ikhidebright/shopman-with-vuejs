@@ -221,6 +221,9 @@ import clientApi from '@/Services/EventService.js'
         checked: false
       }
     },
+    created () {
+      console.log(this.$route.query.r)
+    },
     methods: {
        async login(evt) {
         evt.preventDefault()
@@ -233,7 +236,11 @@ import clientApi from '@/Services/EventService.js'
           if (res.status === 200 && res.data.success === true) {
               this.$cookies.set("sp_tk", res.data.token, "12d")
               this.$store.commit("setUser", res.data.data)
+              if (this.$route.query.r) {
+                this.$router.push(`${this.$route.query.r}`)
+          } else {
               this.$router.push("/dashboard")
+          }
           } else {
               this.showError(res.data.message, true)
           }

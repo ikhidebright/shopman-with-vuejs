@@ -95,7 +95,7 @@ export default {
       return this.cart.unitPrice + diff
     },
     discountM () {
-      let diff = this.subTotal * 30 /100
+      let diff = Math.round(this.subTotal * 30 /100)
       return this.subTotal + diff
     },
     savings () {
@@ -185,7 +185,7 @@ export default {
     outline: 0;
     direction: ltr;
     unicode-bidi: isolate;
-    font-size: .8em;
+    font-size: .7em;
     color: gray;
     text-decoration: line-through;
 }

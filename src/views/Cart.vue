@@ -25,10 +25,10 @@ Your cart has been updated
   </div>
   <b-col lg="10" md="10" xl="10">
   <b-row align-h="end" class="mr-0">
-   <div class="text-right mr-1" v-if="this.$store.state.cart.length > 0">
-  <h5>Total:	₦ {{ totalPrice.toLocaleString() }} </h5>
- Shipping fees not included yet <br> 
- Customs Fee not included yet
+   <div class="text-right mr-1 mt-4" v-if="this.$store.state.cart.length > 0">
+  <p class="total ml-3">Total:</p>	<p class="tp">₦ {{ totalPrice.toLocaleString() }} </p>
+ <p class="ship mt-n3">Shipping fees not included yet </p> 
+ <p class="ship mt-n3">Customs Fee not included yet</p>
   </div>
   </b-row>
   </b-col>
@@ -81,6 +81,58 @@ export default {
 </script>
 
 <style scoped>
+
+.tp {
+  box-sizing: border-box;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none;
+    resize: none;
+    outline: 0;
+    direction: ltr;
+    unicode-bidi: isolate;
+    color: #f68b1e;
+    font-weight: 700;
+    text-align: right!important;
+    font-size: 1.3rem;
+    font: 1.5rem/1.33;
+}
+
+.total {
+  box-sizing: border-box;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none;
+    resize: none;
+    outline: 0;
+    direction: ltr;
+    unicode-bidi: isolate;
+    color: #000;
+    font-weight: 400;
+    text-align: left!important;
+    float: left;
+    font-size: 1.2rem;
+    font: 1.5rem/1.33;
+}
+
+.ship {
+  position: relative;
+    min-height: 1px;
+    float: left;
+    text-align: right!important;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    width: 100%;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+    resize: none;
+    outline: 0;
+    -webkit-appearance: none;
+    font-size: .8em;
+    color: gray;
+}
 
 .cartcart {
   font-size: 22px;

@@ -41,14 +41,7 @@ We are unable to deliver to Borno and Yobe due to the COVID 19 pandemic lockdown
 </p>
 <div>
 <p class="text-center">You will be able to add a voucher in the next step</p>
- <b-button to="/payment" block class="add" style="background: #ff9900; 
-  color: white;
-  border: none;
-  border-radius: 4px;
-  box-shadow: 0px 0px 10px 0px #e5e5e5;
-  height: 48px;">
-PROCEED TO NEXT STEP
-</b-button>
+<b-button class="proceedToCheck" @click="checkout">PROCEED TO NEXT STEP</b-button>
   </div>
  </div>
  </div>
@@ -163,11 +156,66 @@ export default {
    },
    components: {
     CheckOutCartItem
+   },
+   methods: {
+     checkout () {
+      this.$router.push("/payment")
+    },
    }
 }
 </script>
 
 <style scoped>
+
+
+.proceedToCheck {
+    min-width: 100%;
+    font-size: 1.1em;
+    font-weight: 400;
+    padding: 8px 16px;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,.15);
+    text-transform: uppercase;
+    background: #f68b1e;
+    border: 1px solid #f68b1e;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-style: normal;
+    line-height: 1.42857;
+    box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+    direction: ltr;
+    border-radius: 0px!important;
+    position: relative;
+    vertical-align: middle;
+    text-decoration: none;
+    text-align: center;
+  }
+
+
+.proceedToCheck:hover {
+    min-width: 100%;
+    font-size: 1.1em;
+    font-weight: 400;
+    padding: 8px 16px;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,.15);
+    text-transform: uppercase;
+    background: #f68b1e;
+    border: 1px solid #f68b1e;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-style: normal;
+    line-height: 1.42857;
+    box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+    direction: ltr;
+    border-radius: 0px!important;
+    position: relative;
+    vertical-align: middle;
+    text-decoration: none;
+    text-align: center;
+  }
 
 .priceDetails {
   width: 89%;

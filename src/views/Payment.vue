@@ -96,13 +96,7 @@ Total
 
  </div>
 <div>
-  <button block class="add" style="background: #ff9900; 
-  color: white;
-  border: none;
-  border-radius: 4px;
-  box-shadow: 0px 0px 10px 0px #e5e5e5;
-  height: 48px;" type="button" @click="payWithPaystack()">CONFIRM ORDER 
-  </button> 
+<b-button class="proceedToCheck" @click="payWithPaystack()">CONFIRM ORDER </b-button>
   </div>
  </div>
  </div>
@@ -251,6 +245,59 @@ export default {
 </script>
 
 <style scoped>
+
+.proceedToCheck {
+    min-width: 100%;
+    font-size: 1.1em;
+    font-weight: 400;
+    padding: 8px 16px;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,.15);
+    text-transform: uppercase;
+    background: #f68b1e;
+    border: 1px solid #f68b1e;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-style: normal;
+    line-height: 1.42857;
+    box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+    direction: ltr;
+    border-radius: 0px!important;
+    position: relative;
+    vertical-align: middle;
+    text-decoration: none;
+    text-align: center;
+  }
+
+
+
+  .proceedToCheck:hover {
+    min-width: 100%;
+    font-size: 1.1em;
+    font-weight: 400;
+    padding: 8px 16px;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,.15);
+    text-transform: uppercase;
+    background: #f68b1e;
+    border: 1px solid #f68b1e;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-style: normal;
+    line-height: 1.42857;
+    box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+    direction: ltr;
+    border-radius: 0px!important;
+    position: relative;
+    vertical-align: middle;
+    text-decoration: none;
+    text-align: center;
+  }
+
+
+
 .priceDetails {
   width: 89%;
   margin: 0 auto

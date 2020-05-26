@@ -119,7 +119,7 @@
       </b-navbar>
     </div>
 
-    <div class="d-block srcM mt-2 d-lg-none d-xl-none d-md-none d-sm-none ml-n2  mb-5">
+    <div class="d-block srcM mt-2 d-lg-none d-xl-none d-md-none d-sm-none ml-n2 mb-5">
     <br>
     <br>
             <b-nav-form @submit="search">
@@ -127,7 +127,7 @@
                 size="sm"
                 v-model="src"
                 id="in"
-                class="src  mb-2"
+                class="src mb-5"
                 placeholder=" Search products, brands, categories"
               />
                </b-nav-form>
@@ -178,12 +178,14 @@ export default {
 <style scooped>
 
 .srcM {
-  display: block!important
+  display: block!important;
+  margin-bottom: 15vmin!important;
 }
 
 .src {
   border-radius: 0px!important;
-  background: white!important
+  background: white!important;
+  margin-bottom: 2rem;
 }
 
 

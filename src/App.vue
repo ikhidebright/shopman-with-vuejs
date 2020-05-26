@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-   <Header />
+  <div class="mb-5">
+  <Header />
+  </div>
    <Error />
     <router-view/>
   </div>

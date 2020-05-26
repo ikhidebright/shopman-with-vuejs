@@ -45,12 +45,12 @@ export default {
       })
       }
   },
-  created () {
-      this.$store.dispatch({
-        type: "setSearchProducts",
-        search: this.$route.query.q
-      })
-  },
+//   created () {
+//       this.$store.dispatch({
+//         type: "setSearchProducts",
+//         search: this.$route.query.q
+//       })
+//   },
   computed: {
     // Get products
     products () {

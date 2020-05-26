@@ -182,9 +182,8 @@ export default new Vuex.Store({
        let item = await getters.getSearchProducts(payload.search)
        commit("setSearchProducts", item)
       } else {
-        // let saved = await clientApi.getCategoryProducts(payload.category)
-        // commit("setSearchProducts", saved.data)
-        console.log("get search products from API call")
+        let saved = await clientApi.getSearchProducts(payload.search)
+        commit("setSearchProducts", saved.data.result)
       }
     },
     async setProductDetails ({ state, commit}, payload) {

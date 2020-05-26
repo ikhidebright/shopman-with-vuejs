@@ -64,5 +64,9 @@ export default {
     getCategoryProducts (category) {
         return clientApi.get(`product/${category}`)
     },
+    // get getSearchProducts
+    getSearchProducts (search) {
+        return clientApi.get(`search/${search}`)
+    }
     
 }

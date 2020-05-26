@@ -30,13 +30,13 @@ const routes = [
     name: 'Search',
     component: Search,
     props: (route) => ({ query: route.query.q }),
-    beforeEnter (to, from, next) {
-      store.dispatch({
-        type: "setSearchProducts",
-        search: to.query.q
-      })
-      next()
-    }
+    // beforeEnter (to, from, next) {
+    //   store.dispatch({
+    //     type: "setSearchProducts",
+    //     search: to.query.q
+    //   })
+    //   next()
+    // }
   },
   {
     path: '/recover',

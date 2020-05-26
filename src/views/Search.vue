@@ -5,10 +5,17 @@
   <br>
   <br>
   <br>
-  <h4>Your Searched for "{{ this.$route.query.q }}"</h4>
+  <h4>Your Search for "{{ this.$route.query.q }}"</h4>
   <p class="text" v-if="products.length > 1">{{ products.length }} search results</p>
-  <p class="text" v-if="products.length < 2">{{ products.length }} search result</p>
+  <p class="text" v-if="products.length < 2 && !products.length == 0">{{ products.length }} search result</p>
+  <p class="text" v-if="products.length < 1">No product found</p>
   <br>
+  <div class="mx-auto text-center mt-1" v-if="products.length < 1">
+  <i class="far fa-frown-open mt-5" style="font-size: 15em; color: gray"></i>
+  <p style="color: gray">
+  Sorry we couldn't Find any Product for your Search "{{ this.$route.query.q }}"
+  </p>
+  </div>
   <b-row>
   <CategoryItem :cart="cart" v-for="cart in products" :key="cart.id"/>
   </b-row>
@@ -30,6 +37,20 @@ export default {
   },
   data: () => ({
   }),
+  watch: {
+      '$route.query.q' () {
+        this.$store.dispatch({
+        type: "setSearchProducts",
+        search: this.$route.query.q
+      })
+      }
+  },
+  created () {
+      this.$store.dispatch({
+        type: "setSearchProducts",
+        search: this.$route.query.q
+      })
+  },
   computed: {
     // Get products
     products () {

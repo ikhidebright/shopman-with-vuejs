@@ -282,12 +282,14 @@ direction: ltr;
   .ll {
   width: 230px;
   height: 378px;
-  padding: 10px
+  padding: 10px;
+  cursor: pointer
 }
 
 .ll:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   height: auto;
+  cursor: pointer
 }
 .ll:hover .searc {
   display: block;
@@ -304,6 +306,7 @@ direction: ltr;
   outline-color: none;
   outline: none;
   border: none;
+  cursor: pointer
 }
 
 .rightalign {

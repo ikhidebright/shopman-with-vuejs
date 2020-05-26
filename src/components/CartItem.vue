@@ -124,6 +124,7 @@ export default {
      async save (x) {
         if (!this.loggedIn) {
           this.$router.push('/login')
+          this.showError("Sorry You have to Login to Save Item", true)
         } else {
           let save = await axios.post(`${this.$store.state.url}/wishlist`, {
             product_id: x.product_id,

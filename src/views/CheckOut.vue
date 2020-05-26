@@ -193,7 +193,7 @@ export default {
   }
 
 
-.proceedToCheck:hover {
+.proceedToCheck:hover, .proceedToCheck:focus {
     min-width: 100%;
     font-size: 1.1em;
     font-weight: 400;

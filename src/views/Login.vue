@@ -35,18 +35,11 @@
       </b-form-group>
 <br>
       <b-form-group id="input-group-4">
-        <b-form-checkbox-group v-model="checked" id="checkboxes-4">
-          <b-form-checkbox class="mr-5" value="me">Remember password</b-form-checkbox>
-          <router-link to='/recover' class="ml-5">Forgot password?</router-link>
+        <b-form-checkbox-group v-model="checked" id="checkboxes-4" class="mt-n4 text-right mb-4">
+          <router-link to='/recover' class="llll">Forgot password?</router-link>
         </b-form-checkbox-group>
       </b-form-group>
-      <b-button type="submit" block class="add" 
-      style="background: #f68b1e; 
-      color: white;
-  border: none;
-  border-radius: 4px;
-  box-shadow: 0px 10px 20px 20px #e5e5e5;
-  height: 48px"><i class="fas fa-envelope"></i>LOGIN</b-button>
+      <button type="submit" block class="proceedToCheck"><i class="fas fa-envelope"></i>LOGIN</button>
     </b-form>
     </div>
 
@@ -62,13 +55,8 @@
     <br>
     <br>
     <br>
-    <b-button to="/register" block class="add mt-1" style="background: #f68b1e; 
-      color: white;
-  border: none;
-  border-radius: 4px;
-  box-shadow: 0px 10px 20px 20px #e5e5e5;
-  height: 48px"><i class="fas fa-envelope"></i> 
-    CREATE AN ACCOUNT VIA E-MAIL</b-button>
+    <button  @click="gotoReg" class="proceedToCheck mt-1"><i class="fas fa-envelope"></i> 
+    CREATE AN ACCOUNT VIA E-MAIL</button>
     </div>
     </div>
 
@@ -113,13 +101,7 @@
           <router-link to='/recover' class="ml-5">Forgot password?</router-link>
         </b-form-checkbox-group>
       </b-form-group>
-      <b-button type="submit" block class="add" 
-      style="background: #f68b1e; 
-      color: white;
-  border: none;
-  border-radius: 4px;
-  box-shadow: 0px 10px 20px 20px #e5e5e5;
-  height: 48px"><i class="fas fa-envelope"></i>LOGIN</b-button>
+      <button type="submit" block class="proceedToCheck"><i class="fas fa-envelope"></i>LOGIN</button>
     </b-form>
      </b-container>
     </div>
@@ -183,12 +165,7 @@
         </b-form-checkbox-group>
       </b-form-group>
 <br>
-      <b-button type="submit" block class="add" style="background: #f68b1e; 
-      color: white;
-  border: none;
-  border-radius: 4px;
-  box-shadow: 0px 10px 20px 20px #e5e5e5;
-  height: 48px">REGISTER</b-button>
+      <button type="submit" block class="proceedToCheck">REGISTER</button>
     </b-form>
     </b-container>
     </div>
@@ -225,6 +202,9 @@ import clientApi from '@/Services/EventService.js'
       console.log(this.$route.query.r)
     },
     methods: {
+      gotoReg () {
+        this.$router.push("/register")
+      },
        async login(evt) {
         evt.preventDefault()
         try {
@@ -287,10 +267,75 @@ import clientApi from '@/Services/EventService.js'
 
 <style scooped>
 
+button:focus {
+  outline: none
+}
+
+
+.llll {
+  color: #f68b1e;
+}
+
+.llll:hover {
+  color: #f68b1e;
+  text-decoration: none;
+}
+
+.proceedToCheck {
+    min-width: 100%;
+    font-size: 1.1em;
+    font-weight: 400;
+    padding: 8px 16px;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,.15);
+    text-transform: uppercase;
+    background: #f68b1e;
+    border: 1px solid #f68b1e;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-style: normal;
+    line-height: 1.42857;
+    box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+    direction: ltr;
+    border-radius: 0px!important;
+    position: relative;
+    vertical-align: middle;
+    text-decoration: none;
+    text-align: center;
+    color: white
+  }
+
+
+.proceedToCheck:hover {
+    min-width: 100%;
+    font-size: 1.1em;
+    font-weight: 400;
+    padding: 8px 16px;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,.15);
+    text-transform: uppercase;
+    background: #f68b1e;
+    border: 1px solid #f68b1e;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-style: normal;
+    line-height: 1.42857;
+    box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+    direction: ltr;
+    border-radius: 0px!important;
+    position: relative;
+    vertical-align: middle;
+    text-decoration: none;
+    text-align: center;
+  }
+
 .main {
    background-color:#f5f5f5;
   color: #555555;
-  height: 145vh
+  min-height: 100vh;
+  max-height: auto
 }
 
 
@@ -329,7 +374,8 @@ import clientApi from '@/Services/EventService.js'
   .main {
    background-color:#f5f5f5;
   color: #555555;
-  height: 100vh
+  min-height: 100vh;
+  max-height: auto
 }
 
 

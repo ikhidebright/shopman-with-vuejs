@@ -64,19 +64,12 @@
         </b-form-checkbox-group>
       </b-form-group>
 <br>
-      <b-button type="submit" block class="add" style=
-      "background: #f68b1e; 
-       color: white;
-       border: none;
-       border-radius: 4px;
-       box-shadow: 0px 0px 10px 0px #e5e5e5;
-       height: 48px"
-       >REGISTER
-       </b-button>
+      <button type="submit" block class="proceedToCheck">REGISTER
+       </button>
     </b-form>
     <br>
     <p class="text-center">Already have an account?</p>
-          <p class="text-center mt-n3"><router-link to='/login'>LOGIN</router-link></p>
+          <p class="text-center mt-n3"><router-link to='/login' class="llll">LOGIN</router-link></p>
     </div>
     </div>
     </b-container>
@@ -148,6 +141,65 @@ import clientApi from '@/Services/EventService.js'
 
 <style scooped>
 
+.llll {
+  color: #f68b1e;
+}
+
+.llll:hover {
+  color: #f68b1e;
+  text-decoration: none;
+}
+
+.proceedToCheck {
+    min-width: 100%;
+    font-size: 1.1em;
+    font-weight: 400;
+    padding: 8px 16px;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,.15);
+    text-transform: uppercase;
+    background: #f68b1e;
+    border: 1px solid #f68b1e;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-style: normal;
+    line-height: 1.42857;
+    box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+    direction: ltr;
+    border-radius: 0px!important;
+    position: relative;
+    vertical-align: middle;
+    text-decoration: none;
+    text-align: center;
+    color: white
+  }
+
+
+.proceedToCheck:hover {
+    min-width: 100%;
+    font-size: 1.1em;
+    font-weight: 400;
+    padding: 8px 16px;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,.15);
+    text-transform: uppercase;
+    background: #f68b1e;
+    border: 1px solid #f68b1e;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-style: normal;
+    line-height: 1.42857;
+    box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+    direction: ltr;
+    border-radius: 0px!important;
+    position: relative;
+    vertical-align: middle;
+    text-decoration: none;
+    text-align: center;
+  }
+
 
 a {
   text-decoration: none;
@@ -168,7 +220,8 @@ a:hover {
 .reghome {
   background-color: #f5f5f5;
   color: #555555;
-  height: 130vh;
+  min-height: 100vh;
+  max-height: auto
 }
 
 .regg { 

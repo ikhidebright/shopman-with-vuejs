@@ -46,6 +46,7 @@
               </b-nav-item>
             </b-navbar-nav>
             </div>
+
  <!-- mo -->
  <!-- actions for mobile-->
 
@@ -117,6 +118,20 @@
         </b-collapse>
       </b-navbar>
     </div>
+
+    <div class="d-block srcM mt-2 d-lg-none d-xl-none d-md-none d-sm-none ml-n2  mb-5">
+    <br>
+    <br>
+            <b-nav-form @submit="search">
+              <input
+                size="sm"
+                v-model="src"
+                id="in"
+                class="src  mb-2"
+                placeholder=" Search products, brands, categories"
+              />
+               </b-nav-form>
+            </div>
   </div>
 </template>
 
@@ -138,7 +153,7 @@ export default {
   methods: {
     search (evt) {
       evt.preventDefault()
-      this.$router.push({ path: 'search', query: { q: this.src } })
+      this.$router.push({ path: '/search', query: { q: this.src } })
     },
     logOut () {
       this.$cookies.remove("sp_tk")
@@ -161,6 +176,16 @@ export default {
 </script>
 
 <style scooped>
+
+.srcM {
+  display: block!important
+}
+
+.src {
+  border-radius: 0px!important;
+  background: white!important
+}
+
 
 .name {
 text-align: left;

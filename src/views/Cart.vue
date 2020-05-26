@@ -22,10 +22,10 @@ Your cart has been updated
   <br>
   <div class="mx-auto">
 
-  <div class="label d-none d-sm-block d-lg-block d-xl-block d-md-block ml-3">
+  <div class="label d-none d-sm-block d-lg-block d-xl-block d-md-block ml-3 mb-2">
   <p class="labelItem">ITEM</p> 
   <p class="labelQty">QUANTITY</p>	
-  <p class="labelPrice ml-n5">UNIT PRICE</p>	
+  <p class="labelPrice">UNIT PRICE</p>	
   <p class="labelSub">SUBTOTAL</p>
   </div>
 
@@ -424,7 +424,7 @@ a:hover {
 @media only screen and (min-width: 768px) {
 
   .labelSub {
-    width: 17.5%;
+    width: 25%;
     display: table-cell;
     text-align: center;
     box-sizing: border-box;
@@ -440,7 +440,7 @@ a:hover {
   }
 
   .labelPrice {
-    width: 17.5%;
+    width: 24.9%;
     display: table-cell;
     text-align: center;
     box-sizing: border-box;
@@ -456,7 +456,7 @@ a:hover {
   }
 
   .labelQty {
-    width: 5%;
+    width: 14.7%;
     display: table-cell;
     text-align: center;
     box-sizing: border-box;
@@ -474,7 +474,7 @@ a:hover {
 
   .labelItem {
     text-align: left;
-    width: 60%;
+    width: 51.3%;
     display: table-cell;
     box-sizing: border-box;
     color: #8e8e93;
@@ -517,8 +517,8 @@ a:hover {
     direction: ltr;
   }
 
-  .label {
-    max-width: 720px;
+  .labe {
+    max-width: 100%;
   }
 
 

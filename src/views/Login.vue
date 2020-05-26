@@ -96,9 +96,8 @@
       </b-form-group>
 <br>
       <b-form-group id="input-group-4">
-        <b-form-checkbox-group v-model="checked" id="checkboxes-4">
-          <b-form-checkbox class="mr-5" value="me">Remember password</b-form-checkbox>
-          <router-link to='/recover' class="ml-5">Forgot password?</router-link>
+        <b-form-checkbox-group v-model="checked" id="checkboxes-4" class="mt-n4 text-right mb-4">
+          <router-link to='/recover' class="llll">Forgot password?</router-link>
         </b-form-checkbox-group>
       </b-form-group>
       <button type="submit" block class="proceedToCheck"><i class="fas fa-envelope"></i>LOGIN</button>

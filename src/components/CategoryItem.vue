@@ -4,7 +4,8 @@
   <div class='d-lg-block d-sm-block d-md-block d-xl-block details'>
   <img class='bigpic' :src="cart.thumb" />
   <div class="ml-0">
-  <p class="mt-2 ppp d-lg-block d-sm-block d-md-block d-xl-block name">{{ cart.name }}</p>
+  <p class="mt-2 ppp d-none d-lg-block d-sm-block d-md-block d-xl-block name">{{ cart.name }}</p>
+  <b-link class="mt-2 mb-2 ppp d-lg-none d-sm-none d-md-none d-xl-none name" :to="`/product/${cart.product_id}-${cart.name.replace(/[' ']+/g,'-').toLowerCase()}`">{{ cart.name }}</b-link>
   <p class="mt-n2  d-lg-block d-sm-block d-md-block d-xl-block priceee ml-2">₦ {{ cart.price }}</p>
   <p class='discount mt-n3 ml-2  d-lg-block d-md-block d-xl-block d-sm-block'>₦ {{ discount.toLocaleString() }}</p>
   <!--mo-->

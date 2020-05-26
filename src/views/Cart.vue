@@ -174,7 +174,8 @@ export default {
     display: block;
     text-transform: uppercase;
     padding: 8px 16px;
-    font: 500 /1 Roboto,Helvetica,Arial,sans-serif;
+    font-weight: 500;
+    font-family: Roboto,Helvetica,Arial,sans-serif;
     border-radius: 0;
     color: #fff;
     background-color: #f68b1e;
@@ -193,6 +194,7 @@ export default {
     -webkit-appearance: none;
     resize: none;
     outline: 0;
+    line-height: 1.42857;
   }
 
 

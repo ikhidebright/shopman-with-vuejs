@@ -8,6 +8,7 @@ export default new Vuex.Store({
   state: {
     cart: [],
     loggedIn: false,
+    searchProducts: [],
     savedProducts: [],
     userOrders: [],
     categoryProducts: [],
@@ -63,6 +64,10 @@ export default new Vuex.Store({
     // set User Orders
     setUserOrder(state, item) {
       state.userOrders = item
+    },
+    // set search Products
+    setSearchProducts(state, item) {
+      state.searchProducts = item
     },
     // set user
     setUser (state, item) {
@@ -162,6 +167,11 @@ export default new Vuex.Store({
     async setCategoryProducts({ state, commit}, payload) {
       let saved = await clientApi.getCategoryProducts(payload.category)
       commit("setCategoryProducts", saved.data)
+    },
+    // setSearchProducts
+    async setSearchProducts({ state, commit}, payload) {
+      let saved = await clientApi.getCategoryProducts(payload.category)
+      commit("setSearchProducts", saved.data)
     },
     async setProductDetails ({ state, commit}, payload) {
       let saved = await clientApi.getProductDetails(payload.product_id)

@@ -154,6 +154,7 @@ export default {
     search (evt) {
       evt.preventDefault()
       this.$router.push({ path: '/search', query: { q: this.src } })
+      this.src = null
     },
     logOut () {
       this.$cookies.remove("sp_tk")

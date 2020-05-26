@@ -4,7 +4,6 @@
   <br>
   <br>
   <br>
-  <br>
   <h4>Your Search for "{{ this.$route.query.q }}"</h4>
   <p class="text" v-if="products.length > 1">{{ products.length }} search results</p>
   <p class="text" v-if="products.length < 2 && !products.length == 0">{{ products.length }} search result</p>

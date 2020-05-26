@@ -27,9 +27,10 @@ export default {
   }),
 
   methods: {
-     open (product) {
-      let name = product.name.replace(/[' ']+/g,'-').toLowerCase()
-      this.$router.push({ name: 'Product', params: { id: product.product_id, name: name } })
+   open (x) {
+      let name = x.name.replace(/[' ']+/g,'-').toLowerCase()
+      let id = x.id
+      this.$router.push({ name: 'Product', path: "/product", params: { id: id, name: x.name.replace(/[' ']+/g,'-').toLowerCase() } })
     },
   },
   

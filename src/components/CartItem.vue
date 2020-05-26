@@ -9,7 +9,7 @@
   <div class="ml-2">
   <p class="seller d-none d-lg-block d-xl-block d-md-block d-sm-block">Seller: Shopman</p>
   <p class="name" @click="open(cart)">{{ cart.name}}</p>
-  <!-- price on mobile-->
+  <!--price on mobile-->
    <div class='mt-n3 d-lg-none d-xl-none d-md-none d-sm-none'>
   <p class="subTotal mt-1">₦ {{ subTotal.toLocaleString() }}</p>
   <p class="disM d-inline mt-1 ml-2">₦ {{ discountM.toLocaleString() }}</p>
@@ -103,9 +103,10 @@ export default {
     }
   },
   methods: {
-      open (product) {
-      let name = product.name.replace(/[' ']+/g,'-').toLowerCase()
-      this.$router.push({ name: 'Product', params: { id: product.product_id, name: name } })
+      open (x) {
+      let name = x.name.replace(/[' ']+/g,'-').toLowerCase()
+      let id = x.id
+      this.$router.push({ name: 'Product', path: "/product", params: { id: id, name: x.name.replace(/[' ']+/g,'-').toLowerCase() } })
     },
        showError (message, show) {
         let item = {

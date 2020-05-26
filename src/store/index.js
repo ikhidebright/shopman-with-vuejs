@@ -118,6 +118,14 @@ export default new Vuex.Store({
         return item.category.toLowerCase() == category.toLowerCase()
       })
       return items;
+    },
+
+    // get search products that are already loaded 
+    getSearchProducts: (state) => (product) => {
+      let items = state.homepageProducts.filter((item) => {
+        return item.category.toLowerCase().includes(product.toLowerCase()) || item.name.toLowerCase().includes(product.toLowerCase())
+      })
+      return items;
     }
   },
   actions: {
@@ -169,9 +177,15 @@ export default new Vuex.Store({
       commit("setCategoryProducts", saved.data)
     },
     // setSearchProducts
-    async setSearchProducts({ state, commit}, payload) {
-      let saved = await clientApi.getCategoryProducts(payload.category)
-      commit("setSearchProducts", saved.data)
+    async setSearchProducts({ state, commit, getters}, payload) {
+      if (state.homepageProducts.length > 0) {
+       let item = await getters.getSearchProducts(payload.search)
+       commit("setSearchProducts", item)
+      } else {
+        // let saved = await clientApi.getCategoryProducts(payload.category)
+        // commit("setSearchProducts", saved.data)
+        console.log("get search products from API call")
+      }
     },
     async setProductDetails ({ state, commit}, payload) {
       let saved = await clientApi.getProductDetails(payload.product_id)

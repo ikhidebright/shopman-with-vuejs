@@ -138,8 +138,10 @@
       <!-- for smaalscreens -->
       <b-container
         fluid
-        class="p-0 content-mt-sm custom-container d-md-none d-lg-none d-xl-none d-sm-none"
+        class="p-0 content-mt-sm custom-container d-md-none d-lg-none d-xl-none d-sm-none mt-1"
       >
+      <br>
+      <br>
         <b-row class="m-0 pb-3">
           <b-col>
             <b-row class="pb-3 mt-5 mb-n3">

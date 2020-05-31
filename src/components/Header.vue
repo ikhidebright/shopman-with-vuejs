@@ -119,7 +119,7 @@
       </b-navbar>
     </div>
 
-    <div class="d-block srcM mt-2 d-lg-none d-xl-none d-md-none d-sm-none ml-n2 mb-5">
+    <div class="d-block srcM mt-0 d-lg-none d-xl-none d-md-none d-sm-none ml-n2 mb-5 pa-0">
     <br>
     <br>
             <b-nav-form @submit="search">
@@ -127,7 +127,7 @@
                 size="sm"
                 v-model="src"
                 id="in"
-                class="src mb-5"
+                class="src"
                 placeholder=" Search products, brands, categories"
               />
                </b-nav-form>

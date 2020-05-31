@@ -35,7 +35,7 @@
       </b-form-group>
 <br>
       <b-form-group id="input-group-4">
-        <b-form-checkbox-group v-model="checked" id="checkboxes-4" class="mt-n4 text-right mb-4">
+      <!--  <b-form-checkbox-group v-model="checked" id="checkboxes-4" class="mt-n4 text-right mb-4"> -->
           <router-link to='/recover' class="llll">Forgot password?</router-link>
         </b-form-checkbox-group>
       </b-form-group>
@@ -59,14 +59,13 @@
     CREATE AN ACCOUNT VIA E-MAIL</button>
     </div>
     </div>
-
     </b-container>
 
     
 <!-- for mobile -->
-  <div class='d-lg-none d-sm-none d-xl-none d-md-none mt-2'>
+  <div class='d-lg-none d-sm-none d-xl-none d-md-none mt-n2'>
   <b-tabs content-class="mt-0" fill>
-    <b-tab title="LOGIN"><p>
+    <b-tab title="LOGIN">
     <div class="log">
      <b-container>
     <br>
@@ -96,7 +95,7 @@
       </b-form-group>
 <br>
       <b-form-group id="input-group-4">
-        <b-form-checkbox-group v-model="checked" id="checkboxes-4" class="mt-n4 text-right mb-4">
+        <b-form-checkbox-group id="checkboxes-4" class="mt-n4 text-right mb-4">
           <router-link to='/recover' class="llll">Forgot password?</router-link>
         </b-form-checkbox-group>
       </b-form-group>
@@ -105,6 +104,8 @@
      </b-container>
     </div>
     </b-tab>
+
+
     <b-tab title="REGISTER">
     <div class="reg">
      <b-container>
@@ -158,7 +159,7 @@
       <b-input id="inline-form-input-phone" v-model="form.phone" placeholder="Phone Number"></b-input>
     </b-input-group>
     <br>
-      <b-form-group id="input-group-6">
+     <b-form-group id="input-group-6">
         <b-form-checkbox-group required v-model="form.checked" id="checkboxes-4">
           <b-form-checkbox required class="mr-6" value="me">I agree to Shopman Terms and Conditions</b-form-checkbox>
         </b-form-checkbox-group>

@@ -61,7 +61,9 @@ export default {
 
 <style scoped>
 .hom {
-  background: #f5f5f5
+  background: #f5f5f5;
+  min-height: 100vh;
+  max-height: auto
 }
 
 .fa-shopping-cart {
@@ -152,8 +154,10 @@ a:hover {
 
 @media only screen and (min-width: 768px) {
 
-  .hom {
-  background: #fff
+.hom {
+  background: #fff;
+  min-height: 100vh;
+  max-height: auto
 }
 
   .fa-shopping-cart {

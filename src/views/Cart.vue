@@ -6,7 +6,7 @@
   <div class="updatealert mt-3" v-if="this.$store.state.cart.length > 0">
 Your cart has been updated
 </div>
-</b-container fluid>
+</b-container>
   <b-container>
   <div v-if="this.$store.state.cart.length < 1" class="mx-auto emptycart">
   <br>

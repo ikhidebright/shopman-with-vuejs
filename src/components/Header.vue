@@ -127,7 +127,7 @@
                 size="sm"
                 v-model="src"
                 id="in"
-                class="src"
+                class="src d-block d-lg-none d-xl-none d-md-none d-sm-none"
                 placeholder=" Search products, brands, categories"
               />
                </b-nav-form>
@@ -179,7 +179,6 @@ export default {
 <style scooped>
 
 .srcM {
-  display: block!important;
   margin-bottom: 15vmin!important;
 }
 
